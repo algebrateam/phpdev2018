@@ -20,5 +20,11 @@
           <td>41</td>
         </tr>
       </table>
+      
+      <style>
+        table, td {
+          border: 1px black solid;
+        }
+      </style>
   </body>
 </html>
