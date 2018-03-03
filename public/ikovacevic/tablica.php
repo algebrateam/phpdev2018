@@ -1,17 +1,24 @@
-<table style="width:100%">
-  <tr>
-    <th>Firstname</th>
-    <th>Lastname</th> 
-    <th>Age</th>
-  </tr>
-  <tr>
-    <td>Jill</td>
-    <td>Smith</td> 
-    <td>50</td>
-  </tr>
-  <tr>
-    <td>Eve</td>
-    <td>Jackson</td> 
-    <td>94</td>
-  </tr>
-</table>
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+    <body>
+      <table style="width:100%">
+        <tr>
+          <th>Ime</th>
+          <th>Prezime</th> 
+          <th>Godine</th>
+        </tr>
+        <tr>
+          <td>Petar</td>
+          <td>Peric</td> 
+          <td>33</td>
+        </tr>
+        <tr>
+          <td>Marko</td>
+          <td>Buzar</td> 
+          <td>41</td>
+        </tr>
+      </table>
+  </body>
+</html>
