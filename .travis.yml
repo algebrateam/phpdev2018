@@ -6,8 +6,9 @@ php:
 before_script:
   - cp .env.travis .env
   - mysql -e 'create database fakultet;'
-  #- composer self-update
+  - composer self-update
+  - composer require --dev phpunit/phpunit ^6.5
   #- composer install --no-interaction
 
 script:
-  #- vendor/bin/phpunit
+  - vendor/bin/phpunit
