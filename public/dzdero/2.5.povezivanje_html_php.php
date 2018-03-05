@@ -28,21 +28,15 @@ $naziv_var='iznos';
 $$naziv_var=35;    //$(naziv_var)=35
 echo $iznos;
 
-/*
-function cadetblue(){
- return "#5F9EA0"
- }
- function red(){
- return "#FF0000"
- }
- * 
- */
-  $boja="red";
-  echo $boja();
-  
+echo "<hr>";
+
+
   $a='Algebra';
   $b=&$a;
   echo $b;
+  $b="nesto novo";
+  echo "a=".$a;
+  echo "b=".$b;
 
 
 ?>
