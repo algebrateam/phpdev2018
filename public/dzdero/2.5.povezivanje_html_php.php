@@ -13,9 +13,14 @@
     <?php echo "neki moj text iz PHP-a"."<br>";
 $a=6;
 $b=4;
-echo "rezultat zbroja je: ".($a+$b);
-    ?>
+echo "rezultat zbroja je: ".($a+$b)."<br>";
+$c=99;    
+echo "varijabla c je: ".$c."<br>";
+echo "varijabla c je: ".(++$c);
+?>
+     
 </div>
+<div style="color:red">kratki zapis</div>
 </body>
 </html> 
 
