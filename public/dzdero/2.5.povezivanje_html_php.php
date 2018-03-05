@@ -40,6 +40,9 @@ function cadetblue(){
   $boja="red";
   echo $boja();
   
+  $a='Algebra';
+  $b=&$a;
+  echo $b;
 
 
 ?>
