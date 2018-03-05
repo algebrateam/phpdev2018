@@ -42,7 +42,7 @@
 
             <table style="width:100%">
             <tr>
-              <th>Ime</th>
+              <th>Imeab</th>
               <th>Prezime</th> 
               <th>Godine</th>
               <th>Grad</th>
