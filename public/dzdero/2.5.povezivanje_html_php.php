@@ -18,7 +18,10 @@ $c=99;
 echo "varijabla c je: ".$c."<br>";
 echo "varijabla c je: ".(++$c)."<br>";
 $polje=array('1','2','3');
-echo $polje;
+print_r($polje);
+echo "<br>";
+echo $polje[2];
+
 ?>
      
 </div>
