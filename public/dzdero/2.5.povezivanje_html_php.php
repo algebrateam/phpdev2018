@@ -20,7 +20,27 @@ echo "varijabla c je: ".(++$c)."<br>";
 $polje=array('1','2','3');
 print_r($polje);
 echo "<br>";
+echo $polje[1];
 echo $polje[2];
+
+echo "<br>";
+$naziv_var='iznos';
+$$naziv_var=35;    //$(naziv_var)=35
+echo $iznos;
+
+/*
+function cadetblue(){
+ return "#5F9EA0"
+ }
+ function red(){
+ return "#FF0000"
+ }
+ * 
+ */
+  $boja="red";
+  echo $boja();
+  
+
 
 ?>
      
