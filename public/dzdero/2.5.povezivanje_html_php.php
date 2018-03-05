@@ -38,6 +38,9 @@ echo "<hr>";
   echo "a=".$a;
   echo "b=".$b;
 
+  
+  define('Naziv', 777);
+  echo Naziv;
 
 ?>
      
