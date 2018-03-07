@@ -27,4 +27,3 @@ echo "<br>";
 
 $ime = 'Bela Skenderović';
 echo $ime;
-echo "<br>";
