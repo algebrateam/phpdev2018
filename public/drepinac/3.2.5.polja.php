@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html>
+ <body>
 <?php
 
 $polje = array('Tesla','Edison','Bell');
@@ -55,3 +58,6 @@ echo 'Moje ime i prezime je: '.$ime_prezime.'</br>';
  * and open the template in the editor.
  */
 ?>
+ </body>   
+</html>
+
