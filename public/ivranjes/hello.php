@@ -1,8 +1,5 @@
 <?php
 echo "Hello World o je";
-$a="ime";
-$b="prezime";
-echo $a.$b;
 
 
 /* 
