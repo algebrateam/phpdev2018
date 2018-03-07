@@ -29,6 +29,8 @@ echo $b;
 echo "<hr>";
 $b= "nesto novo";
 echo$a;
+
+
 ?>
 </body>
 </html>
