@@ -14,10 +14,6 @@ $z='4,5';
 echo $z;
 echo "<br>";
 
-$ime = 'Bela Skenderović';
-echo $ime;
-echo "<br>";
-
 $a='3';
 $b='5';
 $pom=$a;
@@ -27,4 +23,8 @@ $b=$pom;
 echo $a;
 echo $b;
 
+echo "<br>";
+
+$ime = 'Bela Skenderović';
+echo $ime;
 echo "<br>";
