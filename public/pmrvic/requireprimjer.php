@@ -1,6 +1,6 @@
 <?php
 $var=0;
-require 'hello.php';
+require ('hello.php');
 require 'dummy.php';
 
 echo "<h3>test</h3>";
