@@ -11,4 +11,4 @@ before_script:
   #- composer install --no-interaction
 
 script:
-  - vendor/bin/phpunit
+  - vendor/bin/phpunit --debug --bootstrap vendor/autoload.php tests/
