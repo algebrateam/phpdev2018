@@ -49,7 +49,7 @@ echo "<br>";
 echo "<br>";
 echo "Varijabla a je $a";
 echo "<br>";
-$a= (float)$a;
+$a=(float)$a;
 echo "Nakon dodavanja operatora (float), varijabla a je $a";
 //operator float je operator pretvorbe 
 echo "<hr>";
