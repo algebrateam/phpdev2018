@@ -3,7 +3,7 @@
  <body>
 <?php
 
-$polje = array('Tesla','Edison','Bell');
+$polje = [0=>'Tesla', 'Edison', 3=>'Bell'];
 
 echo $polje[0].'<br/>';
 echo $polje[1].'<br/>';
@@ -14,17 +14,17 @@ echo 'Drugi način definiranja polja<br />';
 echo '<br/>';
 $polje[0] = 'Edison';
 $polje[1] = 'Bell';
-$polje[2] = 'Tesla';
+$polje[22] = 'Tesla';
 
 echo $polje[0].'<br/>';
 echo $polje[1].'<br/>';
-echo $polje[2].'<br/>';
+echo $polje[22].'<br/>';
 echo '</br>';
 echo 'Zadatak 1 za ponavljanje</br>';
 
 $broj1 = 55;
 $broj2 = 127;
-$broj3 = 1234567890;
+$broj3 = 1234567.8903;
 
 echo 'Varijabla <var>$broj1</var> ima vrijednost '.$broj1.'<br/>';
 echo 'Varijabla <var>$broj2</var> ima vrijednost '.$broj2.'<br/>';
@@ -52,7 +52,7 @@ $ime_prezime = 'Darko Repinac';
 
 echo 'Moje ime i prezime je: '.$ime_prezime.'</br>';
 
-/* 
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
