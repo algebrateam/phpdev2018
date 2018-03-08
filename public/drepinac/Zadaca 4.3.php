@@ -4,7 +4,7 @@
 
 <?php
 echo 'Zadatak 1.</br>';
-echo "Aritmetički operator je a. %".'</ br>';
+echo 'Aritmetički operator je a. %'.'</ br>';
 echo '</br>';
 echo '</br>';
 echo 'Zadatak 2.</br>';
@@ -24,14 +24,13 @@ echo 'Vrijednost nakon smanjivanja '.$a.'</br>';
 echo '</br>';
 echo 'Zadatak 4.</br>';
 
-echo 'Float vrijednost '.(float)$a;
+echo 'Float vrijednost '.(float) $a;
 
 echo '</br>';
 echo '</br>';
 echo 'Zadatak 5.</br>';
 $a += 5;
 echo 'Vrijednost nakon uvečavanja za 5 je '.$a;
-
 
 ?>
 
