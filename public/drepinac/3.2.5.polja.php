@@ -3,7 +3,7 @@
  <body>
 <?php
 
-$polje = array(0=>'Tesla','Edison',3=>'Bell');
+$polje = [0=>'Tesla', 'Edison', 3=>'Bell'];
 
 echo $polje[0].'<br/>';
 echo $polje[1].'<br/>';
@@ -52,7 +52,7 @@ $ime_prezime = 'Darko Repinac';
 
 echo 'Moje ime i prezime je: '.$ime_prezime.'</br>';
 
-/* 
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
