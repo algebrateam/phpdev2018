@@ -1,8 +1,8 @@
-# phpdev2018
-PHP osnove, Osnove MySql, napredno PHP programiranje
-
 [![Build Status](https://travis-ci.org/algebrateam/phpdev2018.svg?branch=master)](https://travis-ci.org/algebrateam/phpdev2018)
 [![StyleCI](https://styleci.io/repos/123276393/shield?branch=master)](https://styleci.io/repos/123276393)
+
+# phpdev2018
+PHP osnove, Osnove MySql, napredno PHP programiranje
 
 
 
