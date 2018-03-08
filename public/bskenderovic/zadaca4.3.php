@@ -7,7 +7,7 @@
 
 <?php
 echo '1.';
-echo "<br>";
+echo '<br>';
 echo 'Aritmetički operator je pod a. % koji se zove modul';
 ?>
 
@@ -15,77 +15,77 @@ echo 'Aritmetički operator je pod a. % koji se zove modul';
 
 <?php
 echo '2.';
-echo "<br>";
+echo '<br>';
 
 $ime = 'Bela';
 $prezime = 'Skenderović';
 
-echo $ime." ".$prezime;
+echo $ime.' '.$prezime;
 ?>
 <hr>
 
 <?php
 echo '3.';
-echo "<br>";
+echo '<br>';
 $a = 5;
 $a++;
 echo 'Povećana vrijednost <var>$a</var> je '.$a.'<br/>';
 
-echo "<br>";
+echo '<br>';
 
 $a--;
 echo 'Umanjena vrijednost povećane vrijednosti :) <var>$a</var> je '.$a.'<br/>';
-     
+
 ?>
 <hr>
 <?php
 echo '4.';
-echo "<br>";
+echo '<br>';
 
-$a=5;
+$a = 5;
 
-$a = (float)$a;
+$a = (float) $a;
 echo $a;
 ?>
 <hr>
 <?php
 echo '5.';
-echo "<br>";
+echo '<br>';
 
-$a=5;
-$a+= 5;
+$a = 5;
+$a += 5;
 
 echo $a;
 ?>
 <hr>
 <?php
 echo '6.';
-echo "<br>";
+echo '<br>';
 
 $a = 7;
 $b = 3;
 
-echo $a." + ".$b." = ".($a+$b)."<br/>";
-echo $a." - ".$b." = ".($a-$b)."<br/>";
-echo $a." * ".$b." = ".($a*$b)."<br/>";
-echo $a." / ".$b." = ".($a/$b)."<br/>";
-echo $a." % ".$b." = ".($a%$b)."<br/>";
+echo $a.' + '.$b.' = '.($a + $b).'<br/>';
+echo $a.' - '.$b.' = '.($a - $b).'<br/>';
+echo $a.' * '.$b.' = '.($a * $b).'<br/>';
+echo $a.' / '.$b.' = '.($a / $b).'<br/>';
+echo $a.' % '.$b.' = '.($a % $b).'<br/>';
 
 ?>
 <hr>
 
 <?php
 echo '7.';
-echo "<br>";
+echo '<br>';
 
 $a = 4;
 $b = 2;
 
-echo $a." + ".$b." = ".($a+$b)."<br/>";
-echo $a." - ".$b." = ".($a-$b)."<br/>";
-echo $a." * ".$b." = ".($a*$b)."<br/>";
-echo $a." / ".$b." = ".($a/$b)."<br/>";
-echo $a." % ".$b." = ".($a%$b)."<br/>";
+echo $a.' + '.$b.' = '.($a + $b).'<br/>';
+echo $a.' - '.$b.' = '.($a - $b).'<br/>';
+echo $a.' * '.$b.' = '.($a * $b).'<br/>';
+echo $a.' / '.$b.' = '.($a / $b).'<br/>';
+echo $a.' % '.$b.' = '.($a % $b).'<br/>';
 
 ?>
 <hr>
