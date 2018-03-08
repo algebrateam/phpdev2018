@@ -1,0 +1,19 @@
+preset: recomended
+
+linting: true
+
+enabled:
+  - strict
+  - unalign_double_arrow
+  - phpdoc_order
+  - phpdoc_separation
+
+disabled:
+  - short_array_syntax
+
+finder:
+  exclude:
+    - "resources"
+    - "tests"
+  name:
+    - "*.php"
