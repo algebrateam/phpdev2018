@@ -7,7 +7,7 @@
         </h1>
     
     <?php
-    echo "Text";
+    echo 'Text';
     ?>
     
  </body>   

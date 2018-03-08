@@ -50,19 +50,18 @@
   </body>  
 </html>
 <?php
-echo "Hello from Algebra! Tvoj radni dir je: " . $_SERVER['DOCUMENT_ROOT'];
-/* 
+echo 'Hello from Algebra! Tvoj radni dir je: '.$_SERVER['DOCUMENT_ROOT'];
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
-/**
+/*
  * @author Predrag Mrvic
  * @example  apache\conf\extra\httpd-vhosts.conf konfiguracija apachea
  */
 
-
 // Ovo je linijski komentar
 
-# apache\conf\extra\httpd-vhosts.conf
+// apache\conf\extra\httpd-vhosts.conf
