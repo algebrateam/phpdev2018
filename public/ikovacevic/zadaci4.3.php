@@ -67,7 +67,8 @@ echo "Zadatak sesti";
        echo $d." / ".$e." = ".($d/$e)."<br/>";  
        echo $d." % ".$e." = ".($d%$e)."<br/>";
 
-       echo "<br>"; echo "<br>";
+       echo "<br>";
+       
        $f=4; $g=2;
        
        echo "Zadatak sedmi";
