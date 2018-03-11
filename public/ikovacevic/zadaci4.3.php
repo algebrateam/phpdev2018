@@ -1,6 +1,6 @@
 <?php
 
-echo "Zadaci koje ste zadali";
+echo "Zadaci vjezba";
 
 echo "<br>";echo "<br>";
 
@@ -61,12 +61,30 @@ echo "Zadatak sesti";
       
       echo "<br>"; echo "<br>";
       
-      echo $d." + ".$e." = ".($d+$e)."<br/>" ; 
-       echo $d." - ".$e." = ".($d-$e)."<br/>" ;   
-       echo $d." * ".$e." = ".($d*$e)."<br/>" ;   
-       echo $d." / ".$e." = ".($d/$e)."<br/>"  ;  
-       echo $d." % ".$e." = ".($d%$e)."<br/>"  ;
+      echo $d." + ".$e." = ".($d+$e)."<br/>"; 
+       echo $d." - ".$e." = ".($d-$e)."<br/>";   
+       echo $d." * ".$e." = ".($d*$e)."<br/>";   
+       echo $d." / ".$e." = ".($d/$e)."<br/>";  
+       echo $d." % ".$e." = ".($d%$e)."<br/>";
 
+       echo "<br>"; echo "<br>";
+       $f=4; $g=2;
+       
+       echo "Zadatak sedmi";
+       
+       echo "<br>"; echo "<br>";
+       
+       echo $f." + ".$g." = ".($f+$g)."<br/>" ; 
+       echo $f." - ".$g." = ".($f-$g)."<br/>" ;   
+       echo $f." * ".$g." = ".($f*$g)."<br/>" ;   
+       echo $f." / ".$g." = ".($f/$g)."<br/>"  ;  
+       echo $f." % ".$g." = ".($f%$g)."<br/>"  ;
+       
+           
+       
+       
+       
+       
               ?>
 
 
