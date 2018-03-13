@@ -1,0 +1,10 @@
+// Postaviti host name resolution
+# Lokacija
+%SystemRoot%\system32\drivers\etc\hosts
+
+
+// Postaviti virtualhost
+C:\xampp\apache\conf\extra\httpd-vhosts.conf
+
+// Postaviti MySQL
+C:\xampp\mysql\bin\my.ini
