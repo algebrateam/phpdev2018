@@ -55,8 +55,8 @@ $b = 56;
 if ($a >= $b) {
     echo ' <br>a je veće ili jednako od b';
 } else {
-     echo ' <br>a nije veće od b';
- }
+    echo ' <br>a nije veće od b';
+}
 
 $a = 5;
 

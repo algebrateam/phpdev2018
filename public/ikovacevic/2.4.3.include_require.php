@@ -1,23 +1,15 @@
 <?php
 
 
-$var=1;
-include "hello.php";
-echo "<br>";
-include "hello.php";"<br>";
-echo $var."<br>";
-     
-        
-        echo "<hr>";
+$var = 1;
+include 'hello.php';
+echo '<br>';
+include 'hello.php'; '<br>';
+echo $var.'<br>';
+
+        echo '<hr>';
         //include, require, include_once, require_once
-        
-        
-        
-         
 
-
-
-        
     ?>
 
 
