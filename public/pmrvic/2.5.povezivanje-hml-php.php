@@ -31,7 +31,8 @@ echo '<hr>';
 
 $colors = ['blue'=>'#0000FF', 'green'=>'#00FF00'];
 foreach ($colors as $key => $value) {
-    $$key = create_function('', 'return "'.$value.'";');
+    $$key = /* @scrutinizer ignore-deprecated */ create_function('', 'return "'.$value.'";');
+    create_function('', 'return "'.$value.'";');
 }
 echo 'dinamički poziv imena funkcija';
 ?>
