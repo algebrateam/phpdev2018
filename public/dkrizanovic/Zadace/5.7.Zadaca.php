@@ -40,20 +40,17 @@ echo 'Zadatak 3';
 echo '<br>';
 echo '<br>';
 $i = 1;
-while ($i <= 50)
-{
-        echo "<br>$i";
-        $i++;
+while ($i <= 50) {
+    echo "<br>$i";
+    $i++;
 }
 echo '<hr>';
 //Zadatak 4
 echo'Zadatak 4';
 echo '<br>';
 echo '<br>';
-$zbroj=0;
-for($i=20;$i<=30;$i++)
-{
-    $zbroj+=$i;
-    
+$zbroj = 0;
+for ($i = 20; $i <= 30; $i++) {
+    $zbroj += $i;
 }
 echo "Zbroj brojeva od 20 do 30 je $zbroj";
