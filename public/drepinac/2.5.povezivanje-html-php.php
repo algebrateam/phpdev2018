@@ -9,10 +9,10 @@
 <p>This is a paragraph.</p>
 <div> sadržaj </div>
 <div style="color:red"><?php
-echo "Neki moj text is php-a"."<br>";
-$a=6;
-$b=4;
-echo "rezultat zbroja je: ".($a+$b);
+echo 'Neki moj text is php-a'.'<br>';
+$a = 6;
+$b = 4;
+echo 'rezultat zbroja je: '.($a + $b);
 ?></div>
 
 </body>

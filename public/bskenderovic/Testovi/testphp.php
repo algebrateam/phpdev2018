@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
  <body>
@@ -7,7 +8,7 @@
         </h1>
     
     <?php
-    echo "Text";
+    echo 'Text';
     ?>
     
  </body>   
