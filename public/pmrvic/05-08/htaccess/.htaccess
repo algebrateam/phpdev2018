@@ -1,0 +1,32 @@
+# redirect mora ići od root filea 
+Redirect 301 /test/cookie.php http://localhost/test/dream.html
+
+ErrorDocument 404 /test/error/page404.html
+ErrorDocument 500 /test/error/page500.html
+
+RewriteEngine on
+Options +FollowSymlinks
+Options +Indexes
+RewriteRule ^djelokrug.php$ http://localhost/test/dream.html [R]
+
+# http://localhost/test/formica.php?nadimak=Predrag3
+# http://localhost/test/formica/Predrag3/
+RewriteRule ^formica/([^/]*)/([^/]*)$ /test/formica.php?nadimak=$1 [L]
+#RewriteRule ^/test/formica(.*) http://localhost/test/formica.php?nadimak=$1
+
+order allow,deny
+#deny from ::1
+allow from all
+
+IndexIgnore *.jpg
+
+#C:\xampp\htdocs\test
+
+#
+# path AuthUserFile mora biti fizički
+#
+#
+#AuthType Basic
+#AuthName "Zasticeno podrucje! unesite korisnicko ime i lozinku..."
+#AuthUserFile C:/xampp/htdocs/test/.htpasswd
+#Require valid-user
