@@ -1,0 +1,14 @@
+{
+    "name": "algebrateam/phpdev",
+    "description": "Projekt generacija proljece 2018",
+    "keywords": [
+        "framework",
+        "PHP",
+        "Mrvic"
+    ],
+    "license": "MIT",
+    "type": "project",
+    "require": {
+        "php": ">=7.0.0"
+    }
+}
