@@ -1,15 +1,14 @@
 <?php
 
-$naziv = "Wien";
+$naziv = 'Wien';
 switch ($naziv) {
-    case 'Rim' : echo "grad je rim";
+    case 'Rim': echo 'grad je rim';
         break;
     case 'Wien':
     case 'Wienna':
     case 'Beč':
     case 'Vienna':
-        echo "grad je Beč";
+        echo 'grad je Beč';
         break;
-    default: echo "grad je nepoznat?";
+    default: echo 'grad je nepoznat?';
 }
-
