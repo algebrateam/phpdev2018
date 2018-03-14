@@ -11,9 +11,3 @@ before_script:
 
 script:
   - vendor/bin/phpunit --debug --bootstrap vendor/autoload.php tests/
-  
-deploy:
-  provider: heroku
-  api_key:
-    secure: ""
-  app: phpdev2018
