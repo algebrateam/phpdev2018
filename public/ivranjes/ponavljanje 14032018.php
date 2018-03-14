@@ -1,14 +1,17 @@
 <?php
 
-$a = 4;
-$b = 2;
+$a = 1;
 
-if($a<$b);
-
-echo $a.'manja je od.'.$b;
-
-else 
+if($a < = 2);
+echo 'varijabla a je manja ili jednaka broju 2';
+$a++;
+else {
     
-echo $b.'veća je od'.$b
+echo 'varijabla a je veća od broja2';
+
+$a=1
+        
+        endif
+}
     
 
