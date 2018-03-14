@@ -15,5 +15,5 @@ script:
 deploy:
   provider: heroku
   api_key:
-    secure: "e9fcfc33-cdd3-493d-9f17-c04b3a0b399f"
+    secure: ""
   app: phpdev2018
