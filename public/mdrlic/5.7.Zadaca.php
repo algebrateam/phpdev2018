@@ -33,6 +33,13 @@ while($i <= 50){
     $i++;
 }
 
+echo '<br>Zadatak broj 4<br>';
+$zbroj = 0;
+
+for($i = 20; $i <=30; $i++){
+    $zbroj += $i;
+}
+echo 'Zbroj je '.$zbroj;
         
 /* 
  * To change this license header, choose License Headers in Project Properties.
