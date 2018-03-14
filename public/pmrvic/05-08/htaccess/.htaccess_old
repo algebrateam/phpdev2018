@@ -1,0 +1,28 @@
+Options +FollowSymlinks
+RewriteEngine on
+rewriterule ^stranica2.php(.*)$ http://locala/tecaj-1-uvod-u-php/switch-case.php$1 [r=301,nc]
+
+# redirect mora ići od root filea 
+Redirect 301 /tecaj-1-uvod-u-php/ref_funkcije.php http://locala/tecaj-1-uvod-u-php/switch-case.php
+
+#Ovo dolje radi!
+#Redirect 301 / http://www.google.com/
+
+#AuthType Basic
+#AuthName "Zasticeno podrucje! unesite korisnicko ime i lozinku..."
+#path mora biti fizički
+#AuthUserFile C:/phpsites/locala/tecaj-1-uvod-u-php/.htpasswd
+#Require valid-user
+
+#<Location /tecaj-4-napredno-php>
+#	SetHandler form-login-handler
+#	AuthFormLoginRequiredLocation http://locala/tecaj-4-napredno-php/login.html
+#	AuthFormLoginSuccessLocation http://locala/tecaj-4-napredno-php/1.2 session post1.php
+#	AuthFormProvider file
+#	AuthUserFile C:/phpsites/locala/tecaj-4-napredno-php/.htpasswd
+#	AuthType form
+#	AuthName realm
+#	Session On
+#	SessionCookieName session path=/private;domain=admin.mydomain.com;httponly;secure;
+#	SessionCryptoPassphrase secret
+#</Location>
