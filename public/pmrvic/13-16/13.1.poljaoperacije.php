@@ -1,11 +1,6 @@
 <?php
 /**
- * 13. PODACI- RAD SA KOLEKCIJAMA.
- *
- * Obraditi funkcije za sortiranje kolekcija (sort(), ksort(),
- * rsort(), krsort(), asort(), arsort()). Obraditi ostale korisne
- * funkcije za rad s poljima (is_array(), explode(), implode(),
- * split(), count(), end(), array_search(), in_array()).
+ * Prebrojavanje elemenata...
  */
 unset($fruits);
 $fruits = [0       => 'limun',
@@ -16,10 +11,34 @@ $fruits = [0       => 'limun',
                 2  => 'grejp', ];
 
 $brojelemenata = 0;
+echo '<ul>';
+foreach ($fruits as $znak=> $vrijednost) {
+  
+  echo '<li>'
+  .$znak
+    .' ima vrijednost:'
+    .$vrijednost
+    .'</li>';
+}
+echo '</ul>';
 
 foreach ($fruits as $key => $value) {
     $brojelemenata++;
 }
+
+echo 'prebrojali smo '.$brojelemenata.' elemenata polja';
+
+$brojelemenata=0;
+// broj elemenata oznacenih indexom
+foreach ($fruits as $key => $value) {
+  if(gettype($key)=='integer'){
+  $brojelemenata++;
+  }
+}
+
+echo '<br> zadnje element polja je:'.$value.'<br>';
+
+echo 'prebrojali smo index '.$brojelemenata.' elemenata polja';
 
 echo '<pre>';
 print_r($fruits);
@@ -58,15 +77,15 @@ foreach ($fruits as $kljuc => $vrijednost) {
 echo '<br>jabuka se nalazi pod ključem '.$kljuc;
 
 $key = array_search('banana', $fruits);
-echo 'Našao sam bananu:'.$key;
+echo '<br>Našao sam bananu:'.$key;
 
-unset($fruits[$key]);
+//unset($fruits[$key]);
 
-$key = array_search('banana', $fruits);
-echo 'Našao sam bananu:'.$key;
+$key = array_search('jabuka', $fruits);
+echo '<br>Našao sam jabuku pod ključem:'.$key;
 
 if (in_array('banana', $fruits)) {
-    echo 'banana je nadjena!';
+    echo '<br>banana je nadjena!';
 }
 
 unset($fruits[7]);  // izbacimo element pod kljucem 7

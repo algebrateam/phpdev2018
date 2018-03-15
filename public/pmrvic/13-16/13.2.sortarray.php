@@ -40,11 +40,15 @@ echo '<hr>';
 // izgubio kljuceve
 unset($fruits);
 
+
 $fruits = [0       => 'limun',
                 'a'=> 'naranca',
                  1 => 'banana',
                 'b'=> 'jabuka',
-                2  => 'grejp', ];
+                2  => 'grejp',
+                'c'=>'šljiva',
+                'd'=>'kajsija'];
+
 
 echo '<pre>';
 print_r($fruits);
@@ -77,26 +81,29 @@ echo '<pre>';
 print_r($fruits);
 echo '</pre>';
 
+
 //ksort()
-echo '<br>';
+// sortira prvo nulu, pa slova, pa onda brojeve
+echo '<br>ksort() default:<br>';
 ksort($fruits);
 echo 'ksort() sortirano<br>';
 echo '<pre>';
 print_r($fruits);
 echo '</pre>';
 
-echo '<br>';
-ksort($fruits);
+// Sortira prvo brojeve a onda po abecedi
+echo '<br>sort natural:<br>';
+ksort($fruits,SORT_NATURAL);
 echo 'ksort() sortirano<br>';
 echo '<pre>';
 print_r($fruits);
 echo '</pre>';
 
 //krsort()
+// nula znaci SORT_NATURAL !!!
 echo '<br>';
 krsort($fruits, 0);
 echo 'krsort() sortirano<br>';
 echo '<pre>';
 print_r($fruits);
 echo '</pre>';
-phpinfo();
