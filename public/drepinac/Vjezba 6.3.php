@@ -85,6 +85,19 @@ $multi_array = array($elem1, $elem2, $elem3);
 echo '<pre>';
 print_r($multi_array);
 echo '</pre>';
+
+echo $multi_array[2][1];
+
+echo '<hr>';
+
+foreach($multi_array as $elem)
+{
+    foreach($elem as $val)
+    {
+        echo $val;
+    }
+}
+
 ?>
 
 </body>
