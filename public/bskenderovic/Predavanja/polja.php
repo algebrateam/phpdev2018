@@ -1,27 +1,27 @@
 <?php
 
-$polje = array ('Tesla','Edison','Bell');
+$polje = ['Tesla', 'Edison', 'Bell'];
 
 echo $polje[1];
 
 echo '<br>';
   echo '<hr>';
-  
-for($i=0;$i <= 2; $i++){
+
+for ($i = 0; $i <= 2; $i++) {
     echo $polje[$i];
 }
 
 echo '<br>';
   echo '<hr>';
-  
-foreach($polje as $ime){
+
+foreach ($polje as $ime) {
     echo $ime;
 }
 
 echo '<br>';
   echo '<hr>';
-  
-$polje = array('Tesla','ime' => 'Edison','Bell');
+
+$polje = ['Tesla', 'ime' => 'Edison', 'Bell'];
 
 echo '<pre>';
 print_r($polje);
@@ -29,52 +29,51 @@ echo'</pre>';
 
 echo '<br>';
   echo '<hr>';
-  
-$polje = array('Tesla','Edison','Bell');
+
+$polje = ['Tesla', 'Edison', 'Bell'];
 echo $polje[0];
 echo $polje[1];
 echo $polje[2];
 
 echo '<br>';
   echo '<hr>';
-  
-for($i=0;$i<=2;$i++){
+
+for ($i = 0; $i <= 2; $i++) {
     echo $polje[$i];
 }
 
-$polje = array('Tesla','Edison','Bell');
+$polje = ['Tesla', 'Edison', 'Bell'];
 
 echo '<br>';
   echo '<hr>';
-  
-foreach ($polje as $ime){
+
+foreach ($polje as $ime) {
     echo $ime;
 }
 
 echo '<br>';
   echo '<hr>';
-  
-foreach($polje as $ime):
+
+foreach ($polje as $ime):
 echo $ime;
 endforeach;
 
 echo '<br>';
   echo '<hr>';
-  
-foreach ($polje as $key => $ime){
+
+foreach ($polje as $key => $ime) {
     echo 'Element broj '.$key.' ima vrijednosti: '.$ime.'</br>';
 }
 
 echo '<br>';
 echo '<hr>';
 
-$ucenici = array('1' => array('ime' => 'Ivan','prezime' => 'Ivanić'),
-    '2' => array('ime' => 'Mate','prezime' => 'Matić'), 
-    '3' => array('ime' => 'Ante','prezime' => 'Antić'));
+$ucenici = ['1' => ['ime' => 'Ivan', 'prezime' => 'Ivanić'],
+    '2'         => ['ime' => 'Mate', 'prezime' => 'Matić'],
+    '3'         => ['ime' => 'Ante', 'prezime' => 'Antić'], ];
 
-foreach ($ucenici as $br_ucenika => $podaci){
-    
-    foreach ($podaci as $naziv_podatka => $vrijednost_podatka){
+foreach ($ucenici as $br_ucenika => $podaci) {
+    foreach ($podaci as $naziv_podatka => $vrijednost_podatka) {
         echo 'ucenik br.'.$br_ucenika.'-'.$naziv_podatka.': '.$vrijednost_podatka;
     }
 }
@@ -82,11 +81,11 @@ foreach ($ucenici as $br_ucenika => $podaci){
 echo '<br>';
 echo '<hr>';
 
-$elem1 = array(1,5,7);
-$elem2 = array(4,8,9);
-$elem3 = array(2,3,6);
+$elem1 = [1, 5, 7];
+$elem2 = [4, 8, 9];
+$elem3 = [2, 3, 6];
 
-$multi_array = array($elem1,$elem2,$elem3);
+$multi_array = [$elem1, $elem2, $elem3];
 
 echo '<pre>';
 print_r($multi_array);
@@ -100,22 +99,19 @@ echo $multi_array[2][1];
 echo '<br>';
 echo '<hr>';
 
-foreach ($multi_array as $elem){
-    
-    foreach($elem as $val){
+foreach ($multi_array as $elem) {
+    foreach ($elem as $val) {
         echo $val;
     }
-   
-    
 }
 
 echo '<br>';
 echo '<hr>';
 
-$elem1 = array ('ime' => 'Petar','prezime' => 'Petric', 'MB' => '123');
-$elem2 = array ('ime' => 'Ante','prezime' => 'Antic', 'MB' => '234');
+$elem1 = ['ime' => 'Petar', 'prezime' => 'Petric', 'MB' => '123'];
+$elem2 = ['ime' => 'Ante', 'prezime' => 'Antic', 'MB' => '234'];
 
-$multi_array = array('ucenik1'=>$elem1,'ucenik2'=>$elem2 );
+$multi_array = ['ucenik1'=>$elem1, 'ucenik2'=>$elem2];
 
 echo '<pre>';
 print_r($multi_array);
