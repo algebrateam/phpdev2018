@@ -98,6 +98,15 @@ foreach($multi_array as $elem)
     }
 }
 
+echo '<hr>';
+$elem1 = array('ime'=>'Petar', 'prezime' => 'Petric', 'MB' => '123');
+$elem2 = array('ime'=>'Ante', 'prezime' => 'Antic', 'MB' => '234');
+$multi_array = array('ucenik1' => $elem1, 'ucenik2' => $elem2);
+
+echo '<pre>';
+print_r($multi_array);
+echo '</pre>';
+
 ?>
 
 </body>
