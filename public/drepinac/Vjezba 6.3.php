@@ -59,8 +59,8 @@ foreach ($polje as $key => $ime) {
 }
 echo '<hr>';
 $ucenici = ['1' => ['ime'=>'Ivan', 'prezime' => 'Ivanic'],
-    '2' => ['ime'=>'Mate', 'prezime'=>'Matić'],
-    '3' => ['ime'=> 'Ante', 'prezime'=>'Antic'], ];
+    '2'         => ['ime'=>'Mate', 'prezime'=>'Matić'],
+    '3'         => ['ime'=> 'Ante', 'prezime'=>'Antic'], ];
 
 foreach ($ucenici as $br_ucenika => $podaci) {
     foreach ($podaci as $naziv_podataka => $vrijednost_podataka) {
