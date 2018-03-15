@@ -34,3 +34,14 @@ foreach($polje as $ime);
     print_r($polje);
     echo '</pre>';
 }
+echo '<br>';
+echo '<hr>';
+echo '3.Posložite imena u polju iz prvog zadatka abecednim redom i ispišite vrijednost elemenata uz pomoć petlje for.';
+echo '<br>';
+echo '<br>';
+$polje = array('Danijel', 'Bela', 'Predrag','Ivan','Marin');
+for($i=0;$i<count($polje);$i++)
+{
+    sort($polje);
+    echo " <br> $polje[$i]";
+}
