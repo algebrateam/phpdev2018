@@ -1,6 +1,6 @@
 <?php
 
-//zadatak 1. strana 39
+//zadatak 1. str 39
 echo '1. Od navedenih operatora aritmetički operator je pod a. %'.'<br>'.'<hr>'.'<br>';
 
 //zadatak 2. strana 39
