@@ -27,6 +27,6 @@ $multi_array=array('ucenik1'=>$elem1,'ucenik2'=>$elem2);
 
 echo '<pre>';
 print_r($multi_array);
-echo'<pre>';
+echo'</pre>';
 
 echo $multi_array['ucenik2']['MB'];
