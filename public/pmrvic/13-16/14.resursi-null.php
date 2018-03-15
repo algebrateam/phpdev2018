@@ -1,5 +1,5 @@
 <?php
-/**
+/*
  * 14.
  * Objasniti pojam objekta, resursa
  * i null podatka. Objasniti
