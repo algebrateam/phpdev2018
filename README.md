@@ -6,7 +6,7 @@
 
 ___
 
-##PHPDEV2018 stranica: (https://phpdev2018.herokuapp.com)
+## PHPDEV2018 stranica: (https://phpdev2018.herokuapp.com)
 ___
   
 # phpdev2018
