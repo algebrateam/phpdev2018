@@ -15,3 +15,22 @@ foreach($polje as $ime)
     echo $ime;
     echo '</pre>';
 }
+echo '<br>';
+echo '<hr>';
+echo '2.Polju iz prethodnog zadatka promjenite ključeve tako da umjesto ključa 1 piše ime5, umjesto ključa2 ime4 itd.';
+echo '<br>';
+echo '<br>';
+echo 'Rješenje';
+//Zadatak 2
+$polje = array();
+$polje['ime5'] = 'Danijel';
+$polje['ime4'] = 'Bela';
+$polje['ime3'] = 'Predrag';
+$polje['ime2'] = 'Ivan';
+$polje['ime1'] = 'Marin';
+foreach($polje as $ime);
+{
+    echo '<pre>';
+    print_r($polje);
+    echo '</pre>';
+}
