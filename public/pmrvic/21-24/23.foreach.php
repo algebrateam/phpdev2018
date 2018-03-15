@@ -19,7 +19,9 @@ $polje[]=(2*$i*$j).':'.(155+$i*$j).':'.($i*$j);
 }
 
 foreach ($polje as $key => $value) {
+  
   echo "boja:".$value."<br>";
+  
 }
 
 //($polje);
