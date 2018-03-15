@@ -1,6 +1,7 @@
 <?php
 
-echo 'Hello world';
+echo 'Helloo world';
+echo 'Helloo world';
 
 /* 
  * To change this license header, choose License Headers in Project Properties.
