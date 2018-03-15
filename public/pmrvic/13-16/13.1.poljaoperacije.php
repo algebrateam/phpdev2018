@@ -1,6 +1,5 @@
 <?php
 /**
- * 
  * Prebrojavanje elemenata...
  */
 unset($fruits);
@@ -14,8 +13,7 @@ $fruits = [0       => 'limun',
 $brojelemenata = 0;
 echo '<ul>';
 foreach ($fruits as $znak=> $vrijednost) {
-  
-  echo '<li>'
+    echo '<li>'
   .$znak
     .' ima vrijednost:'
     .$vrijednost
@@ -29,12 +27,12 @@ foreach ($fruits as $key => $value) {
 
 echo 'prebrojali smo '.$brojelemenata.' elemenata polja';
 
-$brojelemenata=0;
+$brojelemenata = 0;
 // broj elemenata oznacenih indexom
 foreach ($fruits as $key => $value) {
-  if(gettype($key)=='integer'){
-  $brojelemenata++;
-  }
+    if (gettype($key) == 'integer') {
+        $brojelemenata++;
+    }
 }
 
 echo '<br> zadnje element polja je:'.$value.'<br>';

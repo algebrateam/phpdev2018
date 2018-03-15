@@ -72,7 +72,7 @@ mojispis($nekiarray);
 
 function mojispis($ulaz)
 {
-    if (!is_array($ulaz)) {
+    if (! is_array($ulaz)) {
         echo '<br>'.$ulaz;
     } else {
         echo '<pre>';
