@@ -107,6 +107,8 @@ echo '<pre>';
 print_r($multi_array);
 echo '</pre>';
 
+echo '<hr>';
+echo $multi_array['ucenik2']['MB'];
 ?>
 
 </body>
