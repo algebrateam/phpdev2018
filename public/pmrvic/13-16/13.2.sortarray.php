@@ -14,7 +14,7 @@
 //
 $fruits = ['0'     => 'limun',
                 'a'=> 'naranca',
-                 1 => 'banana',
+                  1 => 'banana',
                 'b'=> 'jabuka', ];
 echo '<pre>';
 print_r($fruits);
@@ -43,7 +43,7 @@ unset($fruits);
 
 $fruits = [0       => 'limun',
                 'a'=> 'naranca',
-                 1 => 'banana',
+                  1 => 'banana',
                 'b'=> 'jabuka',
                 2  => 'grejp',
                 'c'=>'šljiva',
@@ -73,7 +73,7 @@ unset($fruits);
 
 $fruits = [0       => 'limun',
                 'a'=> 'naranca',
-                 1 => 'banana',
+                  1 => 'banana',
                 'b'=> 'jabuka',
                 2  => 'grejp', ];
 
