@@ -8,8 +8,8 @@ if($a > $b){
     echo $a.' je veći od '.$b.'<br><br>';
 }
 
-if($a < $b){
-    echo $a.' je manji od '.$b.'<br><br>';
+else{
+    echo $a.' je manji ili jednak od '.$b.'<br><br>';
 }
 
 echo 'Zadatak broj 2<br>';
