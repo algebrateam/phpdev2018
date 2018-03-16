@@ -3,11 +3,15 @@
 //primjer za if else petlju
 
 $temperatura = 4;
-if ($temperatura <= 10):
-    echo 'Obuci majicu dugih rukava';
-else:
-    echo 'Obuci majicu kratkih rukava';
-endif;
+/**
+ * Može i ovako ali javlja PSR grešku
+ * znači da se ne preporučuje
+ */
+//if ($temperatura <= 10):
+//    echo 'Obuci majicu dugih rukava';
+//else:
+//    echo 'Obuci majicu kratkih rukava';
+//endif;
 
 // primjer za switch-case petlju
 echo '<br>';
