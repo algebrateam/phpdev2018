@@ -69,9 +69,9 @@ $a = 11;
 $b = 5;
 
 echo 'var $a='.
- $a.
- ' $b='.
- $b.
- ' modulo $a%$b=';
+  $a.
+  ' $b='.
+  $b.
+  ' modulo $a%$b=';
 
 echo $a % $b;
