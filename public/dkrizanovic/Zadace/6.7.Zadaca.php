@@ -8,7 +8,6 @@ echo '<br>';
 echo '<br>';
 echo 'Rješenje';
 //Zadatak 1
-
 $polje = array('Danijel', 'Bela', 'Predrag', 'Ivan', 'Marin');
 foreach ($polje as $ime) {
     echo '<pre>';
@@ -66,15 +65,13 @@ echo '5. Napišite program koji će s pomoću petlje for automatski stvoriti pol
 echo '<br>';
 echo '<br>';
 //Zadatak 5
-$polje=array();
-for($i=1;$i<=100;$i++)
-{
-    $polje[]=$i;
-    }   
-    foreach($polje as $broj)
-    {
-     echo "<br>$broj";
-    }
-    echo '<pre>';
+$polje = array();
+for ($i = 1; $i <= 100; $i++) {
+    $polje[] = $i;
+}
+foreach ($polje as $broj) {
+    echo "<br>$broj";
+}
+echo '<pre>';
 print_r($polje);
 echo '</pre>';
