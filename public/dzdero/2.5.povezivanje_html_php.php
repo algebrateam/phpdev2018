@@ -25,7 +25,7 @@ echo $polje[2];
 
 echo '<br>';
 $naziv_var = 'iznos';
-$$naziv_var = 35;    //$(naziv_var)=35
+$$naziv_var = 35; //$(naziv_var)=35
 echo $iznos;
 
 echo '<hr>';

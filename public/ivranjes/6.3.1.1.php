@@ -1,10 +1,7 @@
 <?php
 
-$polje = array('Tesla','Edison','Bell');
+$polje = ['Tesla', 'Edison', 'Bell'];
 
-foreach($polje as $ime)
-{
+foreach ($polje as $ime) {
     echo $ime;
 }
-
-
