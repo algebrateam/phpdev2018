@@ -13,7 +13,7 @@
  */
 
 //$naziv="Vienna";  //Vienna ili Wien
-$naziv = 'zadar';  //Vienna ili Wien
+$naziv = 'zadar'; //Vienna ili Wien
 
 switch ($naziv) {
 

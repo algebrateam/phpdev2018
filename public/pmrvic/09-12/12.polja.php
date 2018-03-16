@@ -8,7 +8,7 @@
  * Obraditi print_r() funkciju.
  */
 $polje = ['tesla', 'bell', 'edison'];
- $polje[0];
+  $polje[0];
 echo '<pre>';
 print_r($polje);
 echo '</pre>';
@@ -19,7 +19,7 @@ echo '<pre>';
 print_r($polje);
 echo '</pre>';
 
-$week = [   //dekl & deff
+$week = [//dekl & deff
     'pon' => 'mon',
     'uto' => 'tue',
     'sri' => 'wed',
@@ -28,7 +28,7 @@ $week = [   //dekl & deff
     'uto' => 'tue0',
     'sri' => 'wed0',
     'thu',
- ];
+  ];
 
 echo '<pre>';
 print_r($week);
@@ -41,8 +41,8 @@ print_r($week);
 echo '</pre>';
 //echo $week[3];
 
-$polje = [];  //deklaracija
-$polje['b1'] = 'plava';   //definicije
+$polje = []; //deklaracija
+$polje['b1'] = 'plava'; //definicije
 $polje['b2'] = 'crvena';
 
 echo '<pre>';

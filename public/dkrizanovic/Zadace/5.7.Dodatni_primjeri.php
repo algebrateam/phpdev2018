@@ -3,6 +3,7 @@
 //primjer za if else petlju
 
 $temperatura = 4;
+
 /**
  * Može i ovako ali javlja PSR grešku
  * znači da se ne preporučuje
@@ -12,6 +13,7 @@ $temperatura = 4;
 //else:
 //    echo 'Obuci majicu kratkih rukava';
 //endif;
+
 
 // primjer za switch-case petlju
 echo '<br>';
