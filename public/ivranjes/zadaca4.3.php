@@ -93,6 +93,11 @@ echo $a.' % '.$b.' = '.($a % $b).'<br/>';
 
 echo 'zadatak 1';
 
+$r = 'ivan';
+$t = 'vranjes';
+$zajedno = $r.$t;
+echo 'moje ime je'.'<br>'.$zajedno.'!!!!';
+
 ?>
 <hr>
 </body>

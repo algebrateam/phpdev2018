@@ -5,7 +5,7 @@ $varijabla1 = '0001';
 $varijabla2 = ' 0002';
 $varijabla3 = ' 0003';
 
-echo $varijabla1, $varijabla2,$varijabla3;
+echo $varijabla1, $varijabla2, $varijabla3;
 
 //zadatak 2
 echo '</br>';
@@ -14,7 +14,7 @@ $b = '5';
 $pom = $a;
 $a = $b;
 $b = $pom;
-echo $a,$b;
+echo $a, $b;
 
 echo '</br>';
 
