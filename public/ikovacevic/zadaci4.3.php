@@ -48,29 +48,29 @@ echo $c;
 echo '<br>'; echo '<br>';
 echo 'Zadatak sesti';
 
-     $d = 7; $e = 3;
+      $d = 7; $e = 3;
 
       echo '<br>'; echo '<br>';
 
       echo $d.' + '.$e.' = '.($d + $e).'<br/>';
-       echo $d.' - '.$e.' = '.($d - $e).'<br/>';
-       echo $d.' * '.$e.' = '.($d * $e).'<br/>';
-       echo $d.' / '.$e.' = '.($d / $e).'<br/>';
-       echo $d.' % '.$e.' = '.($d % $e).'<br/>';
+        echo $d.' - '.$e.' = '.($d - $e).'<br/>';
+        echo $d.' * '.$e.' = '.($d * $e).'<br/>';
+        echo $d.' / '.$e.' = '.($d / $e).'<br/>';
+        echo $d.' % '.$e.' = '.($d % $e).'<br/>';
 
-       echo '<br>';
+        echo '<br>';
 
-       $f = 4; $g = 2;
+        $f = 4; $g = 2;
 
-       echo 'Zadatak sedmi';
+        echo 'Zadatak sedmi';
 
-       echo '<br>'; echo '<br>';
+        echo '<br>'; echo '<br>';
 
-       echo $f.' + '.$g.' = '.($f + $g).'<br/>';
-       echo $f.' - '.$g.' = '.($f - $g).'<br/>';
-       echo $f.' * '.$g.' = '.($f * $g).'<br/>';
-       echo $f.' / '.$g.' = '.($f / $g).'<br/>';
-       echo $f.' % '.$g.' = '.($f % $g).'<br/>';
+        echo $f.' + '.$g.' = '.($f + $g).'<br/>';
+        echo $f.' - '.$g.' = '.($f - $g).'<br/>';
+        echo $f.' * '.$g.' = '.($f * $g).'<br/>';
+        echo $f.' / '.$g.' = '.($f / $g).'<br/>';
+        echo $f.' % '.$g.' = '.($f % $g).'<br/>';
 
               ?>
 
