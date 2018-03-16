@@ -27,9 +27,9 @@ $naziv = 'alg';
 if (strlen($naziv) >= 5) {
     echo 'Odlicno';
 } else {
-     if (strlen($naziv) >= 3 && strlen($naziv) <= 4) {
-         echo 'Ajde ok';
-     } else {
-         echo 'nista od igrice';
-     }
- }
+    if (strlen($naziv) >= 3 && strlen($naziv) <= 4) {
+        echo 'Ajde ok';
+    } else {
+        echo 'nista od igrice';
+    }
+}

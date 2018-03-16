@@ -1,7 +1,6 @@
 <?php
 
 /**
- * 
  * Prebrojavanje elemenata...
  */
 unset($fruits);
@@ -14,6 +13,7 @@ $fruits = [0 => 'limun',
 
 $brojelemenata = 0;
 echo '<ul>';
+
 foreach ($fruits as $znak => $vrijednost) {
 
   echo '<li>'

@@ -12,10 +12,10 @@
 // sortranje arraya
 // sort()
 //
-$fruits = ['0'     => 'limun',
-                'a'=> 'naranca',
+$fruits = ['0'      => 'limun',
+                'a' => 'naranca',
                   1 => 'banana',
-                'b'=> 'jabuka', ];
+                'b' => 'jabuka', ];
 echo '<pre>';
 print_r($fruits);
 echo '</pre>';
@@ -40,15 +40,13 @@ echo '<hr>';
 // izgubio kljuceve
 unset($fruits);
 
-
-$fruits = [0       => 'limun',
-                'a'=> 'naranca',
+$fruits = [0        => 'limun',
+                'a' => 'naranca',
                   1 => 'banana',
-                'b'=> 'jabuka',
-                2  => 'grejp',
-                'c'=>'šljiva',
-                'd'=>'kajsija'];
-
+                'b' => 'jabuka',
+                2   => 'grejp',
+                'c' => 'šljiva',
+                'd' => 'kajsija', ];
 
 echo '<pre>';
 print_r($fruits);
@@ -71,16 +69,15 @@ echo '</pre>';
 echo '<hr>';
 unset($fruits);
 
-$fruits = [0       => 'limun',
-                'a'=> 'naranca',
+$fruits = [0        => 'limun',
+                'a' => 'naranca',
                   1 => 'banana',
-                'b'=> 'jabuka',
-                2  => 'grejp', ];
+                'b' => 'jabuka',
+                2   => 'grejp', ];
 
 echo '<pre>';
 print_r($fruits);
 echo '</pre>';
-
 
 //ksort()
 // sortira prvo nulu, pa slova, pa onda brojeve
@@ -93,7 +90,7 @@ echo '</pre>';
 
 // Sortira prvo brojeve a onda po abecedi
 echo '<br>sort natural:<br>';
-ksort($fruits,SORT_NATURAL);
+ksort($fruits, SORT_NATURAL);
 echo 'ksort() sortirano<br>';
 echo '<pre>';
 print_r($fruits);
