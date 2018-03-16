@@ -20,6 +20,14 @@ foreach($polje_imena as $key => $ime)
 {
     echo 'Ključ '.$key.' ima vrijednost: '.$ime.'<br>';
 }
+
+echo '<br>Zadatak broj 3<br>';
+sort($polje_imena);
+
+for($i = 0; $i <= 4; $i++)
+{
+    echo $polje_imena[$i].'<br>';
+}
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
