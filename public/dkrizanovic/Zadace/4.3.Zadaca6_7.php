@@ -22,4 +22,4 @@ echo $a.'/'.$b.'='.($a / $b);
 echo '<br>';
 echo $a.'%'.$b.'='.($a % $b);
 
- //Zadatak 7 je promjena varijabli drugim vrijednostima i testiranje da li rade operacije s drugim vrijednostima
+  //Zadatak 7 je promjena varijabli drugim vrijednostima i testiranje da li rade operacije s drugim vrijednostima

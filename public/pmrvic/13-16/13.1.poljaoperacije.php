@@ -93,7 +93,7 @@ if (in_array('banana', $fruits)) {
     echo '<br>banana je nadjena!';
 }
 
-unset($fruits[7]);  // izbacimo element pod kljucem 7
+unset($fruits[7]); // izbacimo element pod kljucem 7
 
 if (in_array('banana', $fruits)) {
     echo 'banana je nadjena!';

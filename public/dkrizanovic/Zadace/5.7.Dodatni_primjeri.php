@@ -5,8 +5,10 @@
 $temperatura = 4;
 if ($temperatura <= 10):
     echo 'Obuci majicu dugih rukava';
-else:
+else {
+  :
     echo 'Obuci majicu kratkih rukava';
+}
 endif;
 
 // primjer za switch-case petlju

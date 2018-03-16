@@ -25,12 +25,12 @@ echo '<hr>';
 
 $var = 25;
 echo 'var je ='.$var;
-echo 'uvećani var je ='.$var++;  //$var=$var+1;
+echo 'uvećani var je ='.$var++; //$var=$var+1;
 echo 'siguno uvećani var je ='.$var;
 echo '<hr>';
 $var = 25;
 echo 'var je ='.$var;
-echo 'uvećani var je ='.++$var;  //$var=$var+1;
+echo 'uvećani var je ='.++$var; //$var=$var+1;
 echo 'siguno uvećani var je ='.$var;
 
 echo '<hr>';
