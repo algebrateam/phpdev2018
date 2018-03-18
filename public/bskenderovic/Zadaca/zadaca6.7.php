@@ -9,7 +9,7 @@ echo '<br>';
 
 $polje=array('Luka','Danijela','David','Marko','Dario');
 
-foreach ($polje as $ime){
+foreach ($polje as $ime) {
     echo '<pre>';
     echo $ime.'</br>';
     echo '</pre>';
@@ -43,7 +43,6 @@ $polje=array('Luka','Danijela','David','Marko','Dario');
 sort($polje);
 
 for ($i = 0; $i < count($polje); $i++) {
-   
     echo '<pre>';
     echo $polje[$i].'</br>';
     echo '</pre>';
@@ -63,11 +62,10 @@ $polje['k'] = 'Dario';
 
 ksort($polje);
 
-foreach ($polje as $key => $ime){
+foreach ($polje as $key => $ime) {
     echo '<pre>';
     echo $key.' => '.$ime.'</br>';
     echo '</pre>';
-            
 }
 
 echo '<br>';
@@ -82,13 +80,9 @@ for ($i = 1; $i <= 100; $i++) {
     $brojevi[] = $i;
 }
 
-foreach($brojevi as $broj){
-    
+foreach ($brojevi as $broj) {
     echo $broj.'</br>';
-    
 }
 echo '<pre>';
 print_r($brojevi);
 echo '</pre>';
-
-?>
