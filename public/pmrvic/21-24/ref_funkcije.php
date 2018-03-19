@@ -1,9 +1,9 @@
 <?php
 
 // predaja parametara po referenci
-function pot($a,$n=2){
-  
-  return $a ** $n;
+function pot($a, $n=2)
+{
+    return $a ** $n;
 }
 function potencija(&$var, $n = 2)
 {
@@ -40,5 +40,3 @@ echo '<br>x je još uvijek: '.$x;
 
 $x=pot($x);
 echo '<br>nova vrijednost od x je: '.$x;
-
-

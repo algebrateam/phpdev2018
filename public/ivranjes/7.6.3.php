@@ -2,35 +2,32 @@
 
 function show_naslov($naslov = 'filmi')
 {
-    switch($naslov):
+    switch ($naslov):
     
     case 'film':
         $var = 'Terminator';
-        break;
+    break;
     case 'serija':
         $var = 'Dr.House';
-        break;
+    break;
     case 'no_title':
         $var = '';
-        break;
+    break;
     default:
         $var = 'ja sam tumpav'.'<br>'.'i to jako'.'<br>'.'kompletno';
         
    
     
-endswitch;
+    endswitch;
 
-echo $var;
+    echo $var;
 }
 
 function show_imena($imena = array())
 {
-    foreach($imena as $ime)
-    {
+    foreach ($imena as $ime) {
         echo $ime;
     }
 }
 show_naslov();
 show_imena();
-
-

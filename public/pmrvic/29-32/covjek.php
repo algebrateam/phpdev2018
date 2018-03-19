@@ -2,62 +2,70 @@
 
 
 
-abstract class zivotinja{
-function glasanje(){
-	echo "roar";
+abstract class zivotinja
+{
+    public function glasanje()
+    {
+        echo "roar";
+    }
 }
+class lav extends zivotinja
+{
 }
-class lav extends zivotinja{
+class Vepar extends zivotinja
+{
+    public function glasanje()
+    {
+        echo "ghgrgrgh";
+    }
+}
 
-}
-class Vepar extends zivotinja{
-function glasanje(){
-	echo "ghgrgrgh";
-}
-}
 
+class covjek
+{
+    // var $ime="moje defaoultno ime";
+    public $ime;
 
-class covjek{
-	// var $ime="moje defaoultno ime";
-    var $ime;
-
-    function __construct($novoime){
-    	$this->ime=$novoime;
+    public function __construct($novoime)
+    {
+        $this->ime=$novoime;
     }
 
-	function set_ime($ime){
-		$this->ime=$ime;
-	}
-	function get_ime(){
-		return $this->ime;
-	}
-	function __destruct(){
-	//	 echo "<br>nema više objekta zvanog ".$this->ime;
-	}
-
-
+    public function set_ime($ime)
+    {
+        $this->ime=$ime;
+    }
+    public function get_ime()
+    {
+        return $this->ime;
+    }
+    public function __destruct()
+    {
+        //	 echo "<br>nema više objekta zvanog ".$this->ime;
+    }
 }
 
 
-interface Ikupac{
-	function ispis();
+interface Ikupac
+{
+    public function ispis();
 }
 
 //////////KLASA KUPAC///////////////
-class kupac extends covjek implements Ikupac{
-//svojstva kupca
-var $id_kupca;
-var $potroseni_iznos;
+class kupac extends covjek implements Ikupac
+{
+    //svojstva kupca
+    public $id_kupca;
+    public $potroseni_iznos;
 
-// overridamo base/parent __constuct()
-function __construct($novo_ime){
-  parent::__construct($novo_ime);
-  $this->id_kupca=1234;
+    // overridamo base/parent __constuct()
+    public function __construct($novo_ime)
+    {
+        parent::__construct($novo_ime);
+        $this->id_kupca=1234;
+    }
+    public function ispis()
+    {
+        echo "<br>+++++ ".$this->ime." ima id:".$this->id_kupca." a potrosio je:".$this->potroseni_iznos;
+    }
 }
-function ispis(){
-
-	echo "<br>+++++ ".$this->ime." ima id:".$this->id_kupca." a potrosio je:".$this->potroseni_iznos;
-
-}
-}
-?>
