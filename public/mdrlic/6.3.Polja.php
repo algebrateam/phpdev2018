@@ -6,15 +6,13 @@ $polje = array('Tesla', 'Edison', 'Bell');
 echo $polje[1].'<br><br>';
 
 
-for($i=0; $i <= 2; $i++)
-{
+for ($i=0; $i <= 2; $i++) {
     echo $polje[$i];
 }
 echo '<br><br>';
 
-foreach($polje as $ime)
-{
-   echo $ime; 
+foreach ($polje as $ime) {
+    echo $ime;
 }
 echo '<br><br>';
 
@@ -34,16 +32,14 @@ echo '<br><br>';
 
 
 $polje = array('Tesla', 'Edison', 'Bell');
-for($i=0; $i <= 2; $i++)
-{
+for ($i=0; $i <= 2; $i++) {
     echo $polje[$i];
 }
 echo '<br><br>';
 
 
 $polje = array('Tesla', 'Edison', 'Bell');
-for($i=0; $i < count($polje); $i++)
-{
+for ($i=0; $i < count($polje); $i++) {
     echo $polje[$i];
 }
 echo '<br><br>';
@@ -51,8 +47,7 @@ echo '<br><br>';
 //6.3.2
 $polje = array('Tesla', 'Edison', 'Bell');
 
-foreach($polje as $ime)
-{
+foreach ($polje as $ime) {
     echo $ime;
 }
 echo '<br><br>';
@@ -60,7 +55,7 @@ echo '<br><br>';
 
 $polje = array('Tesla', 'Edison', 'Bell');
 
-foreach($polje as $ime):
+foreach ($polje as $ime):
     echo $ime;
 endforeach;
 echo '<br><br>';
@@ -68,8 +63,7 @@ echo '<br><br>';
 
 $polje = array('Tesla', 'Edison', 'Bell');
 
-foreach($polje as $key => $ime)
-{
+foreach ($polje as $key => $ime) {
     echo 'Element broj '.$key.' ima vrijednost: '.$ime;
 }
 echo '<br><br>';
@@ -79,10 +73,8 @@ $ucenici = array('1' => array('ime' => 'Ivan', 'prezime' => 'Ivanic'),
         '2' => array('ime' => 'Mate', 'prezime' => 'Matić'),
         '3' => array('ime' => 'Ante', 'prezime' => 'Antic'));
 
-foreach($ucenici as $br_ucenika => $podaci)
-{
-    foreach($podaci as $naziv_podatka => $vrijednost_podatka)
-    {
+foreach ($ucenici as $br_ucenika => $podaci) {
+    foreach ($podaci as $naziv_podatka => $vrijednost_podatka) {
         echo 'ucenik br. '.$br_ucenika.'-'.$naziv_podatka.': '.$vrijednost_podatka;
     }
 }
@@ -104,10 +96,8 @@ echo $multi_array[2][1];
 echo '<br><br>';
 
 
-foreach($multi_array as $elem)
-{
-    foreach($elem as $val)
-    {
+foreach ($multi_array as $elem) {
+    foreach ($elem as $val) {
         echo $val;
     }
 }
@@ -127,9 +117,8 @@ echo '</pre>';
 echo $multi_array['ucenik2']['MB'];
 
 
-/* 
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
