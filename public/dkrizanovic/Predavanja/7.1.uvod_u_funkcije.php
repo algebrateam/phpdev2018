@@ -24,4 +24,4 @@ function show_naslov($naslov = 'no_title')
             }
     }
     show_naslov('serija');
-    show_imena(array('<br>Danijel'));
+    show_imena();
