@@ -31,10 +31,19 @@ for ($i = 0; $i < count($imena); $i++ ){
 
 echo '<hr><br>';
 echo 'Zadatak 4.<br>';
+ksort($imena);
+foreach ($imena as $key => $ime) {
+            echo 'ključ '.$key.' uz ime '.$ime.'</br>';
+        }
 
 
 echo '<hr><br>';
 echo 'Zadatak 5.<br>';
-
-
-echo '<hr><br>';
+$niz=array();
+for ($brojevi=1; $brojevi<=100; $brojevi++) {
+    $niz[]=$brojevi;
+    
+}
+foreach ($niz as $broj) {
+            echo $broj.'</br>';
+}
