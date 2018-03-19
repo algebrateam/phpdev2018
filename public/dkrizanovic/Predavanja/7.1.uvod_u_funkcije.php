@@ -23,5 +23,5 @@ function show_naslov($naslov = 'no_title')
             echo $ime;
             }
     }
-    show_naslov('film');
-    show_imena(('Bela', 'Predrag''));
+    show_naslov('serija');
+    show_imena(array('<br>Danijel'));
