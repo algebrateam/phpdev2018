@@ -1,9 +1,10 @@
 <?php
 
-function inc_a(){
-  static $a;
-  $a++;
-  echo $a;
+function inc_a()
+{
+    static $a;
+    $a++;
+    echo $a;
 }
 
 inc_a();

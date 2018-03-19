@@ -1,17 +1,18 @@
 <?php
 
-class Pas {
-    var $name;
-    var $tezina;
+class Pas
+{
+    public $name;
+    public $tezina;
 
-    function __construct($name, $tezina)
+    public function __construct($name, $tezina)
     {
         $this->name = $name;
         $this->tezina = $tezina;
     }
 
     /* This is the static comparing function: */
-    static function cmp_obj($a, $b)
+    public static function cmp_obj($a, $b)
     {
         $al = $a->tezina;
         $bl = $b->tezina;
@@ -40,4 +41,3 @@ usort($a, "Pas::cmp_obj");
 foreach ($a as $item) {
     echo $item->name . "\n";
 }
-?>
