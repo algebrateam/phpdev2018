@@ -9,23 +9,25 @@ echo 'Ako je prijestupna ispise 1:'.$datum;
 echo '<br>';
 echo '<br>';
 
-function show_naslov($naslov ='no_title'){
-    switch($naslov):
+function show_naslov($naslov ='no_title')
+{
+    switch ($naslov):
     case 'film':
         $var = 'Terminator';
-        break;
+    break;
     case 'serija':
         $var = 'Dr. House';
-        break;
+    break;
     case 'no_title':
         $var = 'nema naslova';
-        break;
+    break;
     endswitch;
     
     echo $var;
 }
-function show_imena($imena = array()){
-    foreach($imena as $ime){
+function show_imena($imena = array())
+{
+    foreach ($imena as $ime) {
         echo $ime;
         echo '<br>';
     }
@@ -33,4 +35,3 @@ function show_imena($imena = array()){
 show_naslov('film');
 echo '<br>';
 show_imena(array('Bela','Danijel'));
-
