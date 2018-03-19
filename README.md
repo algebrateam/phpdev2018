@@ -4,8 +4,9 @@
 
 [![Heroku](https://github.com/algebrateam/phpdev2018/blob/master/heroku.svg)](https://dashboard.heroku.com/apps/phpdev2018)
 
+___
 
-[![PHPDEV2018](PHPDEV2018)](https://phpdev2018.herokuapp.com)
+## PHPDEV2018 stranica: (https://phpdev2018.herokuapp.com)
 ___
   
 # phpdev2018

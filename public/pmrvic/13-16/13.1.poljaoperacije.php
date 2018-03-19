@@ -1,24 +1,25 @@
 <?php
+
 /**
  * Prebrojavanje elemenata...
  */
 unset($fruits);
-$fruits = [0       => 'limun',
-                'a'=> 'naranca',
-                 1 => 'banana',
-                'b'=> 'jabuka',
-                7  => 'banana',
-                2  => 'grejp', ];
+$fruits = [0 => 'limun',
+  'a'        => 'naranca',
+  1          => 'banana',
+  'b'        => 'jabuka',
+  7          => 'banana',
+  2          => 'grejp', ];
 
 $brojelemenata = 0;
 echo '<ul>';
-foreach ($fruits as $znak=> $vrijednost) {
-  
-  echo '<li>'
+
+foreach ($fruits as $znak => $vrijednost) {
+    echo '<li>'
   .$znak
-    .' ima vrijednost:'
-    .$vrijednost
-    .'</li>';
+  .' ima vrijednost:'
+  .$vrijednost
+  .'</li>';
 }
 echo '</ul>';
 
@@ -28,12 +29,12 @@ foreach ($fruits as $key => $value) {
 
 echo 'prebrojali smo '.$brojelemenata.' elemenata polja';
 
-$brojelemenata=0;
+$brojelemenata = 0;
 // broj elemenata oznacenih indexom
 foreach ($fruits as $key => $value) {
-  if(gettype($key)=='integer'){
-  $brojelemenata++;
-  }
+    if (gettype($key) == 'integer') {
+        $brojelemenata++;
+    }
 }
 
 echo '<br> zadnje element polja je:'.$value.'<br>';
@@ -76,19 +77,23 @@ foreach ($fruits as $kljuc => $vrijednost) {
 }
 echo '<br>jabuka se nalazi pod ključem '.$kljuc;
 
-$key = array_search('banana', $fruits);
-echo '<br>Našao sam bananu:'.$key;
+$bananakey = array_search('banana', $fruits);
+if ($bananakey != 'false') {
+    echo '<br>Našao sam bananu:'.$bananakey;
+}
 
 //unset($fruits[$key]);
 
-$key = array_search('jabuka', $fruits);
-echo '<br>Našao sam jabuku pod ključem:'.$key;
+$jabukakey = array_search('jabuka', $fruits);
+if ($bananakey != 'false') {
+    echo '<br>Našao sam jabuku pod ključem:'.$jabukakey;
+}
 
 if (in_array('banana', $fruits)) {
     echo '<br>banana je nadjena!';
 }
 
-unset($fruits[7]);  // izbacimo element pod kljucem 7
+unset($fruits[7]); // izbacimo element pod kljucem 7
 
 if (in_array('banana', $fruits)) {
     echo 'banana je nadjena!';

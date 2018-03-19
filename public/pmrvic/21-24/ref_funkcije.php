@@ -4,7 +4,7 @@
 
 function potencija(&$var, $n = 2)
 {
-    $var1 = $var;   // tu je skoro svima greška
+    $var1 = $var; // tu je skoro svima greška
 
     // prvi način
     // $var=pow($var,$n);
