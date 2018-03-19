@@ -9,22 +9,22 @@ echo '<br>';
 
 function mjesec($m)
 {
-  $mjeseci_niz = array();
+    $mjeseci_niz = array();
   
-  $mjeseci_niz[1]="Siječanj";
-  $mjeseci_niz[2]="Veljača";
-  $mjeseci_niz[3]="Ožujak";
-  $mjeseci_niz[4]="Travanj";
-  $mjeseci_niz[5]="Svibanj";
-  $mjeseci_niz[6]="Lipanj";
-  $mjeseci_niz[7]="Srpanj";
-  $mjeseci_niz[8]="Kolovoz";
-  $mjeseci_niz[9]="Rujan";
-  $mjeseci_niz[10]="Listopad";
-  $mjeseci_niz[11]="Studeni";
-  $mjeseci_niz[12]="Prosinac";
+    $mjeseci_niz[1]="Siječanj";
+    $mjeseci_niz[2]="Veljača";
+    $mjeseci_niz[3]="Ožujak";
+    $mjeseci_niz[4]="Travanj";
+    $mjeseci_niz[5]="Svibanj";
+    $mjeseci_niz[6]="Lipanj";
+    $mjeseci_niz[7]="Srpanj";
+    $mjeseci_niz[8]="Kolovoz";
+    $mjeseci_niz[9]="Rujan";
+    $mjeseci_niz[10]="Listopad";
+    $mjeseci_niz[11]="Studeni";
+    $mjeseci_niz[12]="Prosinac";
   
-  return $mjeseci_niz[$m];
+    return $mjeseci_niz[$m];
 }
 $m = date('n');
 echo mjesec($m);
@@ -42,11 +42,10 @@ function tablica($imenaNiz)
             <th> Ime </th>
             <th> Prezime </th>
             </tr>';
-    foreach($imenaNiz as $key => $ucenik)
-    {
+    foreach ($imenaNiz as $key => $ucenik) {
         echo '<td>'.$ucenik['ime'].'</td>
               <td>'.$ucenik['prezime'].'</td>
-             </tr>';                
+             </tr>';
     }
     echo '</table>';
 }
@@ -103,39 +102,39 @@ echo 'Zadatak 3.';
 echo '<br>';
 echo '<br>';
 
-function zbroj($a,$b)
+function zbroj($a, $b)
 {
     return 'zbroj je '.($a+$b);
 }
 
-function razlika($a,$b)
+function razlika($a, $b)
 {
     return 'razlika je '.($a-$b);
 }
 
-function umnozak($a,$b)
+function umnozak($a, $b)
 {
     return 'produkt je '.($a*$b);
 }
 
-function razlomak($a,$b)
+function razlomak($a, $b)
 {
     return 'količnik je '.($a/$b);
 }
 
 
-function skup($a,$b)
+function skup($a, $b)
 {
-    echo zbroj($a,$b).'<br>';
-    echo razlika($a,$b).'<br>';
-    echo umnozak($a,$b).'<br>';
-    echo razlomak($a,$b).'<br>';
+    echo zbroj($a, $b).'<br>';
+    echo razlika($a, $b).'<br>';
+    echo umnozak($a, $b).'<br>';
+    echo razlomak($a, $b).'<br>';
 }
 
 $k=10;
 $l=2;
 
-skup($k,$l);
+skup($k, $l);
 
 echo '<br>';
 echo '<hr>';
@@ -145,20 +144,15 @@ echo '<br>';
 
 function var_par()
 {
-    
     $par = func_get_args();
     
-    foreach($par as $p)
-    {
-        if(is_int($p))
-        {
+    foreach ($par as $p) {
+        if (is_int($p)) {
             echo $p.' je broj <br>';
-        }
-        else
-        {
+        } else {
             echo $p.' je string <br>';
         }
     }
 }
 
-echo var_par(1,4,"Bela",5,"Danijela");
+echo var_par(1, 4, "Bela", 5, "Danijela");
