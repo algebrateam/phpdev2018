@@ -43,6 +43,20 @@ foreach($polje_imena as $key => $ime)
 {
     echo 'Ključ '.$key.' ima vrijednost: '.$ime.'<br>';
 }
+
+echo "<br>Zadatak broj 5<br>";
+$polje_brojeva = array();
+
+for($i = 1; $i <= 100; $i++)
+{
+    $polje_brojeva[] = $i;
+}
+
+foreach($polje_brojeva as $broj)
+{
+    echo $broj."<br>";
+}
+
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
