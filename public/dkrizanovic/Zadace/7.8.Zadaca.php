@@ -52,3 +52,24 @@ function hr_mjesec()
     echo "<br> Trenutačni mjesec je : $mjesec";
 }
 hr_mjesec();
+echo '<br>';
+echo '<br>';
+echo '2. Napišite funkciju koja ispisuje HTML tablicu imena i prezimena učenika. Kao parametar joj se proslljeđuje polje s imenima i prezimenima';
+echo '<br>';
+echo '<br>';
+echo 'Rješenje:';
+echo '<br>';
+//Zadatak 2
+function ispis_imena($imena)
+{
+    echo '<table border="1"width="200">';
+    foreach($imena as $key =>$ime)
+    {
+        echo '<tr> <td>'.($key +1).'</td><td>'.$ime.'</td></tr>';
+    }
+    
+    echo '</table>';
+        }
+        $ucenici = array('Danijel Krizanovic','Bela Skenderovic','Darko Repinac','Domagoj Zdero','Ilija Kovačević','Davor Peric','Ivana Crnjac','Ivan Vranjes','Magareta Drlic','Marin Zolota');
+        ispis_imena($ucenici);
+    
