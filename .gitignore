@@ -1,4 +1,3 @@
-dzdero/private/
 /nbproject/
 vendor/
 /vendor
@@ -22,4 +21,8 @@ Homestead.json
 # Rocketeer PHP task runner and deployment package. https://github.com/rocketeers/rocketeer
 .rocketeer/
 /nbproject/private/
+<<<<<<< HEAD
 /public/nbproject/private/
+=======
+/public/nbproject/private/
+>>>>>>> 5b10869b133a1b9e74e9a9ff0dee4cdf68b437f6
