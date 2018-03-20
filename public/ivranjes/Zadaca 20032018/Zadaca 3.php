@@ -2,23 +2,22 @@
 
 function ispis_tablica($imenaArray)
 {
-	echo '
+    echo '
 	<table border="1">
 	<tr>
 	<th>Ime</th>
 	<th>Prezime</th>
 	</tr>';
-	
-	foreach($imenaArray as $key => $ucenik)
-	{
-		echo'
+    
+    foreach ($imenaArray as $key => $ucenik) {
+        echo'
 		<tr>
 		<td>'.$ucenik["ime"].'</td>
 		<td>'.$ucenik["prezime"].'</td>
 		</tr>';
-	}
-	
-	echo '</table>';
+    }
+    
+    echo '</table>';
 }
 
 
@@ -34,4 +33,3 @@ $ucenici[3]["ime"] = "Kata";
 $ucenici[3]["prezime"] = "Bata";
 
 ispis_tablica($ucenici);
-
