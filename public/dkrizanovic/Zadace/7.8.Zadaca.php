@@ -145,20 +145,17 @@ echo '<br>';
 echo '<br>';
 echo 'Rjesenje:';
 echo '<br>';
-function parametri()
-{
-    $parametri= func_get_args();
-    foreach($parametri as $par)
-    {
-        if(is_int($par))
-        {
-        echo $par." je broj<br>"; 
-                }
-        else
-        {
-     echo $par." je string<br>";
+
+function parametri() {
+    $parametri = func_get_args();
+    foreach ($parametri as $par) {
+        if (is_int($par)) {
+            echo $par . " je broj<br>";
+        } else {
+            echo $par . " je string<br>";
         }
+    }
 }
-}
-echo parametri("Danijel ",11 ," Krizanovic",111 );
+
+echo parametri("Danijel ", 11, " Krizanovic", 111);
 
