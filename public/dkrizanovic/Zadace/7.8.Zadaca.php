@@ -53,7 +53,7 @@ function hr_mjesec() {
 }
 
 hr_mjesec();
-echo '<br>';
+echo '<hr>';
 echo '<br>';
 echo '2. Napišite funkciju koja ispisuje HTML tablicu imena i prezimena učenika. Kao parametar joj se proslljeđuje polje s imenima i prezimenima';
 echo '<br>';
@@ -73,7 +73,7 @@ function ispis_imena($imena) {
 
 $ucenici = array('Danijel Krizanovic', 'Bela Skenderovic', 'Darko Repinac', 'Domagoj Zdero', 'Ilija Kovačević', 'Davor Peric', 'Ivana Crnjac', 'Ivan Vranjes', 'Magareta Drlic', 'Marin Zolota');
 ispis_imena($ucenici);
-echo '<br>';
+echo '<hr>';
 echo '<br>';
 echo '3. Napisite funkcije za zbrajanje,razliku, umnozak i djeljenje dva broja. Zatim napisite funkciju koja ce pozivati sve te funkcije odjednom';
 echo '<br>';
@@ -138,9 +138,10 @@ function ukupno($a, $b) {
 }
 
 ukupno($a, $b);
+echo '<hr>';
+//Zadatak 4
 echo '<br>';
-echo '<br>';
-echo 'Napisite funkciju koja prima varijabilni broj parametara. Parametri su kombinirani brojevi i stringovi. Za svaki parametar ispisite kojeg je tipa';
+echo '4.Napisite funkciju koja prima varijabilni broj parametara. Parametri su kombinirani brojevi i stringovi. Za svaki parametar ispisite kojeg je tipa';
 echo '<br>';
 echo '<br>';
 echo 'Rjesenje:';
