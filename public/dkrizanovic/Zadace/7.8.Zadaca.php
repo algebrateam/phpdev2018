@@ -116,3 +116,19 @@ function umn($a,$b)
 }
     echo "Umnozak brojeva $a i $b je ";
 echo umn($a,$b);
+echo '<br>';
+//funkcija za sveukupni ispis
+function ukupno($a,$b)
+{
+    echo "Rješenja svih funkcija su:";
+   echo '<br>';
+    echo sumiraj($a,$b);
+    echo '<br>';
+    echo umn($a,$b);
+    echo '<br>';
+    echo dje($a,$b);
+    echo '<br>';
+    echo razlika($a, $b);
+    echo '<br>';
+}
+ukupno($a,$b);    
