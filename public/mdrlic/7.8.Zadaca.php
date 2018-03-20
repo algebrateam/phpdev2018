@@ -1,9 +1,9 @@
 <?php
 
 echo 'Zadatak 1<br>';
-function hr_month()
+function hrv_month()
 {
-    switch (date('n')):
+    switch (date('n')): 
         
         case '1':
             $month = 'siječanj';
@@ -47,7 +47,7 @@ function hr_month()
     echo 'Ovaj mjesec je: '.$month;
 }
 
-hr_month();
+hrv_month();
 
 
 echo '<br><br>Zadatak 2<br>';
