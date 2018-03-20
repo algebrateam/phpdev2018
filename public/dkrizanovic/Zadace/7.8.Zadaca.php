@@ -10,44 +10,45 @@ echo 'Rješenje:';
 echo '<br>';
 
 //Zadatak 1
-function hr_mjesec() {
+function hr_mjesec()
+{
     switch (date('n')):
         case '1':
             $mjesec = 'Siječanj';
-            break;
-        case '2':
+    break;
+    case '2':
             $mjesec = 'Veljača';
-            break;
-        case '3':
+    break;
+    case '3':
             $mjesec = 'Ožujak';
-            break;
-        case '4':
+    break;
+    case '4':
             $mjesec = 'Travanj';
-            break;
-        case '5':
+    break;
+    case '5':
             $mjesec = 'Svibanj';
-            break;
-        case '6':
+    break;
+    case '6':
             $mjesec = 'Lipanj';
-            break;
-        case '7':
+    break;
+    case '7':
             $mjesec = 'Srpanj';
-            break;
-        case '8':
+    break;
+    case '8':
             $mjesec = 'Kolovoz';
-            break;
-        case '9':
+    break;
+    case '9':
             $mjesec = 'Rujan';
-            break;
-        case '10':
+    break;
+    case '10':
             $mjesec = 'Listopad';
-            break;
-        case '11':
+    break;
+    case '11':
             $mjesec = 'Studeni';
-            break;
-        case '12':
+    break;
+    case '12':
             $mjesec = 'Prosinac';
-            break;
+    break;
     endswitch;
     echo "<br> Trenutačni mjesec je : $mjesec";
 }
@@ -62,7 +63,8 @@ echo 'Rješenje:';
 echo '<br>';
 
 //Zadatak 2
-function ispis_imena($imena) {
+function ispis_imena($imena)
+{
     echo '<table border="1"width="200">';
     foreach ($imena as $key => $ime) {
         echo '<tr> <td>' . ($key + 1) . '</td><td>' . $ime . '</td></tr>';
@@ -82,7 +84,8 @@ echo 'Rješenje';
 echo '<br>';
 
 //Zadatak 3
-function sumiraj($a, $b) {
+function sumiraj($a, $b)
+{
     $sum = $a + $b;
     return $sum;
 }
@@ -94,7 +97,8 @@ echo sumiraj($a, $b);
 //funcija za razliku
 echo '<br>';
 
-function razlika($a, $b) {
+function razlika($a, $b)
+{
     $raz = $a - $b;
     return $raz;
 }
@@ -104,7 +108,8 @@ echo razlika($a, $b);
 echo '<br>';
 
 //funkcija za djeljenje
-function dje($a, $b) {
+function dje($a, $b)
+{
     $dje = $a / $b;
     return $dje;
 }
@@ -114,7 +119,8 @@ echo dje($a, $b);
 echo '<br>';
 
 //funkcija za umnozak
-function umn($a, $b) {
+function umn($a, $b)
+{
     $umn = $a * $b;
     return $umn;
 }
@@ -124,7 +130,8 @@ echo umn($a, $b);
 echo '<br>';
 
 //funkcija za sveukupni ispis
-function ukupno($a, $b) {
+function ukupno($a, $b)
+{
     echo "Rješenja svih funkcija su:";
     echo '<br>';
     echo sumiraj($a, $b);
@@ -147,7 +154,8 @@ echo '<br>';
 echo 'Rjesenje:';
 echo '<br>';
 
-function parametri() {
+function parametri()
+{
     $parametri = func_get_args();
     foreach ($parametri as $par) {
         if (is_int($par)) {
