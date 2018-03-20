@@ -124,6 +124,27 @@ function sve($a, $b)
 sve($a, $b);
 
 
+echo '<br><br>Zadatak 4<br>';
+function par()
+{
+    $parametars = func_get_args();
+    
+    foreach($parametars as $par)
+    {
+        if(is_int($par))
+        {
+            echo $par.' je broj<br>';
+        }
+        else
+        {
+          echo $par.' je string<br>';  
+        }
+    }
+}
+
+echo par('Iva', 4, 'Leo', 6);
+
+
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
