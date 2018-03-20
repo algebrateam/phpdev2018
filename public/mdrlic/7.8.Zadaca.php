@@ -87,6 +87,43 @@ $ucenici[3]['prezime'] = 'Starčević';
 ispis_tablice($ucenici);
 
 
+echo '<br>Zadatak 3<br>';
+$a = 6;
+$b = 3;
+
+function zbrajanje($a, $b)
+{
+    return $a.' + '.$b.' = '.($a+$b).'<br>';
+    
+}
+
+function oduzimanje($a, $b)
+{
+    return $a.' - '.$b.' = '.($a-$b).'<br>';
+    
+}
+
+function mnozenje($a, $b)
+{
+    return $a.' * '.$b.' = '.($a*$b).'<br>';
+}
+
+function dijeljenje($a, $b)
+{
+    return $a.' / '.$b.' = '.($a/$b);
+}
+
+function sve($a, $b)
+{
+  echo zbrajanje($a, $b);
+  echo oduzimanje($a, $b);
+  echo mnozenje($a, $b);
+  echo dijeljenje($a, $b);
+}
+
+sve($a, $b);
+
+
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
