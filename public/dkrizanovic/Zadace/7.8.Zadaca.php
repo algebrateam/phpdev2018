@@ -72,4 +72,47 @@ function ispis_imena($imena)
         }
         $ucenici = array('Danijel Krizanovic','Bela Skenderovic','Darko Repinac','Domagoj Zdero','Ilija Kovačević','Davor Peric','Ivana Crnjac','Ivan Vranjes','Magareta Drlic','Marin Zolota');
         ispis_imena($ucenici);
-    
+    echo '<br>';
+echo '<br>';
+echo '3. Napisite funkcije za zbrajanje,razliku, umnozak i djeljenje dva broja. Zatim napisite funkciju koja ce pozivati sve te funkcije odjednom';
+echo '<br>';
+echo '<br>';
+echo 'Rješenje';
+echo '<br>';
+//Zadatak 3
+function sumiraj($a,$b)
+{
+    $sum = $a + $b;
+    return $sum;
+}
+$a = 1;
+$b = 2;
+echo "Zbroj brojeva $a i $b je ";
+echo sumiraj($a,$b);
+//funcija za razliku
+echo '<br>';
+function razlika($a,$b)
+{
+    $raz = $a-$b;
+    return $raz;
+}
+echo "Razlika brojeva $a i $b je ";
+echo razlika($a,$b);
+echo '<br>';
+//funkcija za djeljenje
+function dje($a,$b)
+{
+    $dje = $a / $b;
+    return $dje;
+}
+echo "Djeljenjem brojeva $a i $b dobijemo rezultat ";
+echo dje($a,$b);
+echo '<br>';
+//funkcija za umnozak
+function umn($a,$b)
+{
+    $umn = $a * $b;
+    return $umn;
+}
+    echo "Umnozak brojeva $a i $b je ";
+echo umn($a,$b);
