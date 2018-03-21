@@ -3,7 +3,7 @@ function sljedeci()
 {
     echo '<hr><br>';
 }
-echo 'Zadatak 1.<br>';
+echo 'Zadatak 1.<br><br>';
 function hr_month()
 {
     switch (date('n')):
@@ -48,7 +48,7 @@ function hr_month()
 }
 hr_month();
 sljedeci();
-echo 'Zadatak 2.<br>';
+echo 'Zadatak 2.<br><br>';
 //function tablica($tablica)
 //{
 //    echo "<table border='1'>";
@@ -69,9 +69,9 @@ echo 'Zadatak 2.<br>';
 //$ime = ['ivan', 'petar'];
 //$prezime = ['ivic', 'Peric'];
 //tablica($ime=>$prezime);
-function ispisitablu()
+function tablica()
 {
-    $mojaimena = func_get_arg(0);
+    $ucenici = func_get_arg(0);
 
     echo '
 <table border=1>
@@ -81,12 +81,12 @@ function ispisitablu()
   <th>Prezime</th>
 </tr>
 ';
-    for ($i = 0; $i < count($mojaimena); $i += 2) {
+    for ($i = 0; $i < count($ucenici); $i += 2) {
         echo '
  <tr>
   <td>'.($i / 2).'</td>
-  <td>'.$mojaimena[$i].'</td>
-  <td>'.$mojaimena[$i + 1].'</td>
+  <td>'.$ucenici[$i].'</td>
+  <td>'.$ucenici[$i + 1].'</td>
 </tr>
 ';
     }
@@ -94,6 +94,35 @@ function ispisitablu()
     echo '</table>';
 }
 
-$poljeimena = ['Pero', 'Perić', 'Ivo', 'Ivić', 'Jure'];
+$poljeimena = ['Ivan', 'Aralica', 'Petar', 'Maric', 'Ivica', 'Tucak', 'Domagoj', 'Ždero'];
 
-ispisitablu($poljeimena);
+tablica($poljeimena);
+sljedeci();
+echo 'Zadatak 3.<br><br>';
+function izracunaj($a,$b)
+{
+    //$sum=$a+$b;
+    //return $sum;
+    echo "$a + $b".' = '.($a + $b).'<br>';
+    echo "$a - $b".' = '.($a - $b).'<br>';
+    echo "$a * $b".' = '.($a * $b).'<br>';
+    echo "$a / $b".' = '.($a / $b).'<br>';
+}
+$a=13;
+$b=5;
+echo izracunaj($a,$b);
+sljedeci();
+echo 'Zadatak 4.<br><br>';
+    function parametar()
+        {
+            $i = 0;
+            $parametri = func_get_args();
+            foreach ($parametri as $par)
+                {
+                $i++;
+                echo 'Uzorak ' . $i . '. parametra je ' . gettype($par);
+                echo '<br>';
+                }
+       }
+
+echo parametar('Domagoj', 'Ivica', 17, 58, 'Đuro', ['1', '2', '3']);
