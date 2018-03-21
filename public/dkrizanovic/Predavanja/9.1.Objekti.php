@@ -15,3 +15,4 @@ class Covjek
 $c=new Covjek();
 $c->set_ime('Danijel');
 echo $c->ime;
+
