@@ -5,7 +5,8 @@
         echo 'Zadatak 1.';
         echo '<br>';
 
-        function h_mj() {
+        function h_mj()
+        {
             $mjeseci = array('Sječanj', 'Veljača', 'Ožujak', 'Travanj', 'Svibanj', 'Lipanj', 'Srpanj', 'Kolovoz', 'Rujan', 'Listopad', 'Studeni', 'Prosinac');
 
             $mjesec = $mjeseci[date('n') - 1];
@@ -19,7 +20,8 @@
         echo '<br>';
         echo '<br>';
 
-        function tablica_imena($imena) {
+        function tablica_imena($imena)
+        {
             echo '<table border="1">';
             foreach ($imena as $key => $ime) {
                 echo '<tr> <td>' . ($key + 1) . '</td><td>' . $ime . '</td></tr>';
@@ -34,30 +36,35 @@
         echo 'Zadatak 3.';
         echo '<br>';
 
-        function zbroj($a, $b) {
+        function zbroj($a, $b)
+        {
             $sum = $a + $b;
             return $sum;
         }
 
-        function razlika($a, $b) {
+        function razlika($a, $b)
+        {
             $raz = $a - $b;
             return $raz;
         }
 
 //funkcija za djeljenje
-        function podjeljeno($a, $b) {
+        function podjeljeno($a, $b)
+        {
             $dje = $a / $b;
             return $dje;
         }
 
 //funkcija za umnozak
-        function umnozak($a, $b) {
+        function umnozak($a, $b)
+        {
             $umn = $a * $b;
             return $umn;
         }
 
 //funkcija za sveukupni ispis
-        function ukupno($a, $b) {
+        function ukupno($a, $b)
+        {
             echo '<br>';
             echo 'Zbroj brojeva ' . $a . ' i ' . $b . ' je ' . zbroj($a, $b);
             echo '<br>';
@@ -78,7 +85,8 @@
         echo '<br>';
         echo '<br>';
 
-        function parametar() {
+        function parametar()
+        {
             $i = 0;
             $parametri = func_get_args();
             foreach ($parametri as $par) {
