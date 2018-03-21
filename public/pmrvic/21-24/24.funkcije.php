@@ -35,9 +35,10 @@ td:nth-child(odd) {background: #FFF}
 }
 */
 
-function br_bac(){
+function br_bac()
+{
     echo "<br>";
-   echo ' <p>';
+    echo ' <p>';
     echo '
 public	update zadace 6.7	8 hours ago
 tests	Apply fixes from StyleCI	11 days ago
@@ -75,7 +76,7 @@ function linija()
 $timestamp = time();
 
 echo "<br> kao timestamp ispis vremena $timestamp";
-echo '<br> kao date:'.gmdate("Y/m/j H:i:s",$timestamp +3600*1); // dodaj 1 sat
+echo '<br> kao date:'.gmdate("Y/m/j H:i:s", $timestamp +3600*1); // dodaj 1 sat
 
 
 $nizslova = 'neko južno voće';

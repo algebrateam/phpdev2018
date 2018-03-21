@@ -2,34 +2,35 @@
 
 echo "Klase i objekti<br>";
 
-class covjek{
-	// var $ime="moje defaoultno ime";
+class covjek
+{
+    // var $ime="moje defaoultno ime";
     protected $ime;
 
-    function __construct($novoime){
-    	//provjera($novoime);
-    	if (gettype($novoime)!='string'){
-    		echo "alo brale ime mora nbiti string";
-    		exit;
-    	}
-    	else{
-    	$this->ime=$novoime;	
-    	}
-    	
+    public function __construct($novoime)
+    {
+        //provjera($novoime);
+        if (gettype($novoime)!='string') {
+            echo "alo brale ime mora nbiti string";
+            exit;
+        } else {
+            $this->ime=$novoime;
+        }
     }
 
-	public function set_ime($ime){
-		$this->ime=$ime;
-	}
-	function get_ime(){
-		return $this->ime;
-	}
-	
-	function __destruct(){
-		 echo "<br> ".$this->ime." je gecrk";
-	}
-
-
+    public function set_ime($ime)
+    {
+        $this->ime=$ime;
+    }
+    public function get_ime()
+    {
+        return $this->ime;
+    }
+    
+    public function __destruct()
+    {
+        echo "<br> ".$this->ime." je gecrk";
+    }
 }
 
 $c1=new covjek('Ivica');
@@ -55,19 +56,20 @@ $c3=new covjek('Marijan');
 echo "<br>c2 se zove: ".$c3->get_ime();
 
 //////////KLASA KUPAC///////////////
-class kupac extends covjek implements Ikupac{
-var $id_kupca;
-var $potroseni_iznos;
+class kupac extends covjek implements Ikupac
+{
+    public $id_kupca;
+    public $potroseni_iznos;
 
-function __construct($novo_ime){
-  parent::__construct($novo_ime);
-  $this->id_kupca=1234;
-}
-function ispis(){
-
-	echo "<br>+++++ ".$this->ime." ima id:".$this->id_kupca." a potrosio je:".$this->potroseni_iznos;
-
-}
+    public function __construct($novo_ime)
+    {
+        parent::__construct($novo_ime);
+        $this->id_kupca=1234;
+    }
+    public function ispis()
+    {
+        echo "<br>+++++ ".$this->ime." ima id:".$this->id_kupca." a potrosio je:".$this->potroseni_iznos;
+    }
 }
 
 $k1=new kupac('12345');
@@ -81,10 +83,7 @@ $k1->ispis();
 echo "<br>---- ime kupca je ",$k1->get_ime();
 //.$k1->ime;  // ovo ne koristimo jer je ime private
 
-interface Ikupac{
-	function ispis();
+interface Ikupac
+{
+    public function ispis();
 }
-
-
-
-?>
