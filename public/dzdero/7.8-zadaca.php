@@ -9,40 +9,40 @@ function hr_month()
     switch (date('n')):
         case '1':
             $month='Siječanj';
-            break;
-        case '2':
+    break;
+    case '2':
             $month='Veljača';
-            break;
-        case '3':
+    break;
+    case '3':
             $month='Ožujak';
-            break;
-        case '4':
+    break;
+    case '4':
             $month='Travanj';
-            break;
-        case '5':
+    break;
+    case '5':
             $month='Svibanj';
-            break;
-        case '6':
+    break;
+    case '6':
             $month='Lipanj';
-            break;
-        case '7':
+    break;
+    case '7':
             $month='Srpanj';
-            break;
-        case '8':
+    break;
+    case '8':
             $month='Kolovoz';
-            break;
-        case '9':
+    break;
+    case '9':
             $month='Rujan';
-            break;
-        case '10':
+    break;
+    case '10':
             $month='Listopad';
-            break;
-        case '11':
+    break;
+    case '11':
             $month='Studeni';
-            break;
-        case '12':
+    break;
+    case '12':
             $month='Prosinac';
-            break;
+    break;
     endswitch;
     echo 'Trenutno je mjesec '.$month;
 }
@@ -53,16 +53,16 @@ echo 'Zadatak 2.<br><br>';
 //{
 //    echo "<table border='1'>";
 //    foreach ($tablica as $ime=>$prezime)
-//            
+//
 //    {
 //        echo "<tr>
-//                
+//
 //                <td>$ime</td>
 //                <td>$prezime</td>
 //              </tr>";
-//                
+//
 //    }
-//    
+//
 //    echo "</table>";
 //}
 //
@@ -99,7 +99,7 @@ $poljeimena = ['Ivan', 'Aralica', 'Petar', 'Maric', 'Ivica', 'Tucak', 'Domagoj',
 tablica($poljeimena);
 sljedeci();
 echo 'Zadatak 3.<br><br>';
-function izracunaj($a,$b)
+function izracunaj($a, $b)
 {
     //$sum=$a+$b;
     //return $sum;
@@ -110,19 +110,18 @@ function izracunaj($a,$b)
 }
 $a=13;
 $b=5;
-echo izracunaj($a,$b);
+echo izracunaj($a, $b);
 sljedeci();
 echo 'Zadatak 4.<br><br>';
     function parametar()
-        {
-            $i = 0;
-            $parametri = func_get_args();
-            foreach ($parametri as $par)
-                {
-                $i++;
-                echo 'Uzorak ' . $i . '. parametra je ' . gettype($par);
-                echo '<br>';
-                }
-       }
+    {
+        $i = 0;
+        $parametri = func_get_args();
+        foreach ($parametri as $par) {
+            $i++;
+            echo 'Uzorak ' . $i . '. parametra je ' . gettype($par);
+            echo '<br>';
+        }
+    }
 
 echo parametar('Domagoj', 'Ivica', 17, 58, 'Đuro', ['1', '2', '3']);
