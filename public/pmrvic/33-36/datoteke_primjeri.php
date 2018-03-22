@@ -6,4 +6,3 @@ fwrite($myfile, $txt);
 $txt = "Jane Doe  SDFSDFGSD\n";
 fwrite($myfile, $txt);
 fclose($myfile);
-
