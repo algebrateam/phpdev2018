@@ -1,0 +1,45 @@
+<?php 
+    $naslov = 'Ovo je naslov 3';
+?> 
+
+
+    <div class="container">
+        <h1><?php echo $naslov; ?></h1>
+        <p>Ja sam podnaslov.</p>
+    </div>
+
+
+ 
+<?php
+
+    $colors = array("red", "green", "blue", "yellow"); 
+
+?>
+
+<div class="container">
+  <h2>Basic Table</h2>
+  <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p>            
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <?php  foreach ($colors as $color) {
+        echo '
+        <tr>
+            <td>'.$color.'</td>
+            <td>Doe</td>
+            <td>john@example.com</td>
+          </tr>
+         ';
+      } ?>  
+ 
+    
+    </tbody>
+  </table>
+</div>
