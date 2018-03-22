@@ -47,3 +47,4 @@ if (isset($_POST["btn"])) {
     fwrite($handle, $_POST["txt"]);
     fclose($handle);
 }
+echo '<br>';
