@@ -45,10 +45,10 @@ function ispis_tablica($imenaArray)
     
 }
 $ucenici = array();
-$ucenici[1]["ime"] = "Ivan";
-$ucenici[1]["prezime"] ="Maric";
-$ucenici[2]["ime"] ="Petar";
-$ucenici[2]["prezime"] ="Petkovic";
+$ucenici[1]["ime"] = "Pero";
+$ucenici[1]["prezime"] ="Peric";
+$ucenici[2]["ime"] ="Mitar";
+$ucenici[2]["prezime"] ="Miric";
 ispis_tablica($ucenici);
 ?>
 
@@ -102,5 +102,5 @@ function param()
         }    
     }
 }
-echo param("Ema", 7 , 3, "Ivan");
+echo param("Bosko", 7 , 3, "Josko");
 ?>
