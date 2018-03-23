@@ -1,0 +1,9 @@
+Digitalni ID je poput elektronièke vozaèke dozvole ili putovnice koja služi kao dokaz vašeg identiteta. 
+Digitalni ID obièno sadrži vaše ime i adresu e-pošte, naziv organizacije koja ga je izdala, serijski broj i datum isteka. 
+Digitalni ID-ovi koriste se za zaštitu pomoæu certifikata i digitalne potpise.
+Digitalni ID-ovi sadrže dva kljuèa: javni kljuè koji služi za zakljuèavanje ili šifriranje podataka te privatni kljuè 
+koji služi da otkljuèavanje ili dešifriranje tih podataka. 
+Prilikom potpisivanja PDF dokumenata koristite privatni kljuè kako biste primijenili svoj digitalni potpis. 
+Javni kljuè ukljuèen je u certifikat koji distribuirate drugim osobama. Na primjer, certifikat možete poslati 
+onim osobama koje žele provjeriti vaš potpis ili identitet. Svoj digitalni ID èuvajte na sigurnom mjestu jer on 
+sadrži vaš privatni kljuè koji bi druge osobe mogle iskoristiti za dešifriranje vaših informacija. 

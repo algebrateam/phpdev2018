@@ -8,5 +8,3 @@ $contetnt= fread($handle, filesize('newfile.txt'));
 fclose($handle);
 
 echo $contetnt;
-
-
