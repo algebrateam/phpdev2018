@@ -9,16 +9,15 @@ echo '<br>';
 
 $imefile = 'test.txt';
 
-$handle = fopen($imefile,'r');
-$content = fread($handle,filesize($imefile));
+$handle = fopen($imefile, 'r');
+$content = fread($handle, filesize($imefile));
 fclose($handle);
 
 echo $content.'<br>';
 
 $datoteka = file($imefile);
 
-foreach ($datoteka as $line_num => $line)
-{
+foreach ($datoteka as $line_num => $line) {
     echo 'Linija #<b>'.$line_num.'</b>:'.$line.'</b>'.'<br>';
 }
 
@@ -34,16 +33,12 @@ Tekst:<input type="text" name="txt" value="" /><br/>
 <input type="submit" name="btn" value="Spremi" />
 </form>';
 
-if(isset($_POST["btn"]))
-{
-$fileime = 'drugi.txt';
+if (isset($_POST["btn"])) {
+    $fileime = 'drugi.txt';
 
-$handle = fopen($fileime,'a+');
+    $handle = fopen($fileime, 'a+');
 
-fwrite($handle, $_POST["txt"]);
+    fwrite($handle, $_POST["txt"]);
 
-fclose($handle);
-
+    fclose($handle);
 }
-
-
