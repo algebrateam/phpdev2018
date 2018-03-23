@@ -23,7 +23,7 @@
         echo '<hr>';
         echo 'Zadatak 3.</br>';
 
-        $handle=fopen('tekst.txt','r');
+        $handle=fopen('tekst.txt', 'r');
         $sadrzaj=fread($handle, filesize('tekst.txt'));
         echo '<form action="upis_teksta.php">
                 Neki tekst:<br>

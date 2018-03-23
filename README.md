@@ -15,6 +15,9 @@ PHP osnove, Osnove MySql, napredno PHP programiranje
 
 Ovaj repozitorij sadrži bazni projekt za tečaj "Programer internet aplikacija – PHP i MySQL"
 
+## web stranica postavke: 
+### https://algebrateam.github.io/phpdev2018/
+
 
 Zahtjevi
 ============

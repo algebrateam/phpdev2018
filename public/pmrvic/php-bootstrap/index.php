@@ -48,14 +48,14 @@
          <tbody>
 
            <?php  foreach ($colors as $color) {
-             echo '
+          echo '
              <tr>
                  <td>'.$color.'</td>
                  <td>Doe</td>
                  <td>john@example.com</td>
                </tr>
               ';
-           } ?>
+      } ?>
 
 
          </tbody>
