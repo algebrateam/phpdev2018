@@ -14,10 +14,8 @@ Tekst:
 
 $datoteka = file($treci);
 
-foreach($datoteka as $line_num => $line)
-{
+foreach ($datoteka as $line_num => $line) {
     echo $line."\n";
-    
 }
 
 echo'
@@ -26,10 +24,8 @@ echo'
 <input type="submit" name="btn" value="Spremi" />
 </form>';
 
-if(isset($_POST["btn"]))
-{
-    $handle = fopen($treci,'a+');
-    fwrite($handle,$_POST["txt"]);
+if (isset($_POST["btn"])) {
+    $handle = fopen($treci, 'a+');
+    fwrite($handle, $_POST["txt"]);
     fclose($handle);
 }
-
