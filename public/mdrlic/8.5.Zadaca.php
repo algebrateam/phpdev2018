@@ -9,6 +9,22 @@ fclose($handle);
 
 echo $contents;
 
+echo '<br><br>Zadatak 2<br>';
+echo'
+<form method="POST" action="">
+    Tekst: <input type="text" name="txt" value=""/><br/>
+    <input type="submit" name="btn" value="Spremi"/>
+</form>';
+
+if(isset($_POST["btn"])){
+    $filename='kontakt.txt';
+    $handle=fopen($filename, 'a+');
+    fwrite($handle, $_POST["txt"]);
+    fclose($handle);
+}
+
+
+
 
 /* 
  * To change this license header, choose License Headers in Project Properties.
