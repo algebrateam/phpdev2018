@@ -4,11 +4,11 @@ $tabl = '<table border="1">';
 //$red = '<tr><td></td><td></td><td></td><td></td></tr>';
 
 echo '<table>';
-foreach ($data as $key => $value){
+foreach ($data as $key => $value) {
     echo '<tr>';
     echo '<td>'.$value['ime'],'</td>';
     echo '<td>'.$value['prezime'],'</td>';
-    echo '<td>'.date_format(date_create($value['datum']),'d.m.Y').'</td>';
+    echo '<td>'.date_format(date_create($value['datum']), 'd.m.Y').'</td>';
     echo '<td>'.date_trans($value['datum']).'</td>';
     echo '<td>'.'<select>';
     if ($value['placeno'] == 'Da') {
@@ -26,9 +26,8 @@ foreach ($data as $key => $value){
 
 echo '</table>';
 
-function date_trans($datum){
-$tmp =  explode('-',$datum);
+function date_trans($datum)
+{
+    $tmp =  explode('-', $datum);
     return '<td>'.$tmp[2].'.'.$tmp[1].'.'.$tmp[0].'</td>';
 }
-
-?>

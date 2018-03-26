@@ -35,7 +35,6 @@ echo('<td> Placeno</td>');
 echo'</tr>';
 
 foreach ($data as $k => $val) {
-
     echo "<tr> " .
     "<td>" . $val['ime'] . "</td>
      <td>" . $val['prezime'] . "</td>
