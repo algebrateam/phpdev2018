@@ -16,7 +16,7 @@ echo'
     <input type="submit" name="btn" value="Spremi"/>
 </form>';
 
-if(isset($_POST["btn"])){
+if (isset($_POST["btn"])) {
     $filename='kontakt.txt';
     $handle=fopen($filename, 'a+');
     fwrite($handle, $_POST["txt"]);
@@ -32,7 +32,7 @@ Tekst: <textarea name="txt">';
 
 $datoteka=file($filename);
 
-foreach($datoteka as $line_num => $line){
+foreach ($datoteka as $line_num => $line) {
     echo $line."\n";
 }
 
@@ -42,15 +42,14 @@ echo '
 <input type="submit" name="btn" value="Spremi"/>
 </form>';
 
-if(isset($_POST["btn"])){
+if (isset($_POST["btn"])) {
     $handle=fopen($filename, 'a+');
     fwrite($handle, $_POST["txt"]);
     fclose($handle);
 }
 
-/* 
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
