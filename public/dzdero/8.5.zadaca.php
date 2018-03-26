@@ -15,11 +15,12 @@ sljedeci();
 
 echo 'Zadatak 2.<br><br>';
 $sadrzaj=fread($handle, filesize('8.5.pisi.txt'));
-if (isset($_POST['text'])){
-  echo '<strong>'.$_POST['text'].'</strong>';
+if (isset($_POST['text'])) {
+    echo '<strong>'.$_POST['text'].'</strong>';
 }
-function funkcije(){
-  echo 'test.php';
+function funkcije()
+{
+    echo 'test.php';
 }
 ?>
 

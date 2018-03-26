@@ -6,11 +6,10 @@ echo '
     <input type ="submit" name="btn" value="Spremi" />
     </form>';
 
-if(isset($_POST["btn"]))
-{
+if (isset($_POST["btn"])) {
     $filename= 'ucenici.txt';
     $handle = fopen($filename, 'a+');
-    fwrite($handle,$_POST["txt"]);
+    fwrite($handle, $_POST["txt"]);
     fclose($handle);
 }
 
@@ -28,8 +27,7 @@ Tekst:
 
 $datoteka = file($filename);
 
-foreach ($datoteka as $line_num => $line)
-{
+foreach ($datoteka as $line_num => $line) {
     echo $line."\n";
 }
 
@@ -39,8 +37,7 @@ echo '
 <input type="submit" name="btn" value="Spremi" />
 </form>';
 
-if(isset($_POST["btn"]))
-{
+if (isset($_POST["btn"])) {
     $handle = fopen($filename, 'a+');
     fwrite($handle, $_POST["txt"]);
     

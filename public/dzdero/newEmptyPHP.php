@@ -4,12 +4,13 @@
 
 
 echo 'Zadatak 3.<br><br>';
-function upisi(){
-$filename='8.5.upisi.txt';
-$handle= fopen($filename,'a');
-//$za_upis=$_GET["sadrzaj"];
-fwrite($handle, $sadrzaj);
-fclose($handle);
+function upisi()
+{
+    $filename='8.5.upisi.txt';
+    $handle= fopen($filename, 'a');
+    //$za_upis=$_GET["sadrzaj"];
+    fwrite($handle, $sadrzaj);
+    fclose($handle);
 }
 ?>
 <form action="<?php upisi();?>">  
