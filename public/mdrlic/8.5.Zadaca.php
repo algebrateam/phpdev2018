@@ -23,8 +23,30 @@ if(isset($_POST["btn"])){
     fclose($handle);
 }
 
+echo '<br><br>Zadatak 3<br>';
+$filename='kontakt.txt';
 
+echo '
+<form method="POST" action="">
+Tekst: <textarea name="txt">';
 
+$datoteka=file($filename);
+
+foreach($datoteka as $line_num => $line){
+    echo $line."\n";
+}
+
+echo '
+</textarea>
+<br/>
+<input type="submit" name="btn" value="Spremi"/>
+</form>';
+
+if(isset($_POST["btn"])){
+    $handle=fopen($filename, 'a+');
+    fwrite($handle, $_POST["txt"]);
+    fclose($handle);
+}
 
 /* 
  * To change this license header, choose License Headers in Project Properties.
