@@ -1,6 +1,5 @@
 <?php
 echo "<br>Prvi zadatak<br>";
-
 function hr_mjesec($mj)
 {
     $mj_array =array();
@@ -19,16 +18,12 @@ function hr_mjesec($mj)
     $mj_array[] = "Prosinac";
     return $mj_array[$mj];
 }
-
 $mj = date('n');
-
 echo hr_mjesec($mj);
 ?>
 
 <?php
-
 echo "<br>Drugi Zadatak<br>";
-
 function ispis_tablica($imenaArray)
 {
     echo'
@@ -47,43 +42,32 @@ function ispis_tablica($imenaArray)
     
     echo '</table>';
 }
-
 $ucenici = array();
-
 $ucenici[1]["ime"] = "Ivan";
 $ucenici[1]["prezime"] ="Maric";
-
 $ucenici[2]["ime"] ="Petar";
 $ucenici[2]["prezime"] ="Petkovic";
-
 ispis_tablica($ucenici);
-
 ?>
 
 <?php
-
 echo "<br>Treći Zadatak<br>";
-
 function sum($a, $b)
 {
     return $a+$b;
 }
-
 function raz($a, $b)
 {
     return $a-$b;
 }
-
 function mnoz($a, $b)
 {
     return $a*$b;
 }
-
 function djel($a, $b)
 {
     return $a/$b;
 }
-
 function sve($a, $b)
 {
     echo sum($a, $b);
@@ -91,18 +75,13 @@ function sve($a, $b)
     echo mnoz($a, $b);
     echo djel($a, $b);
 }
-
 $i = 4;
 $j = 2;
-
 sve($i, $j);
-
 ?>
      
 <?php
-
 echo "<br>Četvrti Zadatak<br>";
-
 function param()
 {
     $parametars = func_get_args();
@@ -115,6 +94,5 @@ function param()
         }
     }
 }
-
 echo param("Ema", 7, 3, "Ivan");
 ?>
