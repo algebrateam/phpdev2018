@@ -279,19 +279,19 @@ include 'Tablica.php';
 
 $probnitext3='1 Maja Majic, 2 Ivana Ivanic, 3 Kruno Krunic';
 $tmparr=[];
-$probniarr3=explode(',',$probnitext3); 
+$probniarr3=explode(',', $probnitext3);
 // --> ['1 Maja Majic','2 Ivana Ivanic',''3 Kruno Krunic]
 foreach ($probniarr3 as $key => $value) {
-  array_push($tmparr, explode(' ',trim ($value)));
+    array_push($tmparr, explode(' ', trim($value)));
 }
 //print_r($tmparr);
 
 
-$t1=new Tablica(2,2);
+$t1=new Tablica(2, 2);
 $t1->setData($tmparr);
 $t1->ispis();
 
-$t2=new Tablica(3,5);
+$t2=new Tablica(3, 5);
 $t2->ispis();
 
 $probniarray=
