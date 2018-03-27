@@ -15,13 +15,20 @@ sljedeci();
 
 echo 'Zadatak 2.<br><br>';
 $sadrzaj=fread($handle, filesize('8.5.pisi.txt'));
+if (isset($_POST['text'])) {
+    echo '<strong>'.$_POST['text'].'</strong>';
+}
+function funkcije()
+{
+    echo 'test.php';
+}
 ?>
 
 
 
 
 
-<form method="post" action="funkcije.php">  
+<form method="post" action="#">  
   <textarea name="text" id= text rows="5" cols="40"></textarea>
   <br><br>
   <input type="submit" value="Submit">  
