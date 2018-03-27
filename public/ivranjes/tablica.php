@@ -1,7 +1,9 @@
-<?php
+             <?php
 
 function kost($imenaArray)
-{
+             {
+        
+
 	echo '
 	<table border="1">
 	<tr>
