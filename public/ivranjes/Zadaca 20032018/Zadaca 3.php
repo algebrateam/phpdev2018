@@ -13,7 +13,7 @@
 
 function kost($imenaArray)
 {
-	echo '
+    echo '
 	<table border="1">
 	<tr>
 	<th>Ime</th>
@@ -21,19 +21,18 @@ function kost($imenaArray)
 	<th>Tecaj</th>
 	</tr>';
      
-	
-	foreach($imenaArray as $key => $ucenik)
-	{
-		echo'
+    
+    foreach ($imenaArray as $key => $ucenik) {
+        echo'
 		<tr>
 		<td>'.$ucenik["ime"].'</td>
 		<td>'.$ucenik["prezime"].'</td>
 		<td>'.$ucenik["tecaj"].'</td>
            
 		</tr>';
-	}
-	
-	echo '</table>';
+    }
+    
+    echo '</table>';
 }
 
 $ucenici = array();
