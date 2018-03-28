@@ -4,6 +4,13 @@ include 'data.php';
 
 //print_r($data);
 
+
+function date_trans($dat)
+{
+    $temp= explode('-', $dat);
+    return $temp[2].'.'.$temp[1].'.'.$temp[0];
+}
+
 function tablica($imenaNiz)
 {
     echo '<table border = "2">
@@ -16,7 +23,8 @@ function tablica($imenaNiz)
     foreach ($imenaNiz as $key => $osoba) {
         echo '<td>'.$osoba['ime'].'</td>';
         echo '<td>'.$osoba['prezime'].'</td>';
-        echo '<td>'.date_format(date_create($osoba['datum']), 'd.m.Y').'</td>';
+        echo '<td>'.date_trans($osoba['datum']).'</td>';
+        // echo '<td>'.date_format(date_create($osoba['datum']), 'd.m.Y').'</td>';
         echo '<td>'.'<select>';
         if ($osoba['placeno'] == 'Da') {
             echo '<option value="Da">Da</option>'
@@ -33,6 +41,6 @@ function tablica($imenaNiz)
     echo '</table>';
 }
 
-
-
 tablica($data);
+
+?>
