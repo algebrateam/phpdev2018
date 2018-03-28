@@ -49,5 +49,3 @@ $data[10]["ime"]     = "Zlatan";
 $data[10]["prezime"] = "Zlatic";
 $data[10]["datum"]   = "2011-03-16";
 $data[10]["placeno"] = "Da";
-
-?>
