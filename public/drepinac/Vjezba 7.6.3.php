@@ -6,9 +6,9 @@
 
 function show_naslov($naslov = 'no_title')
 {
-    if ($naslov == 'film'){
+    if ($naslov == 'film') {
         $var = 'Terminator';
-    } elseif ($naslov == 'serija' || $naslov == 'sapunica' ){
+    } elseif ($naslov == 'serija' || $naslov == 'sapunica') {
         $var = 'Dr. House';
     }
 //    switch ($naslov):
@@ -28,8 +28,7 @@ function show_naslov($naslov = 'no_title')
 
 function show_imena($imena = array())
 {
-    foreach($imena as $ime)
-    {
+    foreach ($imena as $ime) {
         echo $ime;
     }
 }
