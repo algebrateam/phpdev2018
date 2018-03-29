@@ -42,5 +42,3 @@ function tablica($imenaNiz)
 }
 
 tablica($data);
-
-?>
