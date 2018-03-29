@@ -1,4 +1,4 @@
--- MySQL dump 10.16  Distrib 10.1.19-MariaDB, for Win32 (AMD64)
+﻿-- MySQL dump 10.16  Distrib 10.1.19-MariaDB, for Win32 (AMD64)
 --
 -- Host: localhost    Database: localhost
 -- ------------------------------------------------------
@@ -19,9 +19,9 @@
 -- Current Database: `php2018`
 --
 
-CREATE DATABASE /*!32312 IF NOT EXISTS*/ `php2018` /*!40100 DEFAULT CHARACTER SET utf8 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `datasens` /*!40100 DEFAULT CHARACTER SET utf8 */;
 
-USE `php2018`;
+USE `datasens`;
 
 --
 -- Table structure for table `locations`
