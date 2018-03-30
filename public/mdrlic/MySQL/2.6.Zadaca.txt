@@ -1,3 +1,5 @@
+//Zadatak 2.1
+
 C:\Users\Tomislav>cd c:\xampp\mysql\bin\
 
 c:\xampp\mysql\bin>mysql -u root -p
@@ -29,34 +31,41 @@ MariaDB [(none)]> show databases;
 MariaDB [(none)]> USE tvrtka;
 Database changed
 
+MariaDB [tvrtka]> CREATE TABLE odjeli(
+    -> Sifra_odjela INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    -> Naziv_odjela VARCHAR(45) NOT NULL,
+    -> Lokacija_odjela VARCHAR(45));
+Query OK, 0 rows affected (0.41 sec)
+
 MariaDB [tvrtka]> CREATE TABLE zaposlenici(
-    -> Sifra_zaposlenika INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    -> Sifra_zaposlenika INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
     -> Ime VARCHAR(45) NOT NULL,
     -> Prezime VARCHAR(45) NOT NULL,
-    -> Sifra_odjela VARCHAR(10) NOT NULL);
-Query OK, 0 rows affected (0.24 sec)
+    -> Sifra_odjela INT(11) UNSIGNED NOT NULL,
+    -> KEY Sifra_odjela_idx (Sifra_odjela),
+    -> CONSTRAINT fk_odjeli FOREIGN KEY(Sifra_odjela) REFERENCES odjeli(Sifra_odjela));
+Query OK, 0 rows affected (0.33 sec)
 
-MariaDB [tvrtka]> explain zaposlenici;
-+-------------------+-------------+------+-----+---------+----------------+
-| Field             | Type        | Null | Key | Default | Extra          |
-+-------------------+-------------+------+-----+---------+----------------+
-| Sifra_zaposlenika | int(11)     | NO   | PRI | NULL    | auto_increment |
-| Ime               | varchar(45) | NO   |     | NULL    |                |
-| Prezime           | varchar(45) | NO   |     | NULL    |                |
-| Sifra_odjela      | varchar(10) | NO   |     | NULL    |                |
-+-------------------+-------------+------+-----+---------+----------------+
-4 rows in set (0.01 sec)
+MariaDB [tvrtka]> CREATE TABLE sefovi(
+    -> Sifra_zaposlenika INT(11) UNSIGNED NOT NULL PRIMARY KEY,
+    -> Sifra_odjela INT(11) UNSIGNED NOT NULL);
+Query OK, 0 rows affected (0.70 sec)
 
-MariaDB [tvrtka]> CREATE TABLE Odjeli(
-    -> Sifra_odjela INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    -> Naziv_odjela VARCHAR(45) NOT NULL,
-    -> Lokacija_odjela VARCHAR(45) NOT NULL);
-Query OK, 0 rows affected (0.55 sec)
+MariaDB [tvrtka]> CREATE INDEX Sifra_zaposlenika_idx ON sefovi(Sifra_zaposlenika);
+Query OK, 0 rows affected (0.79 sec)
+Records: 0  Duplicates: 0  Warnings: 0
 
-MariaDB [tvrtka]> CREATE TABLE Sefovi(
-    -> Sifra_zaposlenika INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    -> Sifra_odjela VARCHAR(10) NOT NULL);
-Query OK, 0 rows affected (0.29 sec)
+MariaDB [tvrtka]> ALTER TABLE sefovi ADD CONSTRAINT sefovi_ibfk_1 FOREIGN KEY (Sifra_zaposlenika) REFERENCES zaposlenici (Sifra_zaposlenika);
+Query OK, 0 rows affected (1.10 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [tvrtka]> CREATE INDEX Sifra_odjela_idx ON sefovi(Sifra_odjela);
+Query OK, 0 rows affected (0.46 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [tvrtka]> ALTER TABLE sefovi ADD CONSTRAINT sefovi_ibfk_2 FOREIGN KEY (Sifra_odjela) REFERENCES odjeli (Sifra_odjela);
+Query OK, 0 rows affected (0.66 sec)
+Records: 0  Duplicates: 0  Warnings: 0
 
 MariaDB [tvrtka]> show tables;
 +------------------+
