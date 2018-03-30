@@ -1,0 +1,230 @@
+Microsoft Windows [Version 10.0.16299.192]
+(c) 2017. Microsoft Corporation. Sva prava pridržana.
+
+C:\Users\office>cd c:\xampp\mysql\bin\
+
+c:\xampp\mysql\bin>mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 2
+Server version: 10.1.25-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2017, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| test               |
++--------------------+
+5 rows in set (0.01 sec)
+
+MariaDB [(none)]> create database php2018;
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| php2018            |
+| phpmyadmin         |
+| test               |
++--------------------+
+6 rows in set (0.00 sec)
+
+MariaDB [(none)]> use php2018;
+Database changed
+MariaDB [php2018]> show tables;
+Empty set (0.00 sec)
+
+MariaDB [php2018]> create table locations(
+    -> id INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    -> name VARCHAR(45) NOT NULL);
+Query OK, 0 rows affected (0.17 sec)
+
+MariaDB [php2018]> explain locations;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| id    | int(11)     | NO   | PRI | NULL    | auto_increment |
+| name  | varchar(45) | NO   |     | NULL    |                |
++-------+-------------+------+-----+---------+----------------+
+2 rows in set (0.01 sec)
+
+MariaDB [php2018]> describe locations;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| id    | int(11)     | NO   | PRI | NULL    | auto_increment |
+| name  | varchar(45) | NO   |     | NULL    |                |
++-------+-------------+------+-----+---------+----------------+
+2 rows in set (0.01 sec)
+
+MariaDB [php2018]> INSERT INTO locations (name) VALUES ('Osijek');
+Query OK, 1 row affected (0.03 sec)
+
+MariaDB [php2018]> INSERT INTO locations (name) VALUES ('Cepin');
+Query OK, 1 row affected (0.04 sec)
+
+MariaDB [php2018]> INSERT INTO locations (name) VALUES ('Martinci');
+Query OK, 1 row affected (0.04 sec)
+
+MariaDB [php2018]> INSERT INTO locations (name) VALUES ('Èamagajevci');
+Query OK, 1 row affected, 1 warning (0.03 sec)
+
+MariaDB [php2018]> SELECT * FROM locations;
++----+-------------+
+| id | name        |
++----+-------------+
+|  1 | Osijek      |
+|  2 | Cepin       |
+|  3 | Martinci    |
+|  4 | ?amagajevci |
++----+-------------+
+4 rows in set (0.00 sec)
+
+MariaDB [php2018]> show tables;
+ERROR 2006 (HY000): MySQL server has gone away
+No connection. Trying to reconnect...
+Connection id:    2
+Current database: php2018
+
++-------------------+
+| Tables_in_php2018 |
++-------------------+
+| locations         |
++-------------------+
+1 row in set (0.01 sec)
+
+MariaDB [php2018]> ALTER TABLE locations CONVERT TO CHARACTER SET utf8;
+Query OK, 4 rows affected (0.58 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+MariaDB [php2018]> INSERT INTO locations (name) VALUES ('Èepin');
+Query OK, 1 row affected (0.04 sec)
+
+MariaDB [php2018]> SELECT * FROM locations;
++----+-------------+
+| id | name        |
++----+-------------+
+|  1 | Osijek      |
+|  2 | Cepin       |
+|  3 | Martinci    |
+|  4 | ?amagajevci |
+|  5 | Èepin       |
++----+-------------+
+5 rows in set (0.00 sec)
+
+MariaDB [php2018]> DELETE FROM locations WHERE locations.id = 4;
+Query OK, 1 row affected (0.04 sec)
+
+MariaDB [php2018]> SELECT * FROM locations;
++----+----------+
+| id | name     |
++----+----------+
+|  1 | Osijek   |
+|  2 | Cepin    |
+|  3 | Martinci |
+|  5 | Èepin    |
++----+----------+
+4 rows in set (0.00 sec)
+
+MariaDB [php2018]> UPDATE TABLE locations SET name ='Josipovac' WHERE name LIKE 'C%';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'TABLE locations SET name ='Josipovac' WHERE name LIKE 'C%'' at line 1
+MariaDB [php2018]> UPDATE locations SET name ='Josipovac' WHERE name LIKE 'C%';
+Query OK, 2 rows affected (0.03 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+MariaDB [php2018]> SELECT * FROM locations;
++----+-----------+
+| id | name      |
++----+-----------+
+|  1 | Osijek    |
+|  2 | Josipovac |
+|  3 | Martinci  |
+|  5 | Josipovac |
++----+-----------+
+4 rows in set (0.00 sec)
+
+MariaDB [php2018]> UPDATE TABLE locations SET name ='Èepin' WHERE id=5;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'TABLE locations SET name ='Èepin' WHERE id=5' at line 1
+MariaDB [php2018]> UPDATE locations SET name ='Èepin' WHERE id=5;
+Query OK, 1 row affected (0.03 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [php2018]> SELECT * FROM locations;
++----+-----------+
+| id | name      |
++----+-----------+
+|  1 | Osijek    |
+|  2 | Josipovac |
+|  3 | Martinci  |
+|  5 | Èepin     |
++----+-----------+
+4 rows in set (0.00 sec)
+
+MariaDB [php2018]> show tables;
++-------------------+
+| Tables_in_php2018 |
++-------------------+
+| locations         |
++-------------------+
+1 row in set (0.00 sec)
+
+MariaDB [php2018]> create table sensors(
+    -> id INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    -> location_id INT(11) NOT NULL,
+    -> name VARCHAR(45),
+    -> units VARCHAR(45),
+    -> INDEX loc_id(location_id),
+    -> FOREIGN KEY fk_locations(location_id) REFERENCES locations(id)
+    -> );
+Query OK, 0 rows affected (0.18 sec)
+
+MariaDB [php2018]> INSERT INTO sensors(location_id,name,units) VALUES (3,'temperatura1','°C');
+Query OK, 1 row affected (0.04 sec)
+
+MariaDB [php2018]> INSERT INTO sensors(location_id,name,units) VALUES (5,'temperatura2','°C');
+Query OK, 1 row affected (0.03 sec)
+
+MariaDB [php2018]> SELECT * FROM sensors;
++----+-------------+--------------+-------+
+| id | location_id | name         | units |
++----+-------------+--------------+-------+
+|  1 |           3 | temperatura1 | °C    |
+|  2 |           5 | temperatura2 | °C    |
++----+-------------+--------------+-------+
+2 rows in set (0.00 sec)
+
+MariaDB [php2018]> SELECT * FROM locations INNER JOIN sensors ON locations.id=sensors.locations_id;
+ERROR 1054 (42S22): Unknown column 'sensors.locations_id' in 'on clause'
+MariaDB [php2018]> SELECT * FROM locations INNER JOIN sensors ON locations.id=sensors.location_id;
++----+----------+----+-------------+--------------+-------+
+| id | name     | id | location_id | name         | units |
++----+----------+----+-------------+--------------+-------+
+|  3 | Martinci |  1 |           3 | temperatura1 | °C    |
+|  5 | Èepin    |  2 |           5 | temperatura2 | °C    |
++----+----------+----+-------------+--------------+-------+
+2 rows in set (0.00 sec)
+
+MariaDB [php2018]> SELECT * FROM locations LEFT JOIN sensors ON locations.id=sensors.location_id;
++----+-----------+------+-------------+--------------+-------+
+| id | name      | id   | location_id | name         | units |
++----+-----------+------+-------------+--------------+-------+
+|  3 | Martinci  |    1 |           3 | temperatura1 | °C    |
+|  5 | Èepin     |    2 |           5 | temperatura2 | °C    |
+|  1 | Osijek    | NULL |        NULL | NULL         | NULL  |
+|  2 | Josipovac | NULL |        NULL | NULL         | NULL  |
++----+-----------+------+-------------+--------------+-------+
+4 rows in set (0.00 sec)
+
+MariaDB [php2018]>

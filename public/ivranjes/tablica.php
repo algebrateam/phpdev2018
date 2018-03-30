@@ -1,15 +1,4 @@
-<html>
- <head>
-  <title> padajuci meni </title>
- </head>
-   <body>
-     <select>
-         
-         <html>
-
-
-
-<?php
+             <?php
 
 function kost($imenaArray)
 {
