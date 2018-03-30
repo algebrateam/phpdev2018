@@ -76,3 +76,63 @@ MariaDB [tvrtka]> show tables;
 | zaposlenici      |
 +------------------+
 3 rows in set (0.00 sec)
+
+
+//Zadatak 2.2
+MariaDB [(none)]> CREATE DATABASE trgovina;
+Query OK, 1 row affected (0.01 sec)
+
+MariaDB [(none)]> use trgovina;
+Database changed
+
+MariaDB [trgovina]> CREATE TABLE radnik(
+    -> Sifra_radnika INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    -> Ime VARCHAR(45) NOT NULL,
+    -> Prezime VARCHAR(45) NOT NULL,
+    -> Sifra_skladista INT(11) UNSIGNED NOT NULL);
+Query OK, 0 rows affected (0.24 sec)
+
+MariaDB [trgovina]> CREATE TABLE voditelji(
+    -> Sifra_radnika INT(11) UNSIGNED NOT NULL PRIMARY KEY,
+    -> Sifra_skladista INT(11) UNSIGNED NOT NULL,
+    -> KEY Sifra_radnika_idx (Sifra_radnika),
+    -> KEY Sifra_skladista_idx (Sifra_skladista));
+Query OK, 0 rows affected (0.23 sec)
+
+MariaDB [trgovina]> CREATE TABLE skladisno_mjesto(
+    -> Sifra_skladista INT(11) UNSIGNED NOT NULL PRIMARY KEY,
+    -> Naziv VARCHAR(45) NOT NULL,
+    -> Mjesto VARCHAR(45) NOT NULL,
+    -> KEY Sifra_skladista_idx (Sifra_skladista));
+Query OK, 0 rows affected (0.22 sec)
+
+MariaDB [trgovina]> CREATE TABLE proizvod(
+    -> Sifra_proizvoda INT(11) UNSIGNED NOT NULL PRIMARY KEY,
+    -> Naziv VARCHAR(45) NOT NULL,
+    -> Sifra_skladista INT(11) UNSIGNED NOT NULL,
+    -> KEY Sifra_skladista_idx (Sifra_skladista));
+Query OK, 0 rows affected (0.50 sec)
+
+MariaDB [trgovina]> show tables;
++--------------------+
+| Tables_in_trgovina |
++--------------------+
+| proizvod           |
+| radnik             |
+| skladisno_mjesto   |
+| voditelji          |
++--------------------+
+4 rows in set (0.00 sec)
+
+MariaDB [trgovina]> ALTER TABLE radnik ADD CONSTRAINT fk_radnik FOREIGN KEY(Sifra_skladista) REFERENCES skladisno_mjesto(Sifra_skladista);
+Query OK, 0 rows affected (0.80 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [trgovina]> ALTER TABLE voditelji ADD CONSTRAINT fk_voditelji FOREIGN KEY(Sifra_radnika) REFERENCES radnik(Sifra_radnika),
+    -> ADD CONSTRAINT fk_voditelji_2 FOREIGN KEY(Sifra_skladista) REFERENCES skladisno_mjesto(Sifra_skladista);
+Query OK, 0 rows affected (0.96 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [trgovina]> ALTER TABLE proizvod ADD CONSTRAINT fk_proizvod FOREIGN KEY(Sifra_skladista) REFERENCES skladisno_mjesto(Sifra_skladista);
+Query OK, 0 rows affected (1.35 sec)
+Records: 0  Duplicates: 0  Warnings: 0
