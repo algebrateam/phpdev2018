@@ -169,3 +169,17 @@ select distinct pred.nazPred, rezervacija.oznDvorana, orgjed.nazOrgjed
  inner join orgjed on pred.sifOrgjed = orgjed.sifOrgjed
  order by pred.nazPred;
 
+-- Zadatak 3.22
+-- Ispišite podatke o nastavnicima koji su ispitivali studente koji stanuju u istoj županiji u kojoj
+-- stanuje i nastavnik
+
+select distinct nastavnik.imeNastavnik, nastavnik.prezNastavnik, nastavnik.sifZupanija
+  from stud
+ inner join mjesto on stud.pbrStan = mjesto.pbr
+ inner join (select distinct ispit.mbrStud, ispit.sifNastavnik from ispit) ispit  on stud.mbrStud = ispit.mbrStud
+ inner join  (select nas.sifNastavnik, nas.imeNastavnik, nas.prezNastavnik, nas.pbrStan, nas.sifOrgjed, mjesto.sifZupanija
+                from nastavnik nas
+               inner join mjesto on nas.pbrStan = mjesto.pbr) nastavnik on ispit.sifNastavnik = nastavnik.sifNastavnik
+where mjesto.sifZupanija = nastavnik.sifZupanija
+order by nastavnik.prezNastavnik;
+
