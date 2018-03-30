@@ -149,3 +149,23 @@ where exists (select 1 from (
 select stud.pbrRod from stud
 where stud.pbrRod = stud.pbrStan) st where st.pbrRod = mjesto.pbr)
 order by mjesto.nazMjesto;
+
+-- Zadatak 3.20
+-- Ispišite oznake dvorana i nazive kolegija za one kolegije koji imaju više od 2 sata predavanja tjedno.
+
+select rez.oznDvorana, pred.nazPred
+  from pred
+  left join (select distinct oznDvorana, sifPred from rezervacija) rez on pred.sifPred = rez.sifPred
+ where pred.brojSatiTjedno > 2
+ order by pred.sifPred, rez.oznDvorana;
+ 
+-- Zadatak 3.21
+-- Ispišite nazive kolegija i oznake dvorana u kojima imaju rezerviran temrin.
+-- Ispišite i naziv organizacijske jedinice kojoj kolegij pripada.
+
+select distinct pred.nazPred, rezervacija.oznDvorana, orgjed.nazOrgjed
+  from pred
+ inner join rezervacija on pred.sifPred = rezervacija.sifPred
+ inner join orgjed on pred.sifOrgjed = orgjed.sifOrgjed
+ order by pred.nazPred;
+
