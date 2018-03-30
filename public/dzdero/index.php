@@ -21,14 +21,12 @@ foreach ($data as $key => $value) {
     .'<td>'.date_format(date_create($value['datum']), 'd.m.Y')
     .'<td>'
     .'<select>';
-    if ($value['placeno']=='Da')
-    {
+    if ($value['placeno']=='Da') {
         echo '<option value="Da" Selected>Da</option>';
         echo '<option value="Ne">Ne</option>';
-    }else {
+    } else {
         echo '<option value="Ne" Selected>Ne</option>';
         echo '<option value="Da">Da</option>';
-        
     }
     
     
