@@ -85,3 +85,28 @@ where exists (select 1 from ispit where ispit.sifPred = pred.sifPred);
 select * from stud
 where substr(stud.imeStud,1,1) in ('A','E','I','O','U')
   and substr(upper(stud.imeStud),length(stud.imeStud),1) in  ('A','E','I','O','U');
+
+-- Zadatak 3.12
+-- Ispišite sve podatke o studentima kojima ime počinje i završava bilo kojim znakom osim samoglasnikom
+
+select * from stud
+where substr(stud.imeStud,1,1) not in ('A','E','I','O','U')
+  and substr(upper(stud.imeStud),length(stud.imeStud),1) not in  ('A','E','I','O','U');
+
+-- Zadatak 3.13
+-- isti je kao zadatak 3.11
+
+-- Zadatak 3.14
+-- Ispiši sve podatke o studentima kojima ime ili prezime bilo gdje sadržava slova n i k jedno iza drugog.
+
+select * from stud
+where instr(upper(imeStud),'NK') > 0 or instr(upper(prezStud),'NK') > 0;
+
+-- Zadatak 3.15
+-- Ispišite ime i prezime studenta te naziv i ocjenu za svaki ispit.
+
+select stud.mbrStud, stud.imeStud, stud.prezStud, pred.nazPred, ispit.ocjena from stud
+  inner join ispit on stud.mbrStud = ispit.mbrStud
+  inner join pred  on ispit.sifPred = pred.sifPred
+order by stud.prezStud, stud.imeStud, pred.nazPred;
+
