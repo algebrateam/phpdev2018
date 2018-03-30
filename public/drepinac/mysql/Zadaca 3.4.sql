@@ -183,3 +183,28 @@ select distinct nastavnik.imeNastavnik, nastavnik.prezNastavnik, nastavnik.sifZu
 where mjesto.sifZupanija = nastavnik.sifZupanija
 order by nastavnik.prezNastavnik;
 
+-- Zadatak 3.23
+-- Ispišite podatke o studentima koji studiraju u mjestu različitom od mjesta rođenja, ali koje se nalazi u istoj
+-- županiji u kojoj su rođeni
+
+select * from stud
+inner join mjesto as mjr on stud.pbrRod  = mjr.pbr
+inner join mjesto as mjs on stud.pbrStan = mjs.pbr
+where stud.pbrRod <> stud.pbrStan
+  and mjr.sifZupanija = mjs.sifZupanija;
+
+-- Zadatak 3.24
+-- Ispišite podatke o studentima i nastavnicima koji imaju ista prezimena
+
+select * from stud
+inner join nastavnik on upper(stud.prezStud) = upper(nastavnik.prezNastavnik);
+
+-- studenti i nastavnici kod kojih polažu ispite s istim prezimenima (nema podataka)
+select stud.imeStud, stud.prezStud, nastavnik.imeNastavnik, nastavnik.prezNastavnik
+  from stud
+ inner join mjesto on stud.pbrStan = mjesto.pbr
+ inner join (select distinct ispit.mbrStud, ispit.sifNastavnik from ispit) ispit  on stud.mbrStud = ispit.mbrStud
+ inner join  (select nas.sifNastavnik, nas.imeNastavnik, nas.prezNastavnik, nas.pbrStan, nas.sifOrgjed, mjesto.sifZupanija
+                from nastavnik nas
+               inner join mjesto on nas.pbrStan = mjesto.pbr) nastavnik on ispit.sifNastavnik = nastavnik.sifNastavnik
+ where upper(stud.prezStud) = upper(nastavnik.prezNastavnik);
