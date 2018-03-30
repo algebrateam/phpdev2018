@@ -110,3 +110,22 @@ select stud.mbrStud, stud.imeStud, stud.prezStud, pred.nazPred, ispit.ocjena fro
   inner join pred  on ispit.sifPred = pred.sifPred
 order by stud.prezStud, stud.imeStud, pred.nazPred;
 
+-- Zadatak 3.16
+-- Ispišite imena i prezimena studenata te mjesto i županiju u kojoj su rođeni. Nakon toga dodajte mjesto i 
+-- županiju gdje stanuju
+
+select stud.imeStud as "Ime studenta", stud.prezStud as "Prezime studenta", mjesto.nazMjesto as "Mjesto rođenja", zupanija.nazZupanija as "Županija rođenja", 
+       mj_stan.nazMjesto as "Mjesto stanovanja", zup_stan.nazZupanija as "Županija stanovanja" from stud
+inner join mjesto on stud.pbrRod = mjesto.pbr
+inner join zupanija on mjesto.sifZupanija = zupanija.sifZupanija
+inner join mjesto as mj_stan on stud.pbrStan = mj_stan.pbr
+inner join zupanija as zup_stan on mj_stan.sifZupanija = zup_stan.sifZupanija;
+
+-- Zadatak 3.17
+-- Ispišite nazive predmeta i organizacijske jedinice kojima pripadaju za one kolegije koji imaju
+-- više od 20 upisanih studenata
+
+select pred.nazPred, orgjed.nazOrgjed, pred.upisanoStud from pred
+ inner join orgjed on pred.sifOrgjed = orgjed.sifOrgjed
+where pred.upisanoStud > 20
+order by orgjed.nazOrgjed, pred.nazPred;
