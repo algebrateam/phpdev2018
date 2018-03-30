@@ -1,2 +1,69 @@
-mobitel: 095-7769-656
+C:\Users\Tomislav>cd c:\xampp\mysql\bin\
 
+c:\xampp\mysql\bin>mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 2
+Server version: 10.1.30-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2017, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> CREATE DATABASE tvrtka;
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| test               |
+| tvrtka             |
++--------------------+
+6 rows in set (0.00 sec)
+
+MariaDB [(none)]> USE tvrtka;
+Database changed
+
+MariaDB [tvrtka]> CREATE TABLE zaposlenici(
+    -> Sifra_zaposlenika INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    -> Ime VARCHAR(45) NOT NULL,
+    -> Prezime VARCHAR(45) NOT NULL,
+    -> Sifra_odjela VARCHAR(10) NOT NULL);
+Query OK, 0 rows affected (0.24 sec)
+
+MariaDB [tvrtka]> explain zaposlenici;
++-------------------+-------------+------+-----+---------+----------------+
+| Field             | Type        | Null | Key | Default | Extra          |
++-------------------+-------------+------+-----+---------+----------------+
+| Sifra_zaposlenika | int(11)     | NO   | PRI | NULL    | auto_increment |
+| Ime               | varchar(45) | NO   |     | NULL    |                |
+| Prezime           | varchar(45) | NO   |     | NULL    |                |
+| Sifra_odjela      | varchar(10) | NO   |     | NULL    |                |
++-------------------+-------------+------+-----+---------+----------------+
+4 rows in set (0.01 sec)
+
+MariaDB [tvrtka]> CREATE TABLE Odjeli(
+    -> Sifra_odjela INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    -> Naziv_odjela VARCHAR(45) NOT NULL,
+    -> Lokacija_odjela VARCHAR(45) NOT NULL);
+Query OK, 0 rows affected (0.55 sec)
+
+MariaDB [tvrtka]> CREATE TABLE Sefovi(
+    -> Sifra_zaposlenika INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    -> Sifra_odjela VARCHAR(10) NOT NULL);
+Query OK, 0 rows affected (0.29 sec)
+
+MariaDB [tvrtka]> show tables;
++------------------+
+| Tables_in_tvrtka |
++------------------+
+| odjeli           |
+| sefovi           |
+| zaposlenici      |
++------------------+
+3 rows in set (0.00 sec)
