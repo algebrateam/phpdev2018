@@ -38,22 +38,50 @@ order by (nastavnik.koef+0.4)*800;
 -- Ispišite imena i prezimena studenata koji su barem jednom pali na ispitu iz predmeta sa šiframa od 220 do 240;
 
 
-select stud.imeStud, stud.prezStud from stud
+select stud.imeStud, stud.prezStud, ispiti.ocjena from stud
 inner join (
             select ispit.mbrStud, ispit.sifPred, ispit.ocjena from ispit
              where ispit.sifPred between 220 and 240
-               and ispit.ocjena = 1
-             order by ispit.mbrStud) ispiti 
+               and ispit.ocjena = 1) ispiti 
 				                             on stud.mbrStud=ispiti.mbrStud;
 				                             
 -- Zadatak 3.8
 -- Ispiši imena i prezimena studenata koji su na nekom ispitu dobili 3.
 
-select mbrStud, stud.imeStud, stud.prezStud from stud
-inner join (
-            select ispit.mbrStud, ispit.sifPred, ispit.ocjena from ispit
-             where ispit.sifPred between 220 and 240
-               and ispit.ocjena = 1
-             order by ispit.mbrStud) ispiti 
+select distinct stud.imeStud, stud.prezStud, ispiti.ocjena from stud
+inner join (select ispit.mbrStud, ispit.sifPred, ispit.ocjena from ispit
+             where ispit.ocjena = 3) ispiti 
 				                             on stud.mbrStud=ispiti.mbrStud;
-			                             
+
+-- Zadatak 3.9
+-- Ispišite nazive predmeta na koje nije izašao niti jedan student.
+
+-- moj preferirani nacin
+select pred.sifPred, pred.nazPred from pred
+   left join ispit on pred.sifPred = ispit.sifPred
+ where ispit.sifPred is null;
+-- ili (kod većih tablica se desilo da ne vrati sve podatke)
+select pred.sifPred, pred.nazPred from pred
+where pred.sifPred not in (select sifPred from ispit);
+-- ili (drugi preferirani nacin)
+select pred.sifPred, pred.nazPred from pred
+where not exists (select 1 from ispit where ispit.sifPred = pred.sifPred);
+
+-- Zadatak 3.10
+-- Ispišite nazive predmeta na koje je izašao barem jedan student
+
+select distinct pred.sifPred, pred.nazPred from pred
+   inner join ispit on pred.sifPred = ispit.sifPred;
+-- ili (kod većih tablica se desilo da ne vrati sve podatke)
+select pred.sifPred, pred.nazPred from pred
+where pred.sifPred in (select sifPred from ispit);
+-- ili (drugi preferirani nacin)
+select pred.sifPred, pred.nazPred from pred
+where exists (select 1 from ispit where ispit.sifPred = pred.sifPred);
+
+-- Zadatak 3.11
+-- Ispišite sve podatke o studentima čije ime počinje i završava samoglasnikom.
+
+select * from stud
+where substr(stud.imeStud,1,1) in ('A','E','I','O','U')
+  and substr(upper(stud.imeStud),length(stud.imeStud),1) in  ('A','E','I','O','U');
