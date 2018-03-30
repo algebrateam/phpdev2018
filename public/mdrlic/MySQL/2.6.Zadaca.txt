@@ -212,3 +212,9 @@ MariaDB [videoteka]> ALTER TABLE posudba ADD CONSTRAINT fk_posudba FOREIGN KEY(C
     -> ADD CONSTRAINT fk_posudba_3 FOREIGN KEY(Sifra_cjenika) REFERENCES cjenik(Sifra_cjenika);
 Query OK, 0 rows affected (0.90 sec)
 Records: 0  Duplicates: 0  Warnings: 0
+
+Zadatak 2.4
+
+MariaDB [trgovina]> ALTER TABLE skladisno_mjesto CHANGE Mjesto Mjesto ENUM('Zagreb', 'Rijeka', 'Sisak');
+Query OK, 0 rows affected (0.79 sec)
+Records: 0  Duplicates: 0  Warnings: 0
