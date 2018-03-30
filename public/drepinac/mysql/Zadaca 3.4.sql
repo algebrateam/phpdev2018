@@ -208,3 +208,33 @@ select stud.imeStud, stud.prezStud, nastavnik.imeNastavnik, nastavnik.prezNastav
                 from nastavnik nas
                inner join mjesto on nas.pbrStan = mjesto.pbr) nastavnik on ispit.sifNastavnik = nastavnik.sifNastavnik
  where upper(stud.prezStud) = upper(nastavnik.prezNastavnik);
+
+-- Zadatak 3.25
+-- Ispišite podatke o studentima i njihovim mjestima stanovanja za one studente koji su barem jednom pali na ispitu
+-- "Osnove baza podataka".
+
+select distinct pred.nazPred, stud.imeStud, stud.prezStud, mjesto.nazMjesto from ispit
+ inner join pred on ispit.sifPred=pred.sifPred
+ inner join stud on ispit.mbrStud = stud.mbrStud
+ inner join mjesto on stud.pbrStan = mjesto.pbr
+ where pred.nazPred = 'Osnove baza podataka'
+   and ispit.ocjena = 1;
+   
+-- Zadatak 3.26
+-- Ispišite imena i prezimena, mjesta stanovanja i županiju nastavnika te naziv kolegija za
+-- nastavnike koji su ispitivali studente koji su dobili ocjenu 2 ili 3 iz tog kolegija
+
+
+select distinct nas.imeNastavnik, nas.prezNastavnik, nas.nazMjesto, nas.nazZupanija from ispit
+ inner join pred on pred.sifPred=ispit.sifPred
+ inner join (select nas.sifNastavnik, nas.imeNastavnik, nas.prezNastavnik, nas.pbrStan, mjesto.nazMjesto, mjesto.sifZupanija, zupanija.nazZupanija
+               from nastavnik nas
+              inner join mjesto on nas.pbrStan = mjesto.pbr
+              inner join zupanija on mjesto.sifZupanija = zupanija.sifZupanija) as nas on ispit.sifPred = nas.sifNastavnik
+ where ispit.ocjena in (2,3)
+order by pred.nazPred;
+
+select nas.sifNastavnik, nas.imeNastavnik, nas.prezNastavnik, nas.pbrStan, mjesto.nazMjesto, mjesto.sifZupanija, zupanija.nazZupanija
+  from nastavnik nas
+ inner join mjesto on nas.pbrStan = mjesto.pbr
+ inner join zupanija on mjesto.sifZupanija = zupanija.sifZupanija;
