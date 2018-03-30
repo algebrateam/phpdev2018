@@ -129,3 +129,23 @@ select pred.nazPred, orgjed.nazOrgjed, pred.upisanoStud from pred
  inner join orgjed on pred.sifOrgjed = orgjed.sifOrgjed
 where pred.upisanoStud > 20
 order by orgjed.nazOrgjed, pred.nazPred;
+
+-- Zadatak 3.18
+-- Ispišite sve nazive mjesta u kojima stanuje barem jedan student. Imena mjesta smiju se pojaviti samo jednom.
+
+select mjesto.nazMjesto from mjesto
+where mjesto.pbr in (select pbrStan from stud)
+order by nazMjesto;
+-- ili
+select mjesto.nazMjesto from mjesto
+where exists (select 1 from  stud where stud.pbrStan = mjesto.pbr)
+order by nazMjesto;
+
+-- Zadatak 3.19
+-- Ispišite nazive mjesta u kojima je barem jedan studen i rođen i stanuje. Imena mjesta smiju se pojaviti samo jednom.
+
+select mjesto.nazMjesto from mjesto
+where exists (select 1 from (
+select stud.pbrRod from stud
+where stud.pbrRod = stud.pbrStan) st where st.pbrRod = mjesto.pbr)
+order by mjesto.nazMjesto;
