@@ -3,7 +3,7 @@ include 'data.php';
 print_r($data);
 
 function date_trans($datum){
-    $tmp = explode('-': $datum);
+    $tmp = explode('-', $datum);
     print_r($tmp);
     return $tmp[2].'.'.$tmp[1].'.'.$tmp[0];
 }
