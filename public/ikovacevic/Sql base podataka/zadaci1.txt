@@ -1,0 +1,78 @@
+MariaDB [(none)]> CREATE DATABASE Zaposlenici;
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [(none)]> USE Zaposlenici;
+Database changed
+MariaDB [Zaposlenici]> CREATE TABLE Odjeli(
+    -> Sifra_odjela char(10) NOT NULL,
+    -> Naziv_odjela varchar(50) NOT NULL,
+    -> PRIMARY KEY(Sifra_odjela)) ENGINE=InnoDB;
+Query OK, 0 rows affected (0.04 sec)
+
+MariaDB [Zaposlenici]> CREATE TABLE Zaposlenici(
+    -> Sifra_zaposlenika bigint(20) NOT NULL,
+    -> Ime varchar(50) NOT NULL,
+    -> Prezime varchar(50) NOT NULL,
+    -> Sifra_odjela char(10) NOT NULL,
+    -> PRIMARY_KEY(Sifra_zaposlenika),
+    -> KEY Sifra_odjela(Sifra_odjela)) ENGINE=InnoDB;
+
+MariaDB [Zaposlenici]> CREATE TABLE Zaposlenici(
+    -> Sifra_zaposlenika bigint(20) NOT NULL,
+    -> Ime varchar(50) NOT NULL,
+    -> Prezime varchar(50) NOT NULL,
+    -> Sifra_odjela char(10) NOT NULL,
+    -> PRIMARY KEY(Sifra_zaposlenika),
+    -> KEY Sifra_odjela(Sifra_odjela))ENGINE=InnoDB;
+Query OK, 0 rows affected (0.06 sec)
+
+MariaDB [Zaposlenici]> ALTER TABLE Zaposlenici
+    -> ADD CONSTRAINT Zaposlenici_ibfk_1
+    -> FOREIGN KEY (Sifra_odjela)
+    -> REFERENCES Odjeli(Sifra_odjela);
+Query OK, 0 rows affected (0.13 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [Zaposlenici]> CREATE TABLE Sefovi(
+    -> Sifra_zaposlenika biginit(20) NOT NULL DEFAULT 0,
+    -> Sifra_odjela char(10) NOT NULL DEFAULT '',
+    -> PRIMARY KEY (Sifra_zaposlenika, Sifra_odjela),
+    -> KEY Sifra_zaposlenika (Sifra_zaposlenika),
+    -> KEY Sifra_odjela (Sifra_odjela))ENGINE=InnoDB;
+
+MariaDB [Zaposlenici]> CREATE TABLE Sefovi(
+    -> Sifra_zaposlenika bigint(20) NOT NULL DEFAULT 0,
+    -> Sifra_odjela char (10) NOT NULL DEFAULT '',
+    -> PRIMARY KEY (Sifra_zaposlenika, Sifra_odjela),
+    -> KEY Sifra_zaposlenika (Sifra_zaposlenika),
+    -> KEY Sifra_odjela (Sifra_odjela)
+    -> )ENGINE=InnoDB;
+Query OK, 0 rows affected (0.04 sec)
+
+MariaDB [Zaposlenici]> ALTER TABLE Sefovi
+    -> ADD CONSTRAINT Sefovi_ibfk_1
+    -> FOREIGN KEY (Sifra_odjela)
+    -> REFERENCES Odjeli (Sifra_odjela)
+    -> ADD CONSTRAINT Sefovi_ibfk_2
+    -> FOREIGN KEY (Sifra_zaposlenika)
+    -> REFERENCES Zaposlenici (Sifra_zaposlenika);
+
+MariaDB [Zaposlenici]> ALTER TABLE Sefovi
+    -> ADD CONSTRAINT Sefovi_ibfk_1
+    -> FOREIGN KEY (Sifra_odjela)
+    -> REFERENCES Odjeli (Sifra_odjela),
+    -> ADD CONSTRAINT Sefovi_ibfk_2
+    -> FOREIGN KEY (Sifra_zaposlenika)
+    -> REFERENCES Zaposlenici (Sifra_zaposlenika);
+Query OK, 0 rows affected (0.09 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [Zaposlenici]> show tables;
++-----------------------+
+| Tables_in_zaposlenici |
++-----------------------+
+| odjeli                |
+| sefovi                |
+| zaposlenici           |
++-----------------------+
+3 rows in set (0.00 sec)

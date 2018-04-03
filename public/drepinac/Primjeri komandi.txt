@@ -1,0 +1,10 @@
+mysqldump -u root -p --database php2018 > php2018.sql
+-- primjer importa vanjske baze
+mysql -u root -p php2018 < baza.sql
+
+create table alerts as select * from readings;
+alter table alerts modify column id int(11) unsigned primary key auto_increment;
+create index sensor_id_idx on alerts (sensors_id);
+alter table alerts add constraints fk_sensor_id foreign_key (sensor_id) references sensors (id);
+alter table alerts add column description varchar(45) null;
+alter table alerts drop column value;
