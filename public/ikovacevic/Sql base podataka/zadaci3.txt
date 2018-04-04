@@ -1,0 +1,104 @@
+MariaDB [(none)]> CREATE DATABASE Videoteka;
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [(none)]> USE Videoteka
+Database changed
+MariaDB [Videoteka]> ;
+ERROR: No query specified
+
+MariaDB [Videoteka]> CREATE TABLE Clanovi(
+    -> Clanski_broj INT NOT NULL,
+    -> IME VARCAR(30),
+    -> Prez;
+
+MariaDB [Videoteka]> Clanski_broj INT NOT NULL,
+    -> Clanski_broj INT NOT NULL,
+    -> Ime VARCAR(30),
+    -> Prezime VARCHAR(30),
+    -> Adresa VARCHAR(30),
+    -> Telefon CHAR(15),
+    -> Datum_uclanjenje DATETIME,
+    -> PRIMARY KEY(Clanski_broj))ENGINE=InnoDB;
+
+MariaDB [Videoteka]> CREATE TABLE Clanovi(
+    -> Clanski_broj INT NOT NULL,
+    -> IME VARCHAR(30),
+    -> PR
+    -> ;
+
+MariaDB [Videoteka]> CREATE TABLE Clanovi(
+    -> Clanski_broj INT NOT NULL,
+    -> Ime VARCHAR(30),
+    -> Prezime VARCHAR(30),
+    -> Adresa VARCHAR(30),
+    -> Telefon CHAR(15),
+    -> Datum_uclanjenja DATETIME,
+    -> PRIMARY KEY(Clanski_broj))ENGINE=InnoDB;
+Query OK, 0 rows affected (0.04 sec)
+
+MariaDB [Videoteka]> CREATE TABLE Zanr(
+    -> Sifra_zanra INT NOT NULL,
+    -> Naziv VARCHAR(30),
+    -> PRIMARY KEY(Sifra_zanra))ENGINE=InnoDB;
+Query OK, 0 rows affected (0.04 sec)
+
+MariaDB [Videoteka]> CREATE TABLE Filmovi(
+    -> Sifra_filma INT NOT NULL,
+    -> Naziv VARCHAR(30),
+    -> Reziser VARCHAR(30),
+    -> Glavni_glumci VARCHAR(100),
+    -> Godina_izdavanja INT,
+    -> Kolicina_DVD INT,
+    -> Kolicina_VHS INT,
+    -> Slika_naslovnica BLOB,
+    -> Sifra_zanra INT,
+    -> PRIMARY KEY (Sifra_filma),
+    -> KEY (Sifra_zanra))ENGINE=InnoDB;
+Query OK, 0 rows affected (0.04 sec)
+
+MariaDB [Videoteka]> ALTER TABLE FILMOVI ADD CONSTRAINT Filmovi_ibfk_1
+    -> FOREIGN KEY (Sifra_zanra)
+    -> REFERENCES Zanr (Sifra_zanra);
+Query OK, 0 rows affected (0.09 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [Videoteka]> CREATE TABLE Cjenik(
+    -> Sifra_cjenika INT NOT NULL,
+    -> Kategorija VARCHAR(30),
+    -> Cijena FLOAT,
+    -> PRIMARY KEY (Sifra_cjenika))ENGINE=InnoDB;
+Query OK, 0 rows affected (0.04 sec)
+
+MariaDB [Videoteka]> CREATE TABLE Posudba(
+    -> Clanski_broj INT NOT NULL,
+    -> Sifra_filma INT NOT NULL,
+    -> Datum_posudbe DATETIME,
+    -> Datum_povratka DATETIME,
+    -> Sifra_cjenika INT NOT NULL,
+    -> PRIMARY KEY
+    -> (Clanski_broj, Sifra_filma, Datum_posudbe), KEY(Clanski_broj), KEY (Sifra_filma), KEY(Sifra_cjenika))ENGINE=InnoDB;
+Query OK, 0 rows affected (0.04 sec)
+
+MariaDB [Videoteka]> ALTER TABLE POSUDBA ADD  CONSTRAINT Posudba_ibfk_1
+    -> FOREIGN KEY (Clanski_broj)
+    -> REFERENCES Clanovi (Clanski_broj),
+    -> ADD CONSTRAINT Posudba_ibfk_2
+    -> FOREIGN KEY (Sifra_filma)
+    -> REFERENCES Filmovi (Sifra_filma),
+    -> ADD CONSTRAINT Posudba_ibfk_3
+    -> FOREIGN KEY (Sifra_cjenika)
+    -> REFERENCES Cjenik (Sifra_cjenika);
+Query OK, 0 rows affected (0.10 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+
+MariaDB [Videoteka]> show tables;
++---------------------+
+| Tables_in_videoteka |
++---------------------+
+| cjenik              |
+| clanovi             |
+| filmovi             |
+| posudba             |
+| zanr                |
++---------------------+

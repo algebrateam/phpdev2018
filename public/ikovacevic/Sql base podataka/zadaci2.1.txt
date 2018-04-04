@@ -1,0 +1,77 @@
+MariaDB [(none)]> CREATE DATABASE Skladiste2;
+Query OK, 1 row affected (0.01 sec)
+
+MariaDB [(none)]> USE Skladiste2;
+Database changed
+MariaDB [Skladiste2]> CREATE TABLE Skladisno_mjesto(
+    -> Sifra_skladista INT NOT NULL,
+    -> Naziv CHAR(30),
+    -> Mjesto CHAR(20),
+    -> PRIMARY KEY (Sifra_skladista))ENGINE=InnoDB;
+Query OK, 0 rows affected (0.06 sec)
+
+MariaDB [Skladiste2]> CREATE TABLE Radnik(
+    -> Sifra_radnika INT NOT NULL,
+    -> Ime CHAR(30),
+    -> Prezime CHAR(30),
+    -> Sifra_skladista INT,
+    -> PRIMARY KEY(Sifra_radnika),
+    -> KEY(Sifra_skladista))ENGINE=InnoDB;
+Query OK, 0 rows affected (0.03 sec)
+
+MariaDB [Skladiste2]> ALTER TABLE Radnik ADD CONSTRAINT Radnik_ibfk_1
+    -> FOREIGN KEY (Sifra_skladista)
+    -> REFERENCES Skladisno_mjesto (Sifra_skladista);
+Query OK, 0 rows affected (0.09 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [Skladiste2]> CREATE TABLE Proizvod(
+    -> Sifra_proizvoda  INT NOT NULL,
+    -> Naziv CHAR(30),
+    -> Sifra_skladista INT,
+    -> PRIMARY KEY (Sifra_proizvoda),
+    -> KEY (Sifra_skladista))ENGINE=InnoDB;
+Query OK, 0 rows affected (0.05 sec)
+
+MariaDB [Skladiste2]> ALTER TABLE Proizvod ADD CONSTRAINT Proizvod_ibfk_1
+    -> FOREIGN KEY(SIfra_skladista)
+    -> REFERENCES Skladisno_mjesto(Sifra_skladista);
+Query OK, 0 rows affected (0.09 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [Skladiste2]> CREATE TABLE Voditelji(
+    -> Sifra_radnika INT NOT NULL,
+    -> Sifra_skladista INT NOT NULL,
+    -> PRIMARY KEY (Sifra_radnika, Sifra_skladista),
+    -> KEY(Sifra_radnika)
+    -> KEY(Sifra_skladista)) ENGINE=InnoDB;
+
+MariaDB [Skladiste2]> CREATE TABLE Voditelji(
+    -> Sifra_radnika INT NOT NULL,
+    -> Sifra_skladista INT NOT NULL,
+    -> PRIMARY KEY (Sifra_radnika, Sifra_skladista),
+    -> KEY(Sifra_radnika), KEY(Sifra_skladista) ENGINE=InnoDB;
+
+MariaDB [Skladiste2]> CREATE TABLE Voditelji(
+    -> Sifra_radnika INT NOT NULL,
+    -> Sifra_skladista INT NOT NULL,
+    -> PRIMARY KEY(Sifra_radnika, Sifra_skladista),
+    -> KEY(Sifra_radnika), KEY(Sifra_skladista)) ENGINE=InnoDB;
+Query OK, 0 rows affected (0.04 sec)
+
+MariaDB [Skladiste2]> ALTER TABLE Voditelji
+    -> ADD CONSTRAINT Voditelji_ibfk_1
+    -> FOREIGN KEY(Sifra_radnika)
+    -> REFERENCES Radnik(Sifra_radnika),
+    -> ADD CONSTRAINT Voditelji_ibfk_2
+    -> FOREIGN KEY (Sifra_skladista)
+    -> REFERENCES Skladisno_mjesto(Sifra_skladista);
+Query OK, 0 rows affected (0.12 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [Skladiste2]> show tables
+    -> ;
+MariaDB [Skladiste2]> ALTER TABLE Skladisno_mjesto
+    -> CHANGE Mjesto
+    -> Mjesto ENUM('Zagreb', 'Rijeka', 'Sisak');
+MariaDB [Skladiste2]> describe skladisno_mjesto;
