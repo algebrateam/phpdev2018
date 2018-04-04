@@ -8,15 +8,15 @@ function hr_mjesec($mj)
     $mj_array[3] = "Ožujak";
     $mj_array[4] = "Travanj";
   
-  $mj_array[5] = "Svibanj";
-  $mj_array[] = "Lipanj";
-  $mj_array[] = "Srpanj";
-  $mj_array[] = "Kolovoz";
-  $mj_array[] = "Rujan";
-  $mj_array[] = "Listopad";
-  $mj_array[] = "Studeni";
-  $mj_array[] = "Prosinac";
-  return $mj_array[$mj];
+    $mj_array[5] = "Svibanj";
+    $mj_array[] = "Lipanj";
+    $mj_array[] = "Srpanj";
+    $mj_array[] = "Kolovoz";
+    $mj_array[] = "Rujan";
+    $mj_array[] = "Listopad";
+    $mj_array[] = "Studeni";
+    $mj_array[] = "Prosinac";
+    return $mj_array[$mj];
 }
 $mj = date('n');
 echo hr_mjesec($mj);
@@ -32,8 +32,7 @@ function ispis_tablica($imenaArray)
         <th>Ime</th>
         <th>Prezime</th>
         </tr>';
-    foreach($imenaArray as $key => $ucenik)
-    {
+    foreach ($imenaArray as $key => $ucenik) {
         echo '
         <tr>
         <td>'.$ucenik["ime"].'</td>
@@ -42,7 +41,6 @@ function ispis_tablica($imenaArray)
     }
     
     echo '</table>';
-    
 }
 $ucenici = array();
 $ucenici[1]["ime"] = "Pero";
@@ -54,34 +52,32 @@ ispis_tablica($ucenici);
 
 <?php
 echo "<br>Treći Zadatak<br>";
-function sum($a,$b)
+function sum($a, $b)
 {
     return $a+$b;
-    
 }
-function raz($a,$b)
-        
+function raz($a, $b)
 {
     return $a-$b;
 }
-function mnoz($a,$b)
+function mnoz($a, $b)
 {
     return $a*$b;
 }
-function djel($a,$b)
+function djel($a, $b)
 {
     return $a/$b;
 }
-function sve($a,$b)
+function sve($a, $b)
 {
-    echo sum($a,$b);
-    echo raz($a,$b);
-    echo mnoz ($a,$b);
-    echo djel($a,$b);
+    echo sum($a, $b);
+    echo raz($a, $b);
+    echo mnoz($a, $b);
+    echo djel($a, $b);
 }
 $i = 4;
 $j = 2;
-sve($i,$j);
+sve($i, $j);
 ?>
      
 <?php
@@ -90,17 +86,17 @@ function param()
 {
     $parametars = func_get_args();
     
-    foreach($parametars as $param)
-    {
-        if(is_int($param))
-        {
+    foreach ($parametars as $param) {
+        if (is_int($param)) {
             echo $param."je broj";
-        }
-        else
-        {
+        } else {
             echo $param."je string";
-        }    
+        }
     }
 }
+<<<<<<< HEAD
 echo param("Bosko", 7 , 3, "Josko");
+=======
+echo param("Ema", 7, 3, "Ivan");
+>>>>>>> aeef605c74bd8115b01b2b5fd10caed19695f60b
 ?>

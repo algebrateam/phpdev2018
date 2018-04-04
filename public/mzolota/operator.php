@@ -11,3 +11,5 @@ echo '<hr>';
 
 $a++;
 $b = '1';
+
+// this is a comment

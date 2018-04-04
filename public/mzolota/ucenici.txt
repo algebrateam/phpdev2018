@@ -1,0 +1,5 @@
+<br />
+<b>Warning</b>:  file(ucenici.txt): failed to open stream: No such file or directory in <b>C:\Users\User\Code\phpdev2018\public\mzolota\dz.php</b> on line <b>25</b><br />
+<br />
+<b>Warning</b>:  Invalid argument supplied for foreach() in <b>C:\Users\User\Code\phpdev2018\public\mzolota\dz.php</b> on line <b>27</b><br />
+
