@@ -1,0 +1,189 @@
+USE fakultet
+SHOW TABLES
+EXPLAIN stud
+SELECT mbrstud, prezstud, imestud FROM stud
+
+-- zadatak 3.2 ispišite maticne brojeve te imena i prezimena svih studenata, 
+-- ime i prezime treba ispisati zajedno, u jednom stupcu. 
+
+SELECT mbrstud, CONCAT (imestud,' ',prezstud) AS 'Studenti' FROM stud
+
+-- zadatak 3.3 ispišite sva imena studenata tako da se ni jedno ne pojavi dva puta,
+-- sortirajte imena silazno po abecedi
+
+SELECT DISTINCT imestud FROM stud ORDER BY imestud ASC
+
+-- zadatak 3.4 ispišite maticne brojeve studenata koji su poližili ispit iz predmeta
+-- sa šifrom 146
+
+show tables
+explain ispit
+select * from ispit
+select mbrstud FROM ispit WHERE ocjena >1 && sifpred =146
+
+-- zadatak 3.5 ispišite imena i prezimena nastavnika te njihovu placu dobivenu
+-- formulom: (koeficijent + 0.4)*800
+
+SHOW TABLES
+SELECT * FROM nastavnik
+
+SELECT imenastavnik, preznastavnik, ((koef+0.4)*800) AS
+Placa FROM nastavnik ORDER BY imenastavnik ASC
+
+-- zadatak 3.6 ispišite imena i prezimena nastavnika iz prethodnog zadatka
+- koji imaju placu manju od 3.500,00 kn ili vecu od 8.000,00 kn
+
+SELECT imenastavnik, preznastavnik, ((koef+0.4)*800) AS
+Placa FROM nastavnik WHERE ((koef+0.4)*800) <= 3500 || ((koef+0.4)*800) >8000
+ORDER BY Placa
+
+-- zadatak 3.7 ispišite imena i prezimena studenata koji su barem jednom pali na
+-- ispitu iz predmeta sa šiframa od 220 do 240
+
+show tables
+explain ispit
+SELECT imestud, prezstud, ocjena FROM stud, ispit
+
+
+SELECT imestud, prezstud FROM stud JOIN
+ispit ON stud.mbrstud=ispit.mbrstud
+WHERE ocjena=1 AND (sifpred BETWEEN 220 AND 240)
+
+-- zadatak 3.8 ispišite imena i prezimena studenata koji su na nekom ispitu dobili 3
+
+SELECT DISTINCT imestud, prezstud FROM stud 
+JOIN ispit ON stud.mbrstud=ispit.mbrstud WHERE ocjena=3 ORDER BY imestud ASC
+ 
+-- zadatak 3.9 ispišite nazive predmeta na koje nije izašao niti jedan student
+
+SHOW TABLES
+SELECT * FROM pred
+EXPLAIN pred
+EXPLAIN ispit
+
+SELECT nazpred FROM pred LEFT JOIN ispit 
+ON pred.sifpred=ispit.sifpred 
+WHERE datispit IS NULL
+
+-- zadatak 3.10 ispišite nazive predmeta na koje je izašao barem jedan student
+
+SELECT DISTINCT nazpred FROM pred JOIN ispit
+ON ispit.sifpred=pred.sifpred
+
+-- zadatak 3.11 ispišite sve podatke o studenima cije ime pocinje i završava samoglasnikom
+
+SELECT * FROM stud WHERE LEFT(imestud, 1) IN ('a', 'e', 'i', 'o', 'u') &&
+RIGHT (imestud,1) IN ('a', 'e', 'i', 'o', 'u')
+
+-- zadatak 3.12 ispišite sve podatke o studenima kojima ime pocinje i završava bilo kojim znakom
+-- osim samoglasnkom
+
+SELECT * FROM stud WHERE LEFT(imestud, 1) NOT IN ('a', 'e', 'i', 'o', 'u')
+&& RIGHT (imestud,1) NOT IN ('a', 'e', 'i', 'o', 'u')
+
+-- zadatak 3.13 ispišite sve podatke o studentima cije ime pocinje ili završava samoglasnikom
+
+SELECT * FROM stud
+WHERE LEFT(imestud,1) IN ('a', 'e', 'i', 'o', 'u') AND
+RIGHT(imestud,1) IN ('a', 'e', 'i', 'o', 'u')
+
+
+-- zadatak 3.14 ispišite sve podatke o studenima kojima ime ili prezime bilo gdje sadržava slova 
+-- n i k jedon iza drugog
+
+SELECT * FROM stud WHERE imestud 
+LIKE '%nk%' || prezstud LIKE '%nk%'
+
+-- zadatak 3.15 ispišite ime i prezime studenata te naziv i ocjenu za svaki ispit
+
+SELECT imestud, prezstud, nazpred, ocjena FROM ispit
+JOIN stud ON ispit.mbrstud=stud.mbrstud
+JOIN pred ON pred.sifpred=ispit.sifpred
+
+-- zadatak 3.16 ispišite imena i prezimena studenata te mjesto i županiju u kojoj su rodeni
+-- nakon toga dodajte mjesto i županiju gdje stanuju
+
+SHOW TABLES
+SELECT  * FROM mjesto, zupanija
+
+SELECT imestud, prezstud, m.nazmjesto AS 'Mjesto rodenja',
+z.nazzupanija AS 'Zupanija rodenja',
+m2.nazmjesto AS 'Mjesto boravka',
+z2.nazzupanija AS 'Zupanija boravka'
+FROM stud s JOIN mjesto m ON m.pbr=s.pbrrod
+JOIN zupanija z ON z.sifzupanija=m.sifzupanija
+JOIN mjesto m2 ON s.pbrstan=m2.pbr
+JOIN zupanija z2 ON z2.sifzupanija=m2.sifzupanija
+
+-- zadatak 3.17 ispišite nazive predmeta i organizacijske jedinice kojima pripadaju za one kolegije koji
+-- imaju više od 20 upisanih studenata
+
+SELECT * FROM pred
+
+SELECT nazpred, nazorgjed, upisanostud
+FROM pred JOIN orgjed ON pred.siforgjed=orgjed.siforgjed
+WHERE upisanostud>20
+
+-- zadatak 3.18 ispišite nazive mjesta u kojima stanuje barem jedan student, imena mjesta
+-- smiju se pojaviti samo jednom
+
+SHOW TABLES
+SELECT * FROM mjesto
+
+SELECT DISTINCT nazmjesto FROM mjesto
+JOIN stud ON mjesto.pbr=stud.pbrstan
+
+-- zadatak 3.19 ispišite nazive mjesta u kojima je barem jedan studen i roden i stanuje, imena mjesta
+-- smiju se pojaviti samo jednom
+
+SELECT DISTINCT nazmjesto FROM mjesto JOIN stud ON mjesto.pbr=stud.pbrstan
+WHERE pbrstan=pbrrod
+
+-- zadatak 3.20 ispišite oznake dvorana i nazive kolegija
+-- za one kolegije koji imaju više od 2 sata predavanja tjedno
+
+SHOW TABLES
+SELECT * FROM pred, rezervacija
+
+SELECT nazpred, ozndvorana FROM pred 
+LEFT JOIN rezervacija ON pred.siforgjed=rezervacija.sifpred WHERE brojsatitjedno>2
+
+-- zadatak 3.21 ispišite nazive kolegija i oznake dvorana u kojima imaju rezerviran termin, 
+-- ispišite i naziv organizacijske jedinice kojoj kolegij pripada
+
+SELECT * FROM pred
+
+SELECT nazpred, ozndvorana, nazorgjed FROM pred JOIN rezervacija ON pred.sifpred=rezervacija.sifPred
+JOIN orgjed ON orgjed.siforgjed=pred.siforgjed
+
+-- zadatak 3.22 ispišite podatke o nastavnicima koji su ispitivali studente koji stanuju u istoj županiji
+-- u kojoj stanuje i nastavnik
+
+SELECT * FROM nastavnik
+SELECT * FROM mjesto
+
+SELECT DISTINCT imenastavnik, preznastavnik FROM nastavnik
+JOIN ispit ON ispit.sifnastavnik=nastavnik.sifnastavnik
+JOIN stud ON ispit.mbrstud=stud.mbrstud
+JOIN mjesto AS m1 ON m1.pbr=stud.pbrstan
+JOIN mjesto AS m2 ON m2.pbr=nastavnik.pbrstan
+WHERE m1.sifzupanija=m2.sifzupanija
+
+-- zadatak 3.23 ispišite podatke o studentima koji studiraju u mjestu razlicitom od mjesta rodenja, ali koje
+-- se nalazi u istoj županiji u kojoj su rodeni
+
+SELECT * FROM stud
+
+SELECT imestud, prezstud FROM stud
+JOIN mjesto AS m1 ON stud.pbrrod=m1.pbr
+JOIN mjesto AS m2 ON stud.pbrstan=m2.pbr
+WHERE stud.pbrrod <> stud.pbrstan && m1.sifzupanija=m2.sifzupanija
+
+-- zadatak 3.25 ispišite podatke o studentima i njihovim mjestima stanovanja za one studnte koji su barem
+-- jednom poli na ispitu "Osnove baza podataka"
+
+SELECT DISTINCT imestud, prezstud, nazmjesto FROM stud 
+JOIN mjesto ON mjesto.pbr=stud.pbrstan
+JOIN ispit ON stud.mbrstud=ispit.mbrstud
+JOIN pred ON pred.sifpred=ispit.sifpred
+WHERE nazpred='Osnove baza podataka' && ocjena=1

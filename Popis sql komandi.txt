@@ -1,0 +1,1 @@
+alter table locations convert to character set utf8

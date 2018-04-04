@@ -1,0 +1,22 @@
+C:\Users\office>       cd c:\xampp\mysql\bin\
+
+c:\xampp\mysql\bin>    mysql -u root -p
+
+                       create database datasens;
+
+                       exit;
+
+                       mysql -u root -p datasens < "c:\Users\office\Code\phpdev2018\public\dkrizanovic\Mysql\php2018.sql"
+                       mysql -u root -p
+                       show databases;
+
+
+ create table readings(
+    -> id INT(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    -> sensors_id INT(11) UNSIGNED,
+    -> timestamp TIMESTAMP default CURRENT_TIMESTAMP,
+    -> value FLOAT(8,2),
+    -> INDEX sens_id(sensors_id),
+    -> FOREIGN KEY fk_sensors(sensors_id) REFERENCES sensors(id)
+    -> );
+
