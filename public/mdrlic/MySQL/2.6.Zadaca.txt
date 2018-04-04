@@ -1,0 +1,220 @@
+//Zadatak 2.1
+
+C:\Users\Tomislav>cd c:\xampp\mysql\bin\
+
+c:\xampp\mysql\bin>mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 2
+Server version: 10.1.30-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2017, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> CREATE DATABASE tvrtka;
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| test               |
+| tvrtka             |
++--------------------+
+6 rows in set (0.00 sec)
+
+MariaDB [(none)]> USE tvrtka;
+Database changed
+
+MariaDB [tvrtka]> CREATE TABLE odjeli(
+    -> Sifra_odjela INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    -> Naziv_odjela VARCHAR(45) NOT NULL,
+    -> Lokacija_odjela VARCHAR(45));
+Query OK, 0 rows affected (0.41 sec)
+
+MariaDB [tvrtka]> CREATE TABLE zaposlenici(
+    -> Sifra_zaposlenika INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    -> Ime VARCHAR(45) NOT NULL,
+    -> Prezime VARCHAR(45) NOT NULL,
+    -> Sifra_odjela INT(11) UNSIGNED NOT NULL,
+    -> KEY Sifra_odjela_idx (Sifra_odjela),
+    -> CONSTRAINT fk_odjeli FOREIGN KEY(Sifra_odjela) REFERENCES odjeli(Sifra_odjela));
+Query OK, 0 rows affected (0.33 sec)
+
+MariaDB [tvrtka]> CREATE TABLE sefovi(
+    -> Sifra_zaposlenika INT(11) UNSIGNED NOT NULL,
+    -> Sifra_odjela INT(11) UNSIGNED NOT NULL);
+    -> PRIMARY KEY (Sifra_zaposlenika, Sifra_odjela));
+Query OK, 0 rows affected (0.70 sec)
+
+MariaDB [tvrtka]> CREATE INDEX Sifra_zaposlenika_idx ON sefovi(Sifra_zaposlenika);
+Query OK, 0 rows affected (0.79 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [tvrtka]> ALTER TABLE sefovi ADD CONSTRAINT sefovi_ibfk_1 FOREIGN KEY (Sifra_zaposlenika) REFERENCES zaposlenici (Sifra_zaposlenika);
+Query OK, 0 rows affected (1.10 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [tvrtka]> CREATE INDEX Sifra_odjela_idx ON sefovi(Sifra_odjela);
+Query OK, 0 rows affected (0.46 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [tvrtka]> ALTER TABLE sefovi ADD CONSTRAINT sefovi_ibfk_2 FOREIGN KEY (Sifra_odjela) REFERENCES odjeli (Sifra_odjela);
+Query OK, 0 rows affected (0.66 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [tvrtka]> show tables;
++------------------+
+| Tables_in_tvrtka |
++------------------+
+| odjeli           |
+| sefovi           |
+| zaposlenici      |
++------------------+
+3 rows in set (0.00 sec)
+
+
+//Zadatak 2.2
+MariaDB [(none)]> CREATE DATABASE trgovina;
+Query OK, 1 row affected (0.01 sec)
+
+MariaDB [(none)]> use trgovina;
+Database changed
+
+MariaDB [trgovina]> CREATE TABLE radnik(
+    -> Sifra_radnika INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    -> Ime VARCHAR(45) NOT NULL,
+    -> Prezime VARCHAR(45) NOT NULL,
+    -> Sifra_skladista INT(11) UNSIGNED NOT NULL);
+Query OK, 0 rows affected (0.24 sec)
+
+MariaDB [trgovina]> CREATE TABLE voditelji(
+    -> Sifra_radnika INT(11) UNSIGNED NOT NULL,
+    -> Sifra_skladista INT(11) UNSIGNED NOT NULL,
+    -> PRIMARY KEY (Sifra_radnika, Sifra_skladista),
+    -> KEY Sifra_radnika_idx (Sifra_radnika),
+    -> KEY Sifra_skladista_idx (Sifra_skladista));
+Query OK, 0 rows affected (0.23 sec)
+
+MariaDB [trgovina]> CREATE TABLE skladisno_mjesto(
+    -> Sifra_skladista INT(11) UNSIGNED NOT NULL PRIMARY KEY,
+    -> Naziv VARCHAR(45) NOT NULL,
+    -> Mjesto VARCHAR(45) NOT NULL,
+    -> KEY Sifra_skladista_idx (Sifra_skladista));
+Query OK, 0 rows affected (0.22 sec)
+
+MariaDB [trgovina]> CREATE TABLE proizvod(
+    -> Sifra_proizvoda INT(11) UNSIGNED NOT NULL PRIMARY KEY,
+    -> Naziv VARCHAR(45) NOT NULL,
+    -> Sifra_skladista INT(11) UNSIGNED NOT NULL,
+    -> KEY Sifra_skladista_idx (Sifra_skladista));
+Query OK, 0 rows affected (0.50 sec)
+
+MariaDB [trgovina]> show tables;
++--------------------+
+| Tables_in_trgovina |
++--------------------+
+| proizvod           |
+| radnik             |
+| skladisno_mjesto   |
+| voditelji          |
++--------------------+
+4 rows in set (0.00 sec)
+
+MariaDB [trgovina]> ALTER TABLE radnik ADD CONSTRAINT fk_radnik FOREIGN KEY(Sifra_skladista) REFERENCES skladisno_mjesto(Sifra_skladista);
+Query OK, 0 rows affected (0.80 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [trgovina]> ALTER TABLE voditelji ADD CONSTRAINT fk_voditelji FOREIGN KEY(Sifra_radnika) REFERENCES radnik(Sifra_radnika),
+    -> ADD CONSTRAINT fk_voditelji_2 FOREIGN KEY(Sifra_skladista) REFERENCES skladisno_mjesto(Sifra_skladista);
+Query OK, 0 rows affected (0.96 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [trgovina]> ALTER TABLE proizvod ADD CONSTRAINT fk_proizvod FOREIGN KEY(Sifra_skladista) REFERENCES skladisno_mjesto(Sifra_skladista);
+Query OK, 0 rows affected (1.35 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+
+//Zadatak 2.3
+
+C:\Users\Tomislav>cd c:\xampp\mysql\bin\
+
+c:\xampp\mysql\bin>mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 8
+Server version: 10.1.30-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2017, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> CREATE DATABASE videoteka;
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [(none)]> use videoteka;
+Database changed
+MariaDB [videoteka]> CREATE TABLE clanovi(
+    -> Clanski_broj INT(11) NOT NULL PRIMARY KEY,
+    -> Ime VARCHAR(45) NOT NULL,
+    -> Prezime VARCHAR(45) NOT NULL,
+    -> Adresa VARCHAR(45) NOT NULL,
+    -> Telefon CHAR(15),
+    -> Datum_uclanjenja DATETIME);
+Query OK, 0 rows affected (0.55 sec)
+
+MariaDB [videoteka]> CREATE TABLE posudba(
+    -> Clanski_broj INT(11) NOT NULL,
+    -> Sifra_filma INT(11) NOT NULL,
+    -> Datum_posudbe DATETIME,
+    -> Datum_povratka DATETIME,
+    -> Sifra_cjenika INT(11) NOT NULL,
+    -> PRIMARY KEY (Clanski_broj, Sifra_filma, Datum_posudbe),
+    -> KEY Clanski_broj_idx (Clanski_broj),
+    -> KEY Sifra_filma_idx (Sifra_filma),
+    -> KEY Sifra_cjenika_idx (Sifra_cjenika));
+Query OK, 0 rows affected (0.25 sec)
+
+MariaDB [videoteka]> CREATE TABLE cjenik(
+    -> Sifra_cjenika INT(11) NOT NULL PRIMARY KEY,
+    -> Kategorija VARCHAR(45),
+    -> Cijena FLOAT);
+Query OK, 0 rows affected (0.23 sec)
+
+MariaDB [videoteka]> CREATE TABLE filmovi(
+    -> Sifra_filma INT(11) NOT NULL PRIMARY KEY,
+    -> Naziv VARCHAR(45) NOT NULL,
+    -> Reziser VARCHAR(45),
+    -> Glavni_glumci VARCHAR(100),
+    -> Godina_izdanja INT(11),
+    -> Kolicina_DVD INT(11),
+    -> Kolicina_VHS INT(11),
+    -> Sifra_zanra INT(11),
+    -> KEY Sifra_zanra_idx (Sifra_zanra));
+Query OK, 0 rows affected (0.49 sec)
+
+MariaDB [videoteka]> CREATE TABLE zanr(
+    -> Sifra_zanra INT(11) NOT NULL PRIMARY KEY,
+    -> Naziv VARCHAR(45) NOT NULL);
+Query OK, 0 rows affected (0.26 sec)
+
+MariaDB [videoteka]> ALTER TABLE filmovi ADD CONSTRAINT fk_filmovi FOREIGN KEY(Sifra_zanra) REFERENCES zanr(Sifra_zanra);
+Query OK, 0 rows affected (0.95 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [videoteka]> ALTER TABLE posudba ADD CONSTRAINT fk_posudba FOREIGN KEY(Clanski_broj) REFERENCES clanovi(Clanski_broj),
+    -> ADD CONSTRAINT fk_posudba_2 FOREIGN KEY(Sifra_filma) REFERENCES filmovi(Sifra_filma),
+    -> ADD CONSTRAINT fk_posudba_3 FOREIGN KEY(Sifra_cjenika) REFERENCES cjenik(Sifra_cjenika);
+Query OK, 0 rows affected (0.90 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+Zadatak 2.4
+
+MariaDB [trgovina]> ALTER TABLE skladisno_mjesto CHANGE Mjesto Mjesto ENUM('Zagreb', 'Rijeka', 'Sisak');
+Query OK, 0 rows affected (0.79 sec)
+Records: 0  Duplicates: 0  Warnings: 0
