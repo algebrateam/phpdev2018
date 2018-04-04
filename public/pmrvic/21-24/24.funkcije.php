@@ -34,27 +34,50 @@ td:nth-child(odd) {background: #FFF}
 <tijelo funkcije>
 }
 */
-/*
-function br(){
+
+function br_bac()
+{
     echo "<br>";
+    echo ' <p>';
+    echo '
+public	update zadace 6.7	8 hours ago
+tests	Apply fixes from StyleCI	11 days ago
+.env.travis	Create .env.travis	15 days ago
+.gitignore	vracen .gitignore	12 minutes ago
+.scrutinizer.yml	scrutinizer config	4 days ago
+.styleci.yml	promjenio styleCI na psr2 fixer	4 days ago
+.travis.yml	HeROKU pokusaj build	5 days ago
+LICENSE	prvi hello world	19 days ago
+Procfile	dodao .htaccess za directory listing	4 days ago
+README.md	Update README.md	3 days ago
+Tablica.php	test heroku bez STYLECI	4 days ago
+composer.json	Dodao prazan composer.json ka';
+    
+    echo '</p>';
 }
-*/
+echo "Poziv funkcije br()";
+
+
 function br($broj_novih_redova)
 {
-    /*
-    for($i=0;$i<=$broj_novih_redova;$i++){
-        echo "<br>";
-    }*/
+    
+//    for($i=0;$i<$broj_novih_redova;$i++){
+//        echo "<br>  ....---->".$i;
+//    }
     echo str_repeat('<br>', $broj_novih_redova);
 }
+br(5);
 
-function hr()
+
+function linija()
 {
     echo '<hr>';
 }
 $timestamp = time();
 
-echo "ispis vremena $timestamp";
+echo "<br> kao timestamp ispis vremena $timestamp";
+echo '<br> kao date:'.gmdate("Y/m/j H:i:s", $timestamp +3600*1); // dodaj 1 sat
+
 
 $nizslova = 'neko južno voće';
 $nekiarray = ['plava', 'zuta', 'crvena'];
@@ -82,11 +105,11 @@ function mojispis($ulaz)
 }
 
 br(2);
-hr();
+linija();
 echo 'ispis datuma';
 br(1);
-$datum = date('L', (1457036291 - 365 * 24 * 60 * 60));
-
+//$datum = date('L', (1457036291 - 365 * 24 * 60 * 60));
+$datum = date('L', time()+2*365*24*60*60);
 echo 'Ako je prijestupna ispise 1:'.$datum;
 ////////////////
 
@@ -115,7 +138,7 @@ br(5);
 
 $fruits = [0       => 'limun',
                 'a'=> 'naranca',
-                 1 => 'banana',
+                  1 => 'banana',
                 'b'=> 'jabuka',
                 7  => 'banana',
                 2  => 'grejp', ];
