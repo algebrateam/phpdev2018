@@ -131,4 +131,6 @@ DATE_ADD(datIspit,INTERVAL 2 WEEK) plusdvatjedna,
 DAYNAME(datIspit) as nazivdana
 FROM
 fakultet.ispit;
+
+----
 ;
