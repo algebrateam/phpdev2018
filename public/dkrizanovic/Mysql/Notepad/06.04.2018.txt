@@ -82,4 +82,53 @@ LEFT JOIN tenisaci on igrac=tenisaci.id
 GROUP BY igrac
 ORDER BY rezultat DESC
 LIMIT 5
+
+----------------------------------------------
+USE fakultet;
+SELECT
+sifPred, 
+MAX(ocjena) as najveca_ocjena,
+MAX(ocjena) as najmanja_ocjena,
+AVG(ocjena) as srednja_ocjena
+FROM
+
+ispit
+GROUP BY sifPred
+ORDER BY najveca_ocjena
+;
+
+-------------------------
+
+
+SELECT
+
+imeStud,
+LOWER(imeStud) as maloime,
+UPPER(imeStud) as velikoime,
+REPEAT('.',6)as tocke
+FROM
+fakultet.stud;
+
+-------------------------
+
+SELECT
+datIspit,
+CONVERT(datIspit, CHAR) AS txtdat,
+SUBSTRING(CONVERT(datIspit, CHAR),6,2) AS mjesec,
+CONVERT(SUBSTRING(CONVERT(datIspit, CHAR),6,2), INT) as mjesecbeznule
+FROM
+fakultet.ispit;
+
+-----------------
+
+SELECT
+datIspit,
+CONVERT(datIspit, CHAR) AS txtdat,
+SUBSTRING(CONVERT(datIspit, CHAR),6,2) AS mjesec,
+CONVERT(SUBSTRING(CONVERT(datIspit, CHAR),6,2), INT) as mjesecbeznule,
+DATE_ADD(datIspit,INTERVAL 1 YEAR) plusgodina,
+DATE_ADD(datIspit,INTERVAL 2 WEEK) plusdvatjedna,
+DAYNAME(datIspit) as nazivdana
+FROM
+fakultet.ispit;
 ;
