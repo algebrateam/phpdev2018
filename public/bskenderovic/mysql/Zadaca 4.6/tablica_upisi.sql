@@ -3,11 +3,10 @@ CREATE DATABASE Upisi_polaznika;
 USE Upisi_polaznika;
 
 CREATE TABLE Polaznici(
-  sifra_polaznika INT NOT NULL,
+  sifra_polaznika INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
   ime VARCHAR (50) NOT NULL,
   prezime VARCHAR (50) NOT NULL,
-  mjesto_stanovanja CHAR (25),
-  PRIMARY KEY (sifra_polaznika)
+  mjesto_stanovanja CHAR (25)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE Tecajevi(
@@ -18,8 +17,8 @@ CREATE TABLE Tecajevi(
 
 
 CREATE TABLE Upisi(
-  sifra_polaznika INT,
-  sifra_tecaja CHAR(3),
+  sifra_polaznika INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  sifra_tecaja CHAR(3) NOT NULL,
   PRIMARY KEY (sifra_polaznika, sifra_tecaja),
   KEY (sifra_polaznika),
   KEY (sifra_tecaja)
