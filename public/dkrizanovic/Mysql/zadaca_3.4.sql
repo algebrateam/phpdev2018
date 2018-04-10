@@ -47,3 +47,33 @@ INNER JOIN (
 SELECT ispit.mbrStud, ispit.sifPred, ispit.ocjena
 FROM ispit
 WHERE ispit.sifPred BETWEEN 220 AND 240 AND ispit.ocjena = 1) ispiti ON stud.mbrStud=ispiti.mbrStud;
+-- Zadatak 3.8
+-- Ispiši imena i prezimena studenata koji su na nekom ispitu dobili 3.
+
+SELECT DISTINCT imeStud, prezStud FROM stud
+JOIN ispit ON stud.mbrStud=ispit.mbrStud WHERE ocjena=3;
+-- Zadatak 3.9
+-- Ispišite nazive predmeta na koje nije izašao niti jedan student.
+
+SELECT nazPRED FROM pred
+LEFT JOIN ispit ON pred.sifPred=ispit.sifPred WHERE datIspit IS NULL
+ORDER BY nazPred;
+-- Zadatak 3.10
+-- Ispišite nazive predmeta na koje je izašao barem jedan student
+
+SELECT DISTINCT nazPred FROM pred
+INNER JOIN ispit ON pred.sifPred = ispit.sifPred;
+-- Zadatak 3.11
+-- Ispišite sve podatke o studentima čije ime počinje i završava samoglasnikom.
+
+SELECT
+*
+FROM stud
+WHERE LEFT(imeStud,1) IN ('A','E','I','O','U') AND RIGHT(imeStud,1) IN ('A','E','I','O','U');
+-- Zadatak 3.12
+-- Ispišite sve podatke o studentima kojima ime počinje i završava bilo kojim znakom osim samoglasnikom
+
+SELECT
+*
+FROM stud
+WHERE LEFT(imeStud,1) NOT IN ('A','E','I','O','U') AND RIGHT(imeStud,1) NOT IN ('A','E','I','O','U');
