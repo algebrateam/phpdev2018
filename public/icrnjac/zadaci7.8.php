@@ -6,40 +6,40 @@ function hr_month()
         
         case '1':
             $month = 'siječanj';
-            break;
-        case '2':
+    break;
+    case '2':
             $month = 'veljača';
-            break;
-        case '3':
+    break;
+    case '3':
             $month = 'ožujak';
-            break;
-        case '4':
+    break;
+    case '4':
             $month = 'travanj';
-            break;
-        case '5':
+    break;
+    case '5':
             $month = 'svibanj';
-            break;
-        case '6':
+    break;
+    case '6':
             $month = 'lipanj';
-            break;
-        case '7':
+    break;
+    case '7':
             $month = 'srpanj';
-            break;
-        case '8':
+    break;
+    case '8':
             $month = 'kolovoz';
-            break;
-        case '9':
+    break;
+    case '9':
             $month = 'rujan';
-            break;
-        case '10':
+    break;
+    case '10':
             $month = 'listopad';
-            break;
-        case '11':
+    break;
+    case '11':
             $month = 'studeni';
-            break;
-        case '12':
+    break;
+    case '12':
             $month = 'prosinac';
-            break;
+    break;
           
     endswitch;
     
@@ -60,8 +60,7 @@ function ispis_tablice($imena)
     <th>Prezime</th>
     </tr>';
     
-    foreach($imena as $key => $ucenik)
-    {
+    foreach ($imena as $key => $ucenik) {
         echo '
         <tr>
         <td>'.$key.'</td>
@@ -93,13 +92,11 @@ $b = 3;
 function zbrajanje($a, $b)
 {
     return $a.' + '.$b.' = '.($a+$b).'<br>';
-    
 }
 
 function oduzimanje($a, $b)
 {
     return $a.' - '.$b.' = '.($a-$b).'<br>';
-    
 }
 
 function mnozenje($a, $b)
@@ -114,10 +111,10 @@ function dijeljenje($a, $b)
 
 function sve($a, $b)
 {
-  echo zbrajanje($a, $b);
-  echo oduzimanje($a, $b);
-  echo mnozenje($a, $b);
-  echo dijeljenje($a, $b);
+    echo zbrajanje($a, $b);
+    echo oduzimanje($a, $b);
+    echo mnozenje($a, $b);
+    echo dijeljenje($a, $b);
 }
 
 sve($a, $b);
@@ -128,24 +125,19 @@ function par()
 {
     $parametars = func_get_args();
     
-    foreach($parametars as $par)
-    {
-        if(is_int($par))
-        {
+    foreach ($parametars as $par) {
+        if (is_int($par)) {
             echo $par.' je broj<br>';
-        }
-        else
-        {
-          echo $par.' je string<br>';  
+        } else {
+            echo $par.' je string<br>';
         }
     }
 }
 
 echo par('Iva', 4, 'Leo', 6);
 
-/* 
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
