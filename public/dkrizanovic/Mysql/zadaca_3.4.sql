@@ -68,7 +68,8 @@ INNER JOIN ispit ON pred.sifPred = ispit.sifPred;
 
 SELECT
 *
-FROM stud
+FROM
+stud
 WHERE LEFT(imeStud,1) IN ('A','E','I','O','U') AND RIGHT(imeStud,1) IN ('A','E','I','O','U');
 -- Zadatak 3.12
 -- Ispišite sve podatke o studentima kojima ime počinje i završava bilo kojim znakom osim samoglasnikom
@@ -77,3 +78,46 @@ SELECT
 *
 FROM stud
 WHERE LEFT(imeStud,1) NOT IN ('A','E','I','O','U') AND RIGHT(imeStud,1) NOT IN ('A','E','I','O','U');
+-- Zadatak 3.12
+-- Ispišite sve podatke o studentima kojima ime počinje i završava bilo kojim znakom osim samoglasnikom
+
+SELECT
+*
+FROM stud
+WHERE LEFT(imeStud,1) NOT IN ('A','E','I','O','U') AND RIGHT(imeStud,1) NOT IN ('A','E','I','O','U');
+
+
+-- Zadatak 3.14
+-- Ispiši sve podatke o studentima kojima ime ili prezime bilo gdje sadržava slova n i k jedno iza drugog.
+
+SELECT *
+FROM stud
+WHERE INSTR(UPPER(imeStud),'NK') > 0 OR INSTR(UPPER(prezStud),'NK') > 0;
+-- Zadatak 3.15
+-- Ispišite ime i prezime studenta te naziv i ocjenu za svaki ispit.
+
+SELECT imeStud,prezStud,nazPred,ocjena
+FROM ispit
+INNER JOIN stud ON stud.mbrStud = ispit.mbrStud
+INNER JOIN pred ON ispit.sifPred = pred.sifPred
+ORDER BY prezStud,imeStud,nazPred;
+
+-- Zadatak 3.16
+-- Ispišite imena i prezimena studenata te mjesto i županiju u kojoj su rođeni. Nakon toga dodajte mjesto i županiju gdje stanuju
+
+SELECT imeStud, prezStud, m.nazMjesto AS "Mjesto rođenja", z.nazZupanija AS "Županija rođenja", 
+ m2.nazMjesto AS "Mjesto boravka", z2.nazZupanija AS "Županija boravka"
+FROM stud s
+INNER JOIN mjesto m ON m.pbr = s.pbrRod
+INNER JOIN zupanija z ON m.sifZupanija = z.sifZupanija
+INNER JOIN mjesto m2 ON s.pbrStan = m2.pbr
+INNER JOIN zupanija z2 ON z2.sifZupanija = m2.sifZupanija;
+
+-- Zadatak 3.17
+-- Ispišite nazive predmeta i organizacijske jedinice kojima pripadaju za one kolegije koji imaju više od 20 upisanih studenata
+
+SELECT nazPred,nazOrgjed,upisanoStud
+FROM pred
+INNER JOIN orgjed ON pred.sifOrgjed = orgjed.sifOrgjed
+WHERE upisanoStud > 20
+ORDER BY nazOrgjed,nazPred;
