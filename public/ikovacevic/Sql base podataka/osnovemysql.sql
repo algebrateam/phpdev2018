@@ -29,7 +29,7 @@ INSERT INTO filmovi (id_film, naziv) VALUES
 (2, 'Batman'),
 (3, 'Avatar')
 
-	DROP TABLE posudba
+
 	
 CREATE TABLE posudba (
 id_clan INT(11) NOT NULL,
