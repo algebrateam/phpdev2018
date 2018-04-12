@@ -29,7 +29,7 @@
      <option value="31000">Osijek</option>
      <option value="21000">Split</option>
      </optgroup>
-     <optgroup label="sekundarno" disabled="true">
+     <optgroup label="sekundarno">
      <option value="12345">Čamagajevci</option>
      <option value="98572">Zagreb</option>
      </optgroup>
@@ -57,8 +57,40 @@
       <?php
       
       echo "Pozdrav iz PHP-a";
+      
+      echo "varijabla ime je: ".$_POST['ime'].'<br>';
+      echo "varijabla grad je: ".$_POST['grad'].'<br>';
+      
+      if($_POST['grad']==='21000'){
+        echo "Split";
+      }
+      echo gettype($_POST['grad']);
+      
+      switch ($_POST['grad']) {
+        case 21000: echo "Split";  break;
+        case 31000: echo "Osijek";  break;
+        case 10000: echo "Zagreb";  break;
+        case 51000: echo "Sphhhjlit";  break;
+        default: echo "Čamamamagajevci";
+          break;
+}
+      
+echo "<hr>";
+echo gettype($_POST['interesi']);
+foreach ($_POST as $key => $value) {
+  if(gettype($value)=='array'){
+    echo "<pre>";
+    print_r($value);
+    echo "</pre>";
+  }
+  else{
+    echo $key."  ---->  ".$value."<br>";
+  }
+  
+}
+ echo "<hr>";     
       echo "<pre>";
-      print_r($_REQUEST);
+     // print_r($_REQUEST);
       echo "<br>";
        print_r($_POST);
        echo "</pre>";
