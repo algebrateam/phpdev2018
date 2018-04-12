@@ -1,0 +1,27 @@
+CREATE DATABASE videoteka;
+USE videoteka;
+
+CREATE TABLE clanovi (
+clanski_broj INT(11) NOT NULL PRIMARY KEY,
+ime VARCHAR(50) NULL,
+prezime VARCHAR(50) NULL,
+adresa VARCHAR(50) NULL,
+telefon VARCHAR(50) NULL,
+datum_uclanjena DATETIME DEFAULT NULL);
+
+CREATE TABLE filmovi (
+sifra_filma INT(11) NOT NULL PRIMARY KEY,
+naziv VARCHAR (30) NULL);
+
+CREATE TABLE posudba (
+clanski_broj INT(11) NOT NULL,
+sifra_filma INT(11) NOT NULL,
+datum_posudbe DATETIME NOT NULL,
+datum_povratka DATETIME DEFAULT NULL,
+PRIMARY KEY (clanski_broj, sifra_filma, datum_posudbe),
+KEY clanski_broj (clanski_broj),
+KEY sifra_filma (sifra_filma),
+CONSTRAINT pos_cla_fk FOREIGN KEY (clanski_broj) REFERENCES clanovi (clanski_broj),
+CONSTRAINT pos_fil_fk FOREIGN KEY (sifra_filma) REFERENCES filmovi (sifra_filma);
+
+INSERT INTO clanovi 
