@@ -1,0 +1,117 @@
+SHOW DATABASES
+
+CREATE DATABASE polaznici
+
+USE polaznici
+
+SHOW TABLES
+
+CREATE TABLE polaznici_opis(
+sifra_polaznika INT NOT NULL AUTO_INCREMENT,
+Ime_polaznika VARCHAR(20) NOT NULL, 
+Prezime_polaznika VARCHAR(40) NOT NULL, 
+Mjesto_stanovanja VARCHAR(40) NOT NULL, 
+PRIMARY KEY (sifra_polaznika))
+
+INSERT INTO polaznici_opis (ime_polaznika, prezime_polaznika, mjesto_stanovanja) 
+VALUES
+
+	('Ana', 'Milic', 'Zagreb'),
+	('Sanja', 'Tarak', 'Split'),
+	('Mladen', 'Gork', 'Osijek'),
+	('Ivana', 'Matkic', 'Split'),
+	('Martina', 'Anic', 'Osijek'),
+	('Ivica', 'Limac', 'Split')
+
+SELECT * FROM polaznici_opis
+
+
+SHOW TABLES
+
+CREATE TABLE tecajevi(
+sifra_t VARCHAR(20),
+naziv_t VARCHAR(100),
+PRIMARY KEY(sifra_t))
+
+INSERT INTO tecajevi(sifra_t, naziv_t) VALUES
+('P01', 'Osnove rada PC racunala'),
+('P02', 'Microsoft Word'),
+('D01', 'SQL - osnove'),
+('D05', 'Osnove i teorija C++'),
+('O01', 'Racunalni operator - uredsko poslovanje'),
+('O02', 'Specijalist poslovne primjene racunala'),
+('O03', 'Graficki dizajner')
+
+SELECT * FROM tecajevi
+
+
+CREATE TABLE upisi(
+sifra_polaznika INT NOT NULL,
+sif_tecaja VARCHAR(10)
+)
+
+INSERT INTO upisi (sifra_polaznika,sif_tecaja) VALUES
+(1,'P01'),
+(2,'P02'),
+(3,'D01'),
+(4,'O01'),
+(4,'D05'),
+(5,'O02'),
+(6,'P01')
+
+SELECT * FROM Upisi
+
+
+-- zad 4.1 u bazi podataka Upisi u tablici Tecajevi promjenite naziv tecaja P02 iz 'Microsoft Word' u
+-- 'Osnove obrade podataka - MS Word'
+
+USE polaznici
+
+UPDATE tecajevi SET naziv_t='Osnove obrade teksta - MS Word' WHERE naziv_t='Microsoft Word'
+
+-- zad 4.2 u tablici Upisi za polaznika sa sifrom 6 promjenite sifru tecaja u O03
+
+UPDATE upisi SET sif_tecaja='O03' WHERE sifra_polaznika=6
+
+-- zad 4.3 iz tablice Upisi izbrisite sve zapise gdje je sifra tecaja P01
+
+DELETE FROM upisi WHERE sif_tecaja='P01'
+
+-- zad 4.4 u bazi Fakultet stvorite novu tablicu PredmetiDvorane u kojoj cete imati 
+-- informacije o predmetima i dvoranama u kojim se odrzavaju predavanja
+
+SHOW DATABASES
+USE fakultet
+
+CREATE TABLE PredmetiDvorane
+SELECT ozndvorana, nazpred, sat FROM pred
+JOIN rezervacija ON pred.sifPred=rezervacija.sifpred
+
+SHOW TABLES
+
+SELECT * FROM PredmetiDvorane
+
+-- zad 4.5 stvorite pogled koji ispisuje imena i prezimena nastavnika s nazovim mjesta stanovanja
+
+SHOW TABLES
+SELECT * FROM mjesto
+
+CREATE VIEW Stanovanje AS SELECT imenastavnik, preznastavnik, nazmjesto FROM nastavnik
+JOIN mjesto on nastavnik.pbrStan=mjesto.pbr
+
+SELECT * FROM stanovanje
+
+-- zad 4.6 stvorite pogled koji ispisuje ime i prezime studenta, 
+-- naziv i ocjenu za svaki ispit, te ime i prezime profesora koji je odrzao ispit
+
+USE fakultet
+SHOW TABLES
+SELECT * FROM ispit, nastavnik, stud
+
+CREATE VIEW full_ispis AS SELECT imestud, prezstud, nazpred, ocjena,
+imenastavnik, preznastavnik FROM stud
+JOIN ispit ON stud.mbrstud=ispit.mbrstud
+JOIN nastavnik ON nastavnik.sifnastavnik=ispit.sifnastavnik
+JOIN pred ON pred.sifpred=ispit.sifpred
+
+SELECT * FROM full_ispis
