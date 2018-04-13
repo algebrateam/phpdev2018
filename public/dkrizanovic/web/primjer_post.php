@@ -67,13 +67,11 @@
                 echo "<hr>";
                 
                 foreach ($_POST as $key => $value) {
-                    if (gettype($value)=='array')
-                    {
+                    if (gettype($value)=='array') {
                         print_r($value);
+                    } else {
+                        echo $key. "---->".$value."<br>";
                     }
-                    else {
-                    echo $key. "---->".$value."<br>";
-                }
                 }
                 echo "<hr>";
                 echo "<pre>";
