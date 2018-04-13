@@ -47,11 +47,12 @@
         <div style="color:green">
             <?php
             if (isset($_POST['submit'])=='true') {
-            echo "Ime i Prezime 1 je ".$_POST['ime1']." ".$_POST['prezime1'].'<br/>';
-            echo "Ime i Prezime 2 je ".$_POST['ime2']." ".$_POST['prezime2'].'<br/>';
-            echo "Ime i Prezime 3 je ".$_POST['ime3']." ".$_POST['prezime3'].'<br/>';
-            echo "Ime i Prezime 4 je ".$_POST['ime4']." ".$_POST['prezime4'].'<br/>';
-            echo "Ime i Prezime 5 je ".$_POST['ime5']." ".$_POST['prezime5'].'<br/>';}
+                echo "Ime i Prezime 1 je ".$_POST['ime1']." ".$_POST['prezime1'].'<br/>';
+                echo "Ime i Prezime 2 je ".$_POST['ime2']." ".$_POST['prezime2'].'<br/>';
+                echo "Ime i Prezime 3 je ".$_POST['ime3']." ".$_POST['prezime3'].'<br/>';
+                echo "Ime i Prezime 4 je ".$_POST['ime4']." ".$_POST['prezime4'].'<br/>';
+                echo "Ime i Prezime 5 je ".$_POST['ime5']." ".$_POST['prezime5'].'<br/>';
+            }
             ?>
             
         </div>
