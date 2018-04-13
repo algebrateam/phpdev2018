@@ -59,17 +59,15 @@
             case 31000: echo 'Osijek'; break;
             case 10000: echo 'Zagreb'; break;
             case 21261: echo 'Runovići'; break;
-            default : echo 'Čamagajevci'; break;
+            default: echo 'Čamagajevci'; break;
 }
 echo '<hr>';
 foreach ($_POST as $key => $value) {
-    if (gettype($value)=='array'){
+    if (gettype($value)=='array') {
         print_r($value);
-    }
- else {
+    } else {
         echo $key."  ---->  ".$value.'<br>';
     }
-    
 }
 echo '<hr>';
         
