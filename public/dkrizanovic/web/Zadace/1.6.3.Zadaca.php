@@ -12,7 +12,12 @@
             <?php
             for ($index = 1; $index <=5; $index++)
             {
-                printf('<a href="link%s.php" target="_blank">link%s.php</a> <br>', $index,$index);
+                printf('<a href="?broj=%s" target="_self">%s.php</a> <br>', $index,$index);
+            }
+            echo "<hr>";
+            if(isset($_GET['broj']))    
+                {
+                echo "Odabrali ste: ".$_GET['broj'];
             }
             ?>
         </div>
