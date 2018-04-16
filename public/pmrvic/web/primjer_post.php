@@ -55,7 +55,7 @@
     <br>
     <div style="color:red">
       <?php
-      
+
       echo "Pozdrav iz PHP-a";
       
       if(isset($_POST['submit'])){
@@ -63,8 +63,8 @@
       echo "varijabla ime je: ".$_POST['ime'].'<br>';
       echo "varijabla grad je: ".$_POST['grad'].'<br>';
       
-      if($_POST['grad']==='21000'){
-        echo "Split";
+      if ($_POST['grad']==='21000') {
+          echo "Split";
       }
       echo gettype($_POST['grad']);
       
@@ -84,17 +84,15 @@ if(isset($_POST['interesi'])){
 }
 
 foreach ($_POST as $key => $value) {
-  if(gettype($value)=='array'){
-    echo "<pre>";
-    print_r($value);
-    echo "</pre>";
-  }
-  else{
-    echo $key."  ---->  ".$value."<br>";
-  }
-  
+    if (gettype($value)=='array') {
+        echo "<pre>";
+        print_r($value);
+        echo "</pre>";
+    } else {
+        echo $key."  ---->  ".$value."<br>";
+    }
 }
- echo "<hr>";     
+ echo "<hr>";
       echo "<pre>";
      // print_r($_REQUEST);
       echo "<br>";

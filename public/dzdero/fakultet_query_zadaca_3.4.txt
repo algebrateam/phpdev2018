@@ -1,0 +1,221 @@
+use fakultet;
+/*zadatak 3.2
+select
+stud.jmbgStud,
+CONCAT (stud.imeStud,' ',stud.prezStud) as 'ime i prezime'
+
+from stud;
+----------------------------------------
+zadatak 3.3
+select stud.imeStud from stud
+group by stud.imeStud
+order by stud.imeStud desc;
+--------------------------------
+zadatak 3.4
+select
+ispit.mbrStud 
+from ispit where ispit.sifPred=146;
+--------------------------------
+zadatak 3.5
+select
+concat (nastavnik.imeNastavnik,' ',nastavnik.prezNastavnik) as 'ime i prezime',
+(nastavnik.koef+0.4)*800 as 'placa'
+from nastavnik;
+------------------------------------
+zadatak 3.6
+select
+concat (nastavnik.imeNastavnik,' ',nastavnik.prezNastavnik) as 'ime i prezime',
+(nastavnik.koef+0.4)*800 as 'placa'
+from nastavnik
+where ((koef+0.4)*800 < 3500) or ((koef+0.4)*800 >8000);
+---------------------------------------
+zadatak 3.7
+select
+CONCAT (stud.imeStud,' ',stud.prezStud) as 'ime i prezime'
+from
+stud,
+ispit
+where stud.mbrStud = ispit.mbrStud
+and ocjena=1
+and
+(sifPred between 220 and 240);
+---------------------------------------
+zadatak 3.8
+select
+CONCAT (stud.imeStud,' ',stud.prezStud) as 'ime i prezime',
+ispit.ocjena
+from stud inner join ispit
+on stud.mbrStud = ispit.mbrStud
+where ocjena=3;
+---------------------------------------
+zadatak 3.9
+select
+distinct pred.nazPred
+from fakultet.pred left join fakultet.ispit on pred.sifPred=ispit.sifPred
+where datIspit is null;
+---------------------------------------
+zadatak 3.10
+select
+distinct pred.nazPred
+from fakultet.pred left join ispit on pred.sifPred=ispit.sifPred
+where datIspit is not null
+order by nazPred;
+---------------------------------------
+zadatak 3.11
+select
+distinct imeStud
+from
+stud
+where left(imeStud,1) in ('a','e','i','o','u') and
+right (imeStud,1) in ('a','e','i','o','u') 
+order by imeStud;
+---------------------------------------
+zadatak 3.12
+select
+distinct imeStud
+from
+stud
+where left(imeStud,1) not in ('a','e','i','o','u') and
+right (imeStud,1) not in ('a','e','i','o','u') 
+order by imeStud;
+---------------------------------------
+zadatak 3.13
+select
+*
+from
+stud
+where left(imeStud,1) in ('a','e','i','o','u') and
+right (imeStud,1) in ('a','e','i','o','u') 
+order by imeStud;
+---------------------------------------
+zadatak 3.14
+select
+*
+from
+stud
+where imeStud like '%nk%'
+or prezStud like '%nk%'
+order by imeStud;
+---------------------------------------
+zadatak 3.15
+select
+CONCAT (stud.imeStud,' ',stud.prezStud) as 'ime i prezime',
+nazPred as 'predmet',
+ocjena
+from ispit
+join stud on ispit.mbrStud=stud.mbrStud
+join pred on pred.sifPred=ispit.sifPred
+order by imeStud;
+---------------------------------------
+zadatak 3.16
+select
+CONCAT (s.imeStud,' ',s.prezStud) as 'ime i prezime',
+m.nazMjesto as 'mjesto roðenja',
+z.nazZupanija as 'zupanija roðenja',
+m2.nazMjesto as 'mjesto stanovanja',
+z2.nazZupanija as 'zupanija stanovanja'
+from stud s
+join mjesto m on s.pbrRod=m.pbr
+join zupanija z on z.sifZupanija=m.sifZupanija
+join mjesto m2 on s.pbrStan=m2.pbr
+join zupanija z2 on z2.sifZupanija=m2.sifZupanija
+order by imeStud;
+---------------------------------------
+zadatak 3.17
+select
+p.nazPred,
+p.sifOrgjed,
+p.upisanoStud
+from pred p
+join orgjed o on o.sifOrgjed=p.sifOrgjed
+where p.upisanoStud>20
+order by p.upisanoStud;
+---------------------------------------
+zadatak 3.18
+select
+distinct m.nazMjesto as 'mjesto stanovanja'
+from stud s
+join mjesto m on s.pbrStan=m.pbr
+order by nazMjesto;
+---------------------------------------
+zadatak 3.19
+select
+distinct m.nazMjesto as 'mjesto roðenja i stanovanja'
+from stud s
+join mjesto m on s.pbrRod=m.pbr
+join mjesto m2 on s.pbrStan=m2.pbr
+where s.pbrRod=s.pbrStan
+order by m.nazMjesto;
+---------------------------------------
+zadatak 3.20
+select
+d.oznDvorana,
+p.nazPred
+from rezervacija r
+join dvorana d on d.oznDvorana=r.oznDvorana
+join pred p on p.sifPred=r.sifPred
+where p.brojSatiTjedno>2;
+---------------------------------------
+zadatak 3.21
+select
+p.nazPred,
+d.oznDvorana,
+o.sifOrgjed
+from rezervacija r
+join dvorana d on d.oznDvorana=r.oznDvorana
+join pred p on p.sifPred=r.sifPred
+join orgjed o on o.sifOrgjed=p.sifOrgjed;
+---------------------------------------
+zadatak 3.22
+select
+distinct nastavnik.imeNastavnik,
+nastavnik.prezNastavnik
+from nastavnik
+inner join ispit on ispit.sifnastavnik=nastavnik.sifNastavnik
+inner join stud on ispit.mbrStud=stud.mbrStud
+inner join mjesto as m1 on m1.pbr=stud.pbrstan
+inner join mjesto as m2 on m2.pbr=nastavnik.pbrStan
+inner join zupanija on zupanija.sifZupanija=m1.sifZupanija
+where m1.sifZupanija=m2.sifZupanija;
+---------------------------------------
+zadatak 3.23
+select
+s.imeStud,
+s.prezStud,
+s.pbrRod,
+s.pbrStan
+from stud s
+join mjesto m on m.pbr=s.pbrRod
+join zupanija z on z.sifZupanija=m.sifZupanija
+where s.pbrRod<>s.pbrStan
+and left(s.pbrRod,2)=left(s.pbrStan,2);
+---------------------------------------
+zadatak 3.24
+select
+CONCAT (s.imeStud,' ',s.prezStud) as 'student',
+CONCAT (n.imeNastavnik,' ',n.prezNastavnik) as 'nastavnik'
+from stud s inner join nastavnik n
+where s.prezStud=n.prezNastavnik;
+---------------------------------------
+zadatak 3.25
+select
+CONCAT (s.imeStud,' ',s.prezStud) as 'student',
+m.nazMjesto
+from stud s
+join mjesto m on s.pbrStan=m.pbr
+join ispit i on s.mbrStud=i.mbrStud
+where ocjena=1
+group by student;
+---------------------------------------
+zadatak 3.26*/
+select
+CONCAT (n.imeNastavnik,' ',n.prezNastavnik) as 'nastavnik',
+m.nazMjesto,
+z.nazZupanija
+from nastavnik n
+join mjesto m on m.pbr=n.pbrStan
+join ispit i on i.sifNastavnik=n.sifNastavnik
+join pred p on p.sifPred=i.sifPred
+join zupanija z on z.sifZupanija=m.sifZupanija
+where i.ocjena=2 or i.ocjena=3
+group by nastavnik;
