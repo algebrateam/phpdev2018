@@ -1,15 +1,15 @@
 <?php
-class Covjek {
+class Covjek
+{
     public $ime;
-    function set_ime($novo_ime)
+    public function set_ime($novo_ime)
     {
         $this ->ime = $novo_ime;
     }
     
-    function get_ime()
+    public function get_ime()
     {
         return $this -> ime;
     }
 }
-$c = new Covijek ();
-
+$c = new Covijek();
