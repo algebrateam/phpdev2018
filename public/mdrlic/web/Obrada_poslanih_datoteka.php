@@ -13,7 +13,13 @@
     <input type="file" name="datoteka" value=""/><br/>
     <input type="submit" name="upload_btn" value="Upload" />
 </form>
-  <?php     
+  <?php
+  echo "<pre>";
+  if(isset($_POST['upload_btn'])){
+  print_r($_FILES);
+  }
+  echo "</pre>";
+  echo "<hr/>";
 // $uploaddir='/doc/';
 $uploaddir=basename(__DIR__);
 $uploadfile=basename($_FILES['datoteka']['name']);
