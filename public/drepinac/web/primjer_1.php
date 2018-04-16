@@ -18,16 +18,14 @@
         $uploaddir = basename(__DIR__);
         $uploadfile = basename($_FILES['datoteka']['name']);
         
-        $file_array = explode(".",$uploadfile);
+        $file_array = explode(".", $uploadfile);
         $file_ext = end($file_array);
         
         $file_onserver = "file_".time().".".$file_ext;
         
         $new_file_name = $uploaddir.$file_onserver;
         
-        if (move_uploaded_file($_FILES['datoteka']['tmp_name'],$new_file_name))
-        {
-            
+        if (move_uploaded_file($_FILES['datoteka']['tmp_name'], $new_file_name)) {
         }
         // put your code here
         ?>
