@@ -47,5 +47,3 @@ if (isset($_POST["btn"])) {
     fclose($handle);
 }
 echo '<br>';
-
-   
