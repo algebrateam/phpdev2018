@@ -4,7 +4,7 @@
     <title>TODO supply a title</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  </head>
+</head>
   <body>
  
       
@@ -58,6 +58,8 @@
       
       echo "Pozdrav iz PHP-a";
       
+      if(isset($_POST['submit'])){
+      
       echo "varijabla ime je: ".$_POST['ime'].'<br>';
       echo "varijabla grad je: ".$_POST['grad'].'<br>';
       
@@ -76,7 +78,11 @@
 }
       
 echo "<hr>";
-echo gettype($_POST['interesi']);
+if(isset($_POST['interesi'])){
+  echo gettype($_POST['interesi']);
+  
+}
+
 foreach ($_POST as $key => $value) {
   if(gettype($value)=='array'){
     echo "<pre>";
@@ -94,6 +100,8 @@ foreach ($_POST as $key => $value) {
       echo "<br>";
        print_r($_POST);
        echo "</pre>";
+       
+      } // END IF ISSET($_POST['submit']
       ?>
       
     </div>
