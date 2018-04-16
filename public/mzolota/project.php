@@ -1,6 +1,5 @@
-<?php
-$zbroj =0;
-for ($i=20; $i=30; $i++) {
-    $zbroj +=$i;
-}
-echo $zbroj;
+
+C:\Users\office>cd c:\xampp\mysql\bin\
+c:\xampp\mysql\bin>mysql -u root -p
+show databases;
+php2018.sql
