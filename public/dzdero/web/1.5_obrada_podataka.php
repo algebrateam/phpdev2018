@@ -13,14 +13,7 @@
                 <input type="submit" name="upload_btn" value="Upload"/>
             </form>
 <?php
-//            Array(
-//                [datoteka]=>Array(              
-//                [name]=>potvrda.pdf
-//                [type]=>application/x-downloaded
-//                [tmp_name]=>C:\xampplite\tmp\php3EBE.tmp
-//                [error]=>0
-//                [size]=>4096)
-//            )
+       
             echo'<pre>';
             print_r($_FILES);
             echo '</pre>';
