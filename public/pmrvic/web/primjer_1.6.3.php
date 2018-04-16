@@ -19,10 +19,17 @@
       
 for ($index = 1; $index <= 5; $index++) {
  // printf('<a href="link%s.php" target="_blank">link%s.php</a><br>', $index,$index); 
-  printf('<a href="?broj=%s" target="_blank"> %s </a><br>', $index,$index); 
+  printf('<a href="?broj=%s" target="_self"> %s </a><br>', $index,$index); 
 }
-      
-      
+      echo "<hr>";
+if(isset($_GET['broj'])){
+  echo "Odabrali ste:".$_GET['broj'];
+}
+$_ENV['user']='Testni user';
+print_r($_SERVER);
+
+echo $_ENV['HOMEPATH'];
+echo getenv('REMOTE_ADDR')
       ?>
     </div>
   </body>

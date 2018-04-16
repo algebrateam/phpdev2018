@@ -12,6 +12,7 @@
         </form>
         <?php
         
+        print_r($_SERVER);
         if(isset($_POST['upload_btn'])){
         echo "<pre>";
         
