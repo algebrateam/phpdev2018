@@ -7,25 +7,23 @@
     <?php
    echo "<pre>";
    echo "<pre>";
-   if (isset($_POST['upload_btn'])){
-    print_r($_FILES);
+   if (isset($_POST['upload_btn'])) {
+       print_r($_FILES);
 
         
         
- $uploaddir = basename(__DIR__);
- $uploadfile = basename($_FILES['datoteka']['name']);
+       $uploaddir = basename(__DIR__);
+       $uploadfile = basename($_FILES['datoteka']['name']);
  
- $file_array = explode(".",$uploadfile);
- $file_ext = end($file_array);
+       $file_array = explode(".", $uploadfile);
+       $file_ext = end($file_array);
  
- $file_onserver = "file_".time().".".$file_ext;
+       $file_onserver = "file_".time().".".$file_ext;
  
- $new_file_name = $uploaddir.$file_onserver =basename(_DIR_);
+       $new_file_name = $uploaddir.$file_onserver =basename(_DIR_);
  
- if (move_uploaded_file($_FILES['datoteka']['tmp_name'],$new_file_name))
- {
+       if (move_uploaded_file($_FILES['datoteka']['tmp_name'], $new_file_name)) {
  
   //blok koda
- }
- }
-  
+       }
+   }

@@ -6,16 +6,14 @@ echo $polje[1];
 ?>
 
 <?php
-for($i=0;$i<= 2;$i++)
-{
+for ($i=0;$i<= 2;$i++) {
     echo $polje[$i];
 }
 ?>
 
 <?php
 
-foreach($polje as $ime)
-{
+foreach ($polje as $ime) {
     echo $ime;
 }
 ?>
@@ -36,16 +34,13 @@ echo $polje[2];
 ?>
 
 <?php
-for($i=0;$i <= 2;$i++)
-{
+for ($i=0;$i <= 2;$i++) {
     echo $polje[$i];
-
 }
 ?>
 
 <?php
-for($i=0;$i < count($polje);$i++)
-{
+for ($i=0;$i < count($polje);$i++) {
     echo $polje[$i];
 }
 ?>
@@ -53,8 +48,7 @@ for($i=0;$i < count($polje);$i++)
 <?php
 $polje = array('Tesla','Edinson','Bell');
 
-foreach($polje as $ime)
-{
+foreach ($polje as $ime) {
     echo $ime;
 }
 ?>
