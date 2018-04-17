@@ -47,7 +47,7 @@
         <br/>
         <div style="color:red">
             <?php
-            if(isset($_POST['submit'])=='true') {
+            if (isset($_POST['submit'])=='true') {
                 echo "Ime i prezime 1: ".$_POST['ime1']." ".$_POST['prezime1'].'<br/>';
                 echo "Ime i prezime 2: ".$_POST['ime2']." ".$_POST['prezime2'].'<br/>';
                 echo "Ime i prezime 3: ".$_POST['ime3']." ".$_POST['prezime3'].'<br/>';
