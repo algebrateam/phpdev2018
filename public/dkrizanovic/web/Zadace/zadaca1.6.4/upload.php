@@ -1,8 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Upload</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div><?php
+                if (isset($_GET['brojfajlova'])) {
+            $num = $_GET['brojfajlova'] > 5 ? die(" ( $_GET[brojfajlova] )") : $_GET['brojfajlova'];
+            if ($num !== null) {
+                echo "<form action = '' method = 'POST' enctype = 'multipart/form-data'>";
+                echo "<pre>";
+                for ($i = 1; $i <= $num; $i++) {
+                   echo "<p>Datoteka $i</p><input type='file' name='file[]' multiple>";
+                   echo "<br/>";
+                    }
+                echo "</pre>";
+                echo "<button name='files' type='submit'>Upload</button>";
+                echo "</form>";
+            }
+        }
+              
+        ?></div>
+    </body>
+</html>
 <?php
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
+if (isset($_POST['files'])) {
+            print_r($_POST['files']);
+            foreach ($_FILES['file']["name"] as $file => $key) {
+                echo $_FILES['file']["name"][$file];
+                echo "<br>";
+                        
+                move_uploaded_file($_FILES['file']['tmp_name'][$file], "upload/" . $_FILES['file']['name'][$file]);
+                
+                
+            }
+            
+                    
+                                }
+                                
+?>
