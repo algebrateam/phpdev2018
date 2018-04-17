@@ -26,19 +26,22 @@
     </body>
 </html>
 <?php
-
 if (isset($_POST['files'])) {
             print_r($_POST['files']);
-            foreach ($_FILES['file']["name"] as $file => $key) {
-                echo $_FILES['file']["name"][$file];
+           foreach ($_FILES['file']["name"] as $file => $key) {
+              echo "<br> Odabrali ste: ".$_FILES['file']["name"][$file]." datoteku";
                 echo "<br>";
-                        
-                move_uploaded_file($_FILES['file']['tmp_name'][$file], "upload/" . $_FILES['file']['name'][$file]);
-                
-                
-            }
-            
-                    
-                                }
+                       //  }
+                            if (file_exists("upload/" . $_FILES['file']['name'][$file]))
+{
+echo "Datoteka ". $_FILES['file']['name'][$file] ." vec postoji u folderu upload. ";
+}
+else
+{
+move_uploaded_file($_FILES['file']['tmp_name'][$file], "upload/" . $_FILES['file']['name'][$file]);
+echo "Čestitamo, vaša datoteka ". $_FILES['file']['name'][$file] ." je uspješno dodana!";
+}
+           }
+        }
                                 
 ?>
