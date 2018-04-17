@@ -8,11 +8,11 @@
     <body>
         <div>
 <?php
-    for ($i=1; $i<=5; $i++ ){
+    for ($i=1; $i<=5; $i++) {
         echo '<a href="1.6.3.Zadatak.php?broj= '.$i.'" target="_self">link '.$i.'.php</a><br>';
     }
-     if(isset($_GET['broj'])){
-        echo '<br>Odabrali ste: '.$_GET['broj'];
+     if (isset($_GET['broj'])) {
+         echo '<br>Odabrali ste: '.$_GET['broj'];
      }
 ?>
 
