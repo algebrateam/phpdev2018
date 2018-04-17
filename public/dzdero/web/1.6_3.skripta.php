@@ -8,12 +8,11 @@
     <body>
         <div>
 <?php
-    for ($i=1; $i<=5; $i++ ){
-        
+    for ($i=1; $i<=5; $i++) {
         echo '<a href="1.6_3.skripta.php?broj='.$i.'" target="_self">link '.$i.'.php</a><br>';
     }
-     if (isset($_GET['broj'])){
-        echo 'Odabrali ste:'.$_GET['broj'];
+     if (isset($_GET['broj'])) {
+         echo 'Odabrali ste:'.$_GET['broj'];
      }
 ?>
 
