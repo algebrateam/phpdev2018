@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div style="width:80%">
+         <form action="primjer_post.php">
+             <fieldset>
+                 <label> Ime:
+                    
+                 </label>
+                 <input name="ime" value=""/> <br/>
+                 <label> Prezime:
+                 </label>
+                 <input name="prezime" value=""/> <br/>
+             </fieldset>
+             M<input type="radio" name="spol" value="M">
+                     Ž<input type="radio" name="spol" value="Ž">
+                     <br>
+                     <select>
+                         <optgroup label="primarno">
+                         <option value=31000"> Osijek</option>
+                         <option value="21000"> Split </option>
+                         <optgroup label="sekundarno">
+                         <option value="12345"> Čamagajevci </option>
+                         <option value="987"> Zagreb </option>
+                         </optgroup>
+                         <br>
+                         <input type="checkbox" name="interesi" value="1"/>Sport <br>
+                         <input type="checkbox" name="interesi" value="1"/>Glazba <br>
+                         <input type="checkbox" name="interesi" value="1"/>Pjevanje <br>
+         </select>
+                     <textarea name="napomena"
+         
+             
+             
+         value="potvrdi formu">
+         </form>
+            
+           echo "Pozdrav iz PHP-a"; 
+           print_r($_REQUEST);
+           echo"varijabla ime je:".% POST['ime'].'<br>;
+            echo"varijabla grad je:".% POST['grad'].'<br>;
+            if($_POST['grad]==21000) {
+            echo "Split";
+            }
+            echo "<hr>";
+            echo gettype($_POST['interesi']}
+        </div>
+    </body>
+</html>
