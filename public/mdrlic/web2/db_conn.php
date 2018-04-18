@@ -4,9 +4,9 @@ $user='root';
 $password='';
 $database='fakultet';
 $link=mysqli_connect($host, $user, $password, $database);
-if($link){}
-else {
-   die('Neuspjela konekcija!');
+if ($link) {
+} else {
+    die('Neuspjela konekcija!');
 }
 
 
@@ -23,8 +23,3 @@ $result= mysqli_query($link, $query);
 
 $query= "COMMIT";
 $result= mysqli_query($link, $query);
-
-
-
-
-

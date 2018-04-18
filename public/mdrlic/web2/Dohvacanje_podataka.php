@@ -4,9 +4,9 @@ $user='root';
 $password='';
 $database='fakultet';
 $link=mysqli_connect($host, $user, $password, $database);
-if($link){}
-else {
-   die('Neuspjela konekcija!');
+if ($link) {
+} else {
+    die('Neuspjela konekcija!');
 }
 ?>
 
@@ -54,9 +54,9 @@ else {
       $result= mysqli_query($link, $query);
      
      
-      while($row= mysqli_fetch_assoc($result)){
-      echo 'ime: '.$row["imeStud"];
-      echo 'prezime: '.$row["prezStud"];
+      while ($row= mysqli_fetch_assoc($result)) {
+          echo 'ime: '.$row["imeStud"];
+          echo 'prezime: '.$row["prezStud"];
       }
       
       
@@ -70,7 +70,7 @@ else {
      
      
       
-      while($row=mysqli_fetch_array($result)){
+      while ($row=mysqli_fetch_array($result)) {
           echo 'ime: '.$row["imeStud"].'prezime: '.$row[1];
       }
 
@@ -83,8 +83,8 @@ else {
       
       $result= mysqli_query($link, $query);
      
-      while($row= mysqli_fetch_row($result)){
-        echo $row[0]." ".$row[1]." ".$row[2]." ".$row[3]."<br>";
+      while ($row= mysqli_fetch_row($result)) {
+          echo $row[0]." ".$row[1]." ".$row[2]." ".$row[3]."<br>";
       }
 
       ?>
@@ -92,4 +92,3 @@ else {
   </body>
 </html>
 <?php
-
