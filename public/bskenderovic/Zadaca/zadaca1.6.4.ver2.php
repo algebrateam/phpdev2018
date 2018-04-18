@@ -1,9 +1,10 @@
 <html>
 <body>
 <form method="GET" action="zadaca1.6.4.datoteka.php">
-Odaberite željeni broj datoteka ne veći od 5:<br/>
+Odaberite željeni broj datoteka ne veći od 5 i ne smije biti 0:<br/>
 <br/>
 <select name="filebr">
+   <option value=""></option>
    <option value="1">1</option>
    <option value="2">2</option>
    <option value="3">3</option>

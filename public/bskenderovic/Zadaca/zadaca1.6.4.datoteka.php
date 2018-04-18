@@ -8,7 +8,12 @@
         <?php
         //echo $_SERVER['DOCUMENT_ROOT'];
         if (isset($_GET['filebr'])) {
-            $num = $_GET['filebr'] > 5 ? die("Ne smije biti iznad 5 ( $_GET[filebr] )") : $_GET['filebr'];
+            // $num = $_GET['filebr'] > 5 ? die("Ne smije biti iznad 5 ( $_GET[filebr] )") : $_GET['filebr'];
+            if ($num = $_GET['filebr'] > 5 or $_GET['filebr'] == null){ 
+                 die ("Ne smije biti prazno polje i iznad 5");// ( $_GET[filebr] )");
+            }else {
+                    $num = $_GET['filebr'];
+            }
               if ($num !== null) {
                 echo "<form method='POST' action='' enctype='multipart/form-data'>";
                 echo "<pre>";
