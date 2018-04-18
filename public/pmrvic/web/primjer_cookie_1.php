@@ -10,5 +10,4 @@
   </body>
 </html>
 <?php
-setcookie('ime','Cloe',time()+20);
-
+setcookie('ime', 'Cloe', time()+20);
