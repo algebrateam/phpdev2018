@@ -1,6 +1,6 @@
 <?php
 include("db_connection.php");
-$error_num=0;
+
 $query="BEGIN";
 $result= mysqli_query($link, $query);
 $query="INSERT INTO mjesto(pbr,nazMjesto,sifZupanija) ";
@@ -17,6 +17,7 @@ $result= mysqli_query($link, $query);
 
 $query="COMMIT";
 $result= mysqli_query($link, $query);
+
 
 
 ?>
