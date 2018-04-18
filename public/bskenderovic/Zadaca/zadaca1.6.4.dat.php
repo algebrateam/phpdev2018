@@ -9,9 +9,9 @@
         //echo $_SERVER['DOCUMENT_ROOT'];
         if (isset($_GET['filebr'])) {
             //$num = $_GET['filebr'] > 5 ? die("Ne smije biti iznad 5 ( $_GET[filebr] )") : $_GET['filebr'];
-            if ($num = $_GET['filebr'] > 5 or $num = $_GET['filebr'] == null){
+            if ($num = $_GET['filebr'] > 5 or $num = $_GET['filebr'] == null) {
                 die("Ne smije biti prazno polje i iznad 5 ( $_GET[filebr] )");
-            } else{
+            } else {
                 $num = $_GET['filebr'];
             }
             if ($num !== null) {
