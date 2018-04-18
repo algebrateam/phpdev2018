@@ -12,18 +12,18 @@
       
       <?php
       for ($index = 1; $index <= 5; $index++) {
-        echo '<a href="link'.$index.'.php" target="_blank">link'.$index.'.php</a>'.'<br>';
+          echo '<a href="link'.$index.'.php" target="_blank">link'.$index.'.php</a>'.'<br>';
       }
       echo "<br>";
       
       
 for ($index = 1; $index <= 5; $index++) {
- // printf('<a href="link%s.php" target="_blank">link%s.php</a><br>', $index,$index); 
-  printf('<a href="?broj=%s" target="_self"> %s </a><br>', $index,$index); 
+    // printf('<a href="link%s.php" target="_blank">link%s.php</a><br>', $index,$index);
+    printf('<a href="?broj=%s" target="_self"> %s </a><br>', $index, $index);
 }
       echo "<hr>";
-if(isset($_GET['broj'])){
-  echo "Odabrali ste:".$_GET['broj'];
+if (isset($_GET['broj'])) {
+    echo "Odabrali ste:".$_GET['broj'];
 }
 $_ENV['user']='Testni user';
 print_r($_SERVER);

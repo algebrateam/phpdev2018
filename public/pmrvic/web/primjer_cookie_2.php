@@ -9,11 +9,10 @@
     <div>
       
       <?php
-      if(isset($_COOKIE['ime'])){
-echo $_COOKIE['ime'];
-      }
-      else{
-        echo "cookie nije postavljen";
+      if (isset($_COOKIE['ime'])) {
+          echo $_COOKIE['ime'];
+      } else {
+          echo "cookie nije postavljen";
       }
 ?>
       
