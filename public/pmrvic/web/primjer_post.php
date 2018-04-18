@@ -4,7 +4,7 @@
     <title>TODO supply a title</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  </head>
+</head>
   <body>
  
       
@@ -58,15 +58,16 @@
 
       echo "Pozdrav iz PHP-a";
       
-      echo "varijabla ime je: ".$_POST['ime'].'<br>';
-      echo "varijabla grad je: ".$_POST['grad'].'<br>';
+      if (isset($_POST['submit'])) {
+          echo "varijabla ime je: ".$_POST['ime'].'<br>';
+          echo "varijabla grad je: ".$_POST['grad'].'<br>';
       
-      if ($_POST['grad']==='21000') {
-          echo "Split";
-      }
-      echo gettype($_POST['grad']);
+          if ($_POST['grad']==='21000') {
+              echo "Split";
+          }
+          echo gettype($_POST['grad']);
       
-      switch ($_POST['grad']) {
+          switch ($_POST['grad']) {
         case 21000: echo "Split";  break;
         case 31000: echo "Osijek";  break;
         case 10000: echo "Zagreb";  break;
@@ -75,23 +76,27 @@
           break;
 }
       
-echo "<hr>";
-echo gettype($_POST['interesi']);
-foreach ($_POST as $key => $value) {
-    if (gettype($value)=='array') {
-        echo "<pre>";
-        print_r($value);
-        echo "</pre>";
-    } else {
-        echo $key."  ---->  ".$value."<br>";
-    }
-}
- echo "<hr>";
-      echo "<pre>";
-     // print_r($_REQUEST);
-      echo "<br>";
-       print_r($_POST);
-       echo "</pre>";
+          echo "<hr>";
+          if (isset($_POST['interesi'])) {
+              echo gettype($_POST['interesi']);
+          }
+
+          foreach ($_POST as $key => $value) {
+              if (gettype($value)=='array') {
+                  echo "<pre>";
+                  print_r($value);
+                  echo "</pre>";
+              } else {
+                  echo $key."  ---->  ".$value."<br>";
+              }
+          }
+          echo "<hr>";
+          echo "<pre>";
+          // print_r($_REQUEST);
+          echo "<br>";
+          print_r($_POST);
+          echo "</pre>";
+      } // END IF ISSET($_POST['submit']
       ?>
       
     </div>
