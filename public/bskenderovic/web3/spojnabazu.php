@@ -59,6 +59,35 @@ if ($link) {
       
       ?>
     </div>  
+          <hr>
+      <div>
+        fetch array<br>
+      <?php
+      $query="SELECT * FROM stud limit 5";
+      
+      $result= mysqli_query($link, $query);
+     
+      while ($row= mysqli_fetch_array($result)) {
+          echo 'ime: '.$row["imeStud"].' prezime: '.$row[2]."<br>";
+      }
+      
+      ?>
+    </div>  
+             <hr>
+      <div>
+        fetch assoc<br>
+      <?php
+      $query="SELECT * FROM stud limit 5";
+      
+      $result= mysqli_query($link, $query);
+     
+      while ($row= mysqli_fetch_assoc($result)) {
+          echo 'ime: '.$row["imeStud"];
+          echo ' prezime: '.$row["prezStud"]."<br>";
+      }
+      
+      ?>
+    </div>  
   </body>
 </html>
 <?php
