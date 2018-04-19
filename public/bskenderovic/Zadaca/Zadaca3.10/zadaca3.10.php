@@ -9,7 +9,7 @@ echo "<br>";
 $query = "SELECT stud.mbrStud, stud.imeStud, stud.prezStud FROM fakultet.stud WHERE imeStud = 'Ivan'";
 $result = $link->query($query);
 if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
+    while ($row = $result->fetch_assoc()) {
         echo "<p>Mbr: " . $row["mbrStud"]. " Ime: " . $row["imeStud"]. " Prezime: " . $row["prezStud"]. "</p>";
     }
 } else {
@@ -23,8 +23,7 @@ echo "<br>";
 $query = "SELECT * FROM fakultet.pred ORDER BY pred.nazPred ASC";
 $result = $link->query($query);
 if ($result->num_rows > 0) {
-    
-    while($row = $result->fetch_assoc()) {
+    while ($row = $result->fetch_assoc()) {
         echo "<p>Predmet: " . $row["nazPred"]. "</p>";
     }
 } else {
@@ -38,8 +37,7 @@ echo "<br>";
 $query = "SELECT stud.imeStud, stud.prezStud FROM fakultet.stud WHERE stud.prezStud LIKE 'B%'";
 $result = $link->query($query);
 if ($result->num_rows > 0) {
-    
-    while($row = $result->fetch_assoc()) {
+    while ($row = $result->fetch_assoc()) {
         echo "<p>Ime: " . $row["imeStud"]. " / Prezime: " . $row["prezStud"]. "</p>";
     }
 } else {
@@ -47,4 +45,3 @@ if ($result->num_rows > 0) {
 }
 
 mysqli_close($link);
-?>
