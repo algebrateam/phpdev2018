@@ -4,11 +4,10 @@ $user='root';
 $password='';
 $database='fakultet';
 $link=mysqli_connect($host, $user, $password, $database);
-if($link){
+if ($link) {
     echo 'Uspjesno povezivanje na bazu :-)';
-}
- else {
-     die('Neuspjela konekcija');
+} else {
+    die('Neuspjela konekcija');
 }
 
 
@@ -31,7 +30,7 @@ if($link){
             <?php
             $query="select * from stud where imeStud='Ivan'";
             $result= mysqli_query($link, $query);
-            while($row= mysqli_fetch_row($result)){
+            while ($row= mysqli_fetch_row($result)) {
                 echo $row[1].' '.$row[2].'<br>';
             }
             ?>
@@ -40,7 +39,7 @@ if($link){
             <?php
             $query="select * from stud where imeStud='Ivan'";
             $result= mysqli_query($link, $query);
-            while($row= mysqli_fetch_row($result)){
+            while ($row= mysqli_fetch_row($result)) {
                 echo $row[6].', '.$row[2].'<br>';
             }
             ?>
@@ -50,7 +49,7 @@ if($link){
             <?php
             $query="select nazPred from pred group by nazPred";
             $result= mysqli_query($link, $query);
-            while($row= mysqli_fetch_assoc($result)){
+            while ($row= mysqli_fetch_assoc($result)) {
                 echo $row["nazPred"].'<br>';
             }
             ?>
@@ -60,7 +59,7 @@ if($link){
             <?php
             $query="select imeStud, prezStud from stud where left(prezStud,1) in ('b') order by prezStud;";
             $result= mysqli_query($link, $query);
-            while($row= mysqli_fetch_assoc($result)){
+            while ($row= mysqli_fetch_assoc($result)) {
                 echo $row["imeStud"].' ';
                 echo $row["prezStud"].'<br>';
             }
@@ -71,7 +70,7 @@ if($link){
             <?php
             $query="select * from stud s join mjesto m on s.pbrRod=pbr where nazMjesto='Zagreb' order by prezStud";
             $result= mysqli_query($link, $query);
-            while($row= mysqli_fetch_assoc($result)){
+            while ($row= mysqli_fetch_assoc($result)) {
                 echo $row["imeStud"].' ';
                 echo $row["prezStud"].'<br>';
             }
@@ -90,7 +89,7 @@ if($link){
             <?php
             $query="select count(prezNastavnik) from nastavnik_ime_prezime where left(prezNastavnik,1) in ('m')";
             $result= mysqli_query($link, $query);
-            while($row= mysqli_fetch_assoc($result)){
+            while ($row= mysqli_fetch_assoc($result)) {
                 echo 'Broj nastavnika je: '. $row["count(prezNastavnik)"];
             }
             ?>

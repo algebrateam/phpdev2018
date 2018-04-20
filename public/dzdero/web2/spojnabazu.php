@@ -4,11 +4,10 @@ $user='root';
 $password='';
 $database='fakultet';
 $link=mysqli_connect($host, $user, $password, $database);
-if($link){
+if ($link) {
     echo 'Uspjesno povezivanje na bazu :-)';
-}
- else {
-     die('Neuspjela konekcija');
+} else {
+    die('Neuspjela konekcija');
 }
 
 
@@ -44,7 +43,7 @@ if($link){
             <?php
             $query="select * from stud limit 5";
             $result= mysqli_query($link, $query);
-            while($row= mysqli_fetch_row($result)){
+            while ($row= mysqli_fetch_row($result)) {
                 echo $row[1].' '.$row[2].'<br>';
             }
             ?>
@@ -54,7 +53,7 @@ if($link){
             <?php
             $query="select imeStud as ime,prezStud as prezime from stud limit 5";
             $result= mysqli_query($link, $query);
-            while($row= mysqli_fetch_assoc($result)){
+            while ($row= mysqli_fetch_assoc($result)) {
                 echo 'ime:'.$row["ime"].', ';
                 echo 'prezime:'.$row["prezime"].'<br>';
             }
@@ -71,7 +70,7 @@ if($link){
             <td>Ime</td>
             <td>Prezime</td>
             </tr>';
-            while($row= mysqli_fetch_assoc($result)){
+            while ($row= mysqli_fetch_assoc($result)) {
                 echo '
                 <tr>
                 <td>'.$row["imeStud"].'</td>
