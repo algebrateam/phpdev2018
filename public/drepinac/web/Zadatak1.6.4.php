@@ -28,7 +28,7 @@ and open the template in the editor.
 //          echo "<pre>";
 //          print_r($_FILES);
 //          echo "</pre>";
-        echo "<hr/>";
+            echo "<hr/>";
         }
           if (isset($_POST['upload_btn'])) {
 //          $uploaddir = basename(__DIR__);
