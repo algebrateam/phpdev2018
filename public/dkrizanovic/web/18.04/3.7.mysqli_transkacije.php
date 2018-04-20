@@ -17,7 +17,3 @@ $result= mysqli_query($link, $query);
 
 $query="COMMIT";
 $result= mysqli_query($link, $query);
-
-
-
-?>
