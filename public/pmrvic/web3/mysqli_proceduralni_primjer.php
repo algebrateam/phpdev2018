@@ -15,8 +15,7 @@ include_once './dbconn_proc.php';
       $query ="SELECT * FROM stud LIMIT 50";
       $result= mysqli_query($link, $query);
       while ($row = mysqli_fetch_assoc($result)) {
-        echo $row['imeStud']." ".$row['prezStud'];
-
+          echo $row['imeStud']." ".$row['prezStud'];
       }
     ?>
     
