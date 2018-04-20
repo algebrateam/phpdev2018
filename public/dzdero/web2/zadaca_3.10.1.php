@@ -7,8 +7,8 @@ $link=mysqli_connect($host, $user, $password, $database);
 if ($link) {
     echo 'Uspjesno povezivanje na bazu :-)';
 } else {
-     die('Neuspjela konekcija');
- }
+    die('Neuspjela konekcija');
+}
 
 
 ?>
