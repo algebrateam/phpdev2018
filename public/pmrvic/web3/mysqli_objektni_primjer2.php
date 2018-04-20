@@ -5,10 +5,10 @@ $password='';
 $database='fakultet';
 $mysqli= new mysqli($host, $user, $password, $database);
 //mysqli_set_charset($link, 'utf8');
-if($mysqli){}
-else {
- // echo mysqli_connect_error();
-   die('Neuspjela konekcija!');
+if ($mysqli) {
+} else {
+    // echo mysqli_connect_error();
+    die('Neuspjela konekcija!');
 }
 ?>
 
@@ -25,8 +25,7 @@ else {
       $query ="SELECT * FROM stud LIMIT 50";
       $result= $mysqli->query($query);
       while ($row = $result->fetch_assoc()) {
-        echo $row['imeStud']." ".$row['prezStud'];
-
+          echo $row['imeStud']." ".$row['prezStud'];
       }
       echo "<hr>";
       echo $mysqli->affected_rows;
