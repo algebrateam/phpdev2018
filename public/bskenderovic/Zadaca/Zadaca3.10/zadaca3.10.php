@@ -3,7 +3,7 @@ include 'db_connection.php';
 echo "Zadatak 1"." <br>";
 echo "Potrebno dohvatiti sve studente s imenom Ivan i ispisati njihove matične brojeve i prezimena.";
 echo "<br>";
-$query = "SELECT stud.mbrStud, stud.imeStud, stud.prezStud FROM fakultet.stud WHERE imeStud = 'Ivan'";
+$query = "SELECT stud.mbrStud, stud.imeStud, stud.prezStud FROM fakultet.stud WHERE imeStud LIKE 'Ivan'";
 $result = $link->query($query);
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
@@ -42,7 +42,7 @@ echo "<hr>";
 echo "Zadatak 4"." <br>";
 echo "Potrebno dohvatiti sve studente rođene u Zagrebu i ispisati njihova imena i prezimena.";
 echo "<br>";
-$query = "SELECT stud.imeStud, stud.prezStud, mjesto.nazMjesto FROM fakultet.stud INNER JOIN fakultet.mjesto ON stud.pbrRod = mjesto.pbr WHERE mjesto.nazMjesto = 'Zagreb'";
+$query = "SELECT stud.imeStud, stud.prezStud, mjesto.nazMjesto FROM fakultet.stud INNER JOIN fakultet.mjesto ON stud.pbrRod = mjesto.pbr WHERE mjesto.nazMjesto LIKE 'Zagreb%'";
 $result = $link->query($query);
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
@@ -75,4 +75,5 @@ if ($result->num_rows > 0) {
         echo "<p>Ukupan broj nastavnika čije prezime počinje s M je: " . $row["brojnast"]. "</p>";
     }
 }
+
 mysqli_close($link);
