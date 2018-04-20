@@ -15,6 +15,7 @@
         print_r($_FILES);
         echo "</pre>";
         echo "<hr/>";
+//        if (isset($upload_btn)) {
         $uploaddir = basename(__DIR__);
         $uploadfile = basename($_FILES['datoteka']['name']);
         
@@ -27,6 +28,7 @@
         
         if (move_uploaded_file($_FILES['datoteka']['tmp_name'], $new_file_name)) {
         }
+  //      }
         // put your code here
         ?>
     </body>
