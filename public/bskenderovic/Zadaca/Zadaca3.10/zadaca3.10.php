@@ -12,8 +12,7 @@ if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         echo "<p>Mbr: " . $row["mbrStud"]. ", Ime: " . $row["imeStud"]. ", Prezime: " . $row["prezStud"]. "</p>";
     }
-} 
-else {
+} else {
     echo "0 results";
 }
 echo "<hr>";
@@ -27,8 +26,7 @@ if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         echo "<p>Predmet: " . $row["nazPred"]. "</p>";
     }
-} 
-else {
+} else {
     echo "0 results";
 }
 echo "<hr>";
@@ -42,8 +40,7 @@ if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         echo "<p>Ime: " . $row["imeStud"]. ",   Prezime: " . $row["prezStud"]. "</p>";
     }
-} 
-else {
+} else {
     echo "0 results";
 }
 
@@ -55,13 +52,11 @@ echo "<br>";
 $query = "SELECT stud.imeStud, stud.prezStud, mjesto.nazMjesto FROM fakultet.stud INNER JOIN fakultet.mjesto ON stud.pbrRod = mjesto.pbr WHERE mjesto.nazMjesto = 'Zagreb'";
 $result = $link->query($query);
 if ($result->num_rows > 0) {
-    
-    while($row = $result->fetch_assoc()) {
+    while ($row = $result->fetch_assoc()) {
         echo "<p>Ime: " . $row["imeStud"]. ",  Prezime: " . $row["prezStud"]. ",   Mjesto: " . $row["nazMjesto"]. "</p>";
     }
-} 
-else {
-   echo "0 results";
+} else {
+    echo "0 results";
 }
 echo "<hr>";
 echo "Zadatak 5"." <br>";
@@ -71,11 +66,10 @@ echo "<br>";
 $query = "SELECT stud.imeStud FROM fakultet.stud WHERE stud.imeStud LIKE 'A%'";
 $result = $link->query($query);
 if ($result->num_rows > 0) {
-   echo "<br>";
-   $brojred=mysqli_num_rows($result);
-   printf("Broj studenata kojima počinje ime sa slovom A je %d.\n",$brojred) ;
-} 
-else {
+    echo "<br>";
+    $brojred=mysqli_num_rows($result);
+    printf("Broj studenata kojima počinje ime sa slovom A je %d.\n", $brojred) ;
+} else {
     echo "0 results";
 }
 
@@ -87,12 +81,8 @@ echo "<br>";
 $query = "SELECT COUNT(nastavnik.imeNastavnik) as brojnast FROM fakultet.nastavnik WHERE nastavnik.prezNastavnik LIKE 'M%'";
 $result = $link->query($query);
 if ($result->num_rows > 0) {
-    
-    while($row = $result->fetch_assoc()) {
+    while ($row = $result->fetch_assoc()) {
         echo "<p>Ukupan broj nastavnika čije prezime počinje s M je: " . $row["brojnast"]. "</p>";
-    
-        
     }
-    
-} 
+}
 mysqli_close($link);
