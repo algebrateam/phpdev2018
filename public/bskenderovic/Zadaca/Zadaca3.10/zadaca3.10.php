@@ -79,4 +79,20 @@ else {
     echo "0 results";
 }
 
+echo "<hr>";
+echo "Zadatak 6"." <br>";
+echo"Napisati program koji pomoću SQL funkcije COUNT prebrojava nastavnike čije prezime počinje slovom M i ispisuje taj broj.";
+echo "<br>";
+
+$query = "SELECT COUNT(nastavnik.imeNastavnik) as brojnast FROM fakultet.nastavnik WHERE nastavnik.prezNastavnik LIKE 'M%'";
+$result = $link->query($query);
+if ($result->num_rows > 0) {
+    
+    while($row = $result->fetch_assoc()) {
+        echo "<p>Ukupan broj nastavnika čije prezime počinje s M je: " . $row["brojnast"]. "</p>";
+    
+        
+    }
+    
+} 
 mysqli_close($link);
