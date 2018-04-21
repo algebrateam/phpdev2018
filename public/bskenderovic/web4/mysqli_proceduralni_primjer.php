@@ -14,8 +14,8 @@ include 'db_connection.php';
       <div>
           <?php
           $query="SELECT * FROM stud LIMIT 50";
-          $result=mysqli_query($link,$query);
-          while ($row = mysqli_fetch_assoc($result)){
+          $result=mysqli_query($link, $query);
+          while ($row = mysqli_fetch_assoc($result)) {
               echo $row['imeStud']." ".$row['prezStud'];
           }
           
