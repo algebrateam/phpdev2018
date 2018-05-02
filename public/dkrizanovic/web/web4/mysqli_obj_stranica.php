@@ -15,7 +15,7 @@ include_once './db_connection.php';
             $query = "SELECT * FROM stud LIMIT 5";
             $result = $mysqli->query($query);
             ?>
-            <table class="w3-table w3-striped w3-bordered">
+            <table class="w3-table-all w3-hoverable" style="width:300px">
                 <thead>
                     <tr><th>Ime</th><th>Prezime</th></tr>
                 </thead>
