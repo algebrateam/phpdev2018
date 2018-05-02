@@ -18,7 +18,7 @@
                 echo "<form method='POST' action='' enctype='multipart/form-data'>";
                 echo "<pre>";
                 for ($i = 1; $i <= $num; $i++) {
-                    echo "<p>Datoteka $i</p><input type='file' name='file[]' multiple>";
+                    echo "<p>Datoteka $i</p><input type='file' name='file[]'>";
                     echo "<br/>";
                 }
                 echo "</pre>";
