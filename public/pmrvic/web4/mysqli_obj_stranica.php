@@ -53,12 +53,14 @@ and open the template in the editor.
         </thead>
         <tbody> 
           <!-- početak repeatera -->
-          <?php while ($row = $result->fetch_assoc()) { ?>         
+          <?php while ($row = $result->fetch_assoc()) {
+          ?>         
             <tr>
               <td><?= $row['imeStud'] ?></td>
               <td><?= $row['prezStud'] ?></td>
             </tr> 
-          <?php } ?> <!-- kraj repeatera -->
+          <?php
+      } ?> <!-- kraj repeatera -->
         </tbody>     
       </table>
     </div>
@@ -75,18 +77,22 @@ and open the template in the editor.
       <select>
         <optgroup label="Na slovo Z">
           <!-- početak repeatera -->
-          <?php while ($row = $result1->fetch_assoc()) { ?>  
+          <?php while ($row = $result1->fetch_assoc()) {
+          ?>  
             <option value="<?= $row['pbr'] ?>">
               <?= $row['nazMjesto'] ?></option>
-          <?php } ?> <!-- kraj repeatera -->
+          <?php
+      } ?> <!-- kraj repeatera -->
         </optgroup>
         <option disabled>_________</option>
         <optgroup label=" Mjesta >15">
         <!-- početak repeatera -->
-        <?php while ($row = $result->fetch_assoc()) { ?>  
+        <?php while ($row = $result->fetch_assoc()) {
+          ?>  
           <option value="<?= $row['pbr'] ?>">
             <?= $row['nazMjesto'] ?></option>
-        <?php } ?> <!-- kraj repeatera -->
+        <?php
+      } ?> <!-- kraj repeatera -->
 </optgroup>
       </select>
 
@@ -99,7 +105,8 @@ and open the template in the editor.
     <div>
       
               <!-- početak repeatera -->
-        <?php while ($row = $result->fetch_assoc()) { ?>  
+        <?php while ($row = $result->fetch_assoc()) {
+          ?>  
        
       <button class="accordion"><?= $row['nazPred'] ?></button>
 <div class="panel">
@@ -107,7 +114,8 @@ and open the template in the editor.
   <p>Upisano studenata: <span class="w3-badge w3-green" onclick="loadDoc('<?= $row['kratPred'] ?>')"><?= $row['upisanoStud'] ?></span></p><p><span id="<?= $row['kratPred'] ?>"></span></p>
   <p>Broj sati tjedno: <span class="w3-badge w3-green"><?= $row['brojSatiTjedno'] ?></span></p>
 </div>
- <?php } ?> <!-- kraj repeatera -->
+ <?php
+      } ?> <!-- kraj repeatera -->
  
 <button class="accordion">Section 2</button>
 <div class="panel">
