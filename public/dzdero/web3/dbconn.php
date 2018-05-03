@@ -8,7 +8,6 @@ $mysqli=new mysqli($host, $user, $password, $database);
 if ($mysqli) {
     echo 'Uspjesno povezana baza :-)'.'<br>';
 } else {
-   // echo mysqli_connect_error();
+    // echo mysqli_connect_error();
     die('Neuspjela konekcija');
 }
-?>
