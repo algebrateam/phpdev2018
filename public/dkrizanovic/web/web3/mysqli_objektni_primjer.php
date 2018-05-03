@@ -18,7 +18,7 @@ include_once 'db_connection.php';
             }
 
             echo "<hr>";
-            echo $mysqli->afected_rows;
+            echo $mysqli->affected_rows;
             ?>
 
         </div>
