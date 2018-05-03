@@ -11,4 +11,3 @@ if ($link) {
     echo mysqli_connect_error();
     die('Neuspjela konekcija');
 }
-?>
