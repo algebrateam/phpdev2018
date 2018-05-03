@@ -3,29 +3,7 @@ include_once './db_connection.php';
 ?>
 <!DOCTYPE html>
 <html>
-    <head><script type="text/javascript">
-function showUser(str) {
-    if (str == "") {
-        document.getElementById("txtHint").innerHTML = "";
-        return;
-    } else { 
-        if (window.XMLHttpRequest) {
-            // code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp = new XMLHttpRequest();
-        } else {
-            // code for IE6, IE5
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("txtHint").innerHTML = this.responseText;
-            }
-        };
-        xmlhttp.open("GET","studentinfo.php?name="+str,true);
-        xmlhttp.send();
-    }
-}
-</script>
+    <head>
         <title>Studenti</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,8 +23,30 @@ echo '</select>';
 ?>
 </form>
 <br>
-
+<script type="text/javascript">
+function showUser(str) {
+    if (str == "") {
+        document.getElementById("ispis").innerHTML = "";
+        return;
+    } else { 
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("ispis").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET","studentinfo.php?name="+str,true);
+        xmlhttp.send();
+    }
+}
+</script>
 
 </body>
-<div id="txtHint"><b>Informacije o studentu ce se ispisati ovdje...</b></div>
+<div id="ispis"><b>Informacije o studentu ce se ispisati ovdje...</b></div>
 </html>

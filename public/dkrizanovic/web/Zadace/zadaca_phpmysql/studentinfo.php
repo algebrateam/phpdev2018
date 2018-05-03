@@ -19,7 +19,8 @@ include_once './db_connection.php';
                 
             
             ?>
-                        <table class="w3-table-all w3-card-4 w3-hoverable">  
+            <table class="w3-table-all w3-card-4 w3-hoverable">  
+                            
                 <thead>
                     <tr><th>Matični Broj</th><th>Ime</th><th>Prezime</th><th>Datum rođenja</th><th>Jmbg</th></tr>
                 </thead>
