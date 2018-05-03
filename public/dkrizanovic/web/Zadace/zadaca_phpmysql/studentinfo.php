@@ -49,3 +49,4 @@ include_once './db_connection.php';
         <a href="studenti.php"> Povratak na početnu </a>
     </body>
 </html>
+<?php $mysqli->close(); ?>
