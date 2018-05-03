@@ -36,7 +36,7 @@ include_once './db_connection.php';
     <h3>Prezimena na B</h3>
     <div  class="w3-container">
       <?php
-      $query = "SELECT stud.prezStud FROM fakultet.stud WHERE stud.prezStud LIKE 'B%'";
+      $query = "SELECT DISTINCT stud.prezStud FROM fakultet.stud WHERE stud.prezStud LIKE 'B%' ORDER BY stud.prezStud ASC";
       $result1 = $mysqli->query($query);
       ?>
       
