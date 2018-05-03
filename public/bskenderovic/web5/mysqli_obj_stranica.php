@@ -18,7 +18,7 @@ include_once 'db_connection.php';
           
           ?>
           
-          <table class="w3-table-all">
+          <table>
               <thead>
               <tr><th>Ime</th><th>Prezime</th></tr>
           <?php while ($row = $result ->fetch_assoc()) {
