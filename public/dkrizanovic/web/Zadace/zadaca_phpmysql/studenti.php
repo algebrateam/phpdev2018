@@ -3,7 +3,29 @@ include_once './db_connection.php';
 ?>
 <!DOCTYPE html>
 <html>
-    <head>
+    <head><script type="text/javascript">
+function showUser(str) {
+    if (str == "") {
+        document.getElementById("txtHint").innerHTML = "";
+        return;
+    } else { 
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("txtHint").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET","studentinfo.php?name="+str,true);
+        xmlhttp.send();
+    }
+}
+</script>
         <title>Studenti</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +34,7 @@ include_once './db_connection.php';
         <div align="center">
             <form name="form_update" method="post" action="studentinfo.php">
 <?php
-echo "<select name= 'Student'>";
+echo "<select name= 'Student' onchange='showUser(this.value)'>";
 echo '<option value="">'.'--- Izaberi Studenta ---'.'</option>';
 $query = mysqli_query($mysqli, "SELECT * FROM stud ORDER BY imeStud ASC LIMIT 15;");
 while ($row=mysqli_fetch_array($query)) {
@@ -20,9 +42,11 @@ while ($row=mysqli_fetch_array($query)) {
  .'</option>';
 }
 echo '</select>';
-?> <input type="submit" name="submit" value="Provjeri"/>
+?>
 </form>
-<br/><br/>
-        </div>
-    </body>
+<br>
+
+
+</body>
+<div id="txtHint"><b>Informacije o studentu ce se ispisati ovdje...</b></div>
 </html>
