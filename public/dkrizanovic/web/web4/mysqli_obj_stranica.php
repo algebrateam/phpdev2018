@@ -21,12 +21,13 @@ include_once './db_connection.php';
                 </thead>
                 <tbody>
                     <?php while ($row = $result->fetch_assoc()) {
-                        ?>      
+                ?>      
                         <tr>
                             <td><?= $row['imeStud'] ?></td>
                             <td><?= $row['prezStud'] ?></td>
                         </tr>   
-                    <?php } ?>
+                    <?php
+            } ?>
                 </tbody>
             </table>       
         </div>
