@@ -1,5 +1,5 @@
 <?php
-include './db_connection.php';
+include_once './db_connection.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -9,8 +9,8 @@ include './db_connection.php';
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div>
-              <form name="form_update" method="post" action="testiranje.php">
+        <div align="center">
+            <form name="form_update" method="post" action="studentinfo.php">
 <?php
 echo "<select name= 'Student'>";
 echo '<option value="">'.'--- Izaberi Studenta ---'.'</option>';
