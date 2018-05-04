@@ -28,7 +28,8 @@ include_once 'db_connection.php';
              
               
               
-          <?php } ?>
+          <?php
+          } ?>
            </tbody>
               
           </table>
