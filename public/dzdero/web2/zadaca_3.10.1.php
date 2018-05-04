@@ -68,7 +68,7 @@ if ($link) {
         <hr>
         <div><strong>3.10.4 - svi studenti rođeni u Zagrebu:</strong><br>
             <?php
-            $query="select * from stud s join mjesto m on s.pbrRod=pbr where nazMjesto='Zagreb' order by prezStud";
+            $query="select * from stud s join mjesto m on s.pbrRod=pbr where nazMjesto LIKE 'Zag%' order by prezStud";
             $result= mysqli_query($link, $query);
             while ($row= mysqli_fetch_assoc($result)) {
                 echo $row["imeStud"].' ';

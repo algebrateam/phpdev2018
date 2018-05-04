@@ -111,9 +111,7 @@ and open the template in the editor.
       <button class="accordion"><?= $row['nazPred'] ?></button>
 <div class="panel">
   <p>Kratica: <strong><?= $row['kratPred'] ?></strong></p>
-  <p>Upisano studenata: 
-      <span class="w3-badge w3-green" onclick="loadDoc('<?= $row['kratPred'] ?>')"><?= $row['upisanoStud'] ?></span>
-  </p><p><span id="<?= $row['kratPred'] ?>"></span></p>
+  <p>Upisano studenata: <span class="w3-badge w3-green" onclick="loadDoc('<?= $row['kratPred'] ?>')"><?= $row['upisanoStud'] ?></span></p><p><span id="<?= $row['kratPred'] ?>"></span></p>
   <p>Broj sati tjedno: <span class="w3-badge w3-green"><?= $row['brojSatiTjedno'] ?></span></p>
 </div>
  <?php
