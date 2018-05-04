@@ -1,6 +1,6 @@
 <?php
 
-include 'db_connection.php';
+include 'db_connection_proc.php';
 ?>
 
 <!DOCTYPE html>
@@ -17,6 +17,7 @@ include 'db_connection.php';
           $result=mysqli_query($link, $query);
           while ($row = mysqli_fetch_assoc($result)) {
               echo $row['imeStud']." ".$row['prezStud'];
+              echo '<br/>';
           }
           
           ?>
