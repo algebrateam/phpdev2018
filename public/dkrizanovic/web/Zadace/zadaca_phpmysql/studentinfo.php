@@ -13,23 +13,19 @@ include_once './db_connection.php';
         <div style="background-color:lightblue">
 
             <?php
-            if (isset($_POST['Student'])) {
-                $name = $_POST['Student'];
-                $fetch = "SELECT * FROM stud WHERE mbrStud = '" . $name . "'";
-                $result = mysqli_query($mysqli, $fetch);
-                if (!$result) {
-                    echo "Error:" . (mysqli_error($mysqli));
-                }
-            }
+            $name = intval($_GET['name']);
+            $query = "SELECT * FROM stud WHERE mbrStud = '" . $name . "'";
+            $result = $mysqli->query($query);
             ?>
             <table class="w3-table-all w3-card-4 w3-hoverable">  
+
                 <thead>
                     <tr><th>Matični Broj</th><th>Ime</th><th>Prezime</th><th>Datum rođenja</th><th>Jmbg</th></tr>
                 </thead>
                 <tbody> 
                     <!-- početak repeatera -->
 <?php while ($row = $result->fetch_assoc()) {
-                ?>   
+    ?>   
                         <tr>
                             <td><?= $row['mbrStud'] ?></td>
                             <td><?= $row['imeStud'] ?></td>
@@ -38,7 +34,7 @@ include_once './db_connection.php';
                             <td><?= $row['jmbgStud'] ?></td>
                         </tr> 
     <?php
-            }
+}
 ?> <!-- kraj repeatera -->
                 </tbody>     
             </table>
