@@ -1,21 +1,21 @@
 <?php
 session_start();
 require 'db_connection.php';
-if(isset($POST['password'])){
+if (isset($POST['password'])) {
     $query = "SELECT imeStud, prezStud FROM stud WHERE stud.email=? AND stud.mbrStud=?";
-            if ($stmt=$mysqli->prepare($query)) {
-       $stmt->bind_param('si', $_POST['email'], $_POST['pasword']);  // u prepare mora ici varijabla
-       $stmt->execute();
-       $stmt->bind_result($ime,$prezime);
-       $stmt->fetch();
-       $stmt->close();
-}
-if(isset($ime) ){
-$_SESSION['username']=$ime;
-$_SESSION['lastname']=$prezime;
-$_SESSION['login']=TRUE;
- $mysqli->close();
-}
+    if ($stmt=$mysqli->prepare($query)) {
+        $stmt->bind_param('si', $_POST['email'], $_POST['pasword']);  // u prepare mora ici varijabla
+        $stmt->execute();
+        $stmt->bind_result($ime, $prezime);
+        $stmt->fetch();
+        $stmt->close();
+    }
+    if (isset($ime)) {
+        $_SESSION['username']=$ime;
+        $_SESSION['lastname']=$prezime;
+        $_SESSION['login']=true;
+        $mysqli->close();
+    }
 }
 ?>
 <!DOCTYPE html>
