@@ -25,7 +25,7 @@ include_once './db_connection.php';
                 <tbody> 
                     <!-- početak repeatera -->
 <?php while ($row = $result->fetch_assoc()) {
-    ?>   
+                ?>   
                         <tr>
                             <td><?= $row['mbrStud'] ?></td>
                             <td><?= $row['imeStud'] ?></td>
@@ -34,7 +34,7 @@ include_once './db_connection.php';
                             <td><?= $row['jmbgStud'] ?></td>
                         </tr> 
     <?php
-}
+            }
 ?> <!-- kraj repeatera -->
                 </tbody>     
             </table>
