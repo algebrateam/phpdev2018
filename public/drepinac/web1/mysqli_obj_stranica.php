@@ -62,16 +62,16 @@ div.ex1 {
                  inner join mjesto on mjesto.pbr=stud.pbrStan
                  inner join zupanija on zupanija.sifZupanija=mjesto.sifZupanija
                  where stud.imeStud like ? or stud.prezStud like ?
-                    or mjesto.nazMjesto like ? or zupanija.nazZupanija like ?";      
+                    or mjesto.nazMjesto like ? or zupanija.nazZupanija like ?";
      if (empty($pojam)) {
          $pojam = '%';
      } else {
-     $pojam = '%'.$pojam.'%';
-}
+         $pojam = '%'.$pojam.'%';
+     }
      if ($stmt=$mysqli->prepare($query)) {
-       $stmt->bind_param('ssss', $pojam, $pojam, $pojam, $pojam);  // u prepare mora ici varijabla
-       $stmt->execute();
-       $stmt->bind_result($mbrStud, $imeStud, $prezStud, $nazMjesto, $sifZupanija, $nazZupanija);?>
+         $stmt->bind_param('ssss', $pojam, $pojam, $pojam, $pojam);  // u prepare mora ici varijabla
+         $stmt->execute();
+         $stmt->bind_result($mbrStud, $imeStud, $prezStud, $nazMjesto, $sifZupanija, $nazZupanija); ?>
 
         <table>
         <thead>
@@ -82,11 +82,11 @@ div.ex1 {
     <?php
     while ($stmt->fetch()) {
         echo "<tr>";
-        echo '<td><input type="submit" value="Ispiti" onclick="loadDoc('.$mbrStud.')">'           
+        echo '<td><input type="submit" value="Ispiti" onclick="loadDoc('.$mbrStud.')">'
                 ."</td><td>".$imeStud."</td><td>".$prezStud."</td><td>".$nazMjesto."</td><td>".$nazZupanija."</td>";
     }
-    $stmt->close();
-    }
+         $stmt->close();
+     }
     $mysqli->close();?>
         </tbody>     
       </table>
