@@ -25,10 +25,12 @@ and open the template in the editor.
               <tr><th>Ime</th><th>Prezime</th></tr>
             </thead>
             <tbody>
-        <?php while ($row = $result->fetch_assoc()) { ?>
+        <?php while ($row = $result->fetch_assoc()) {
+            ?>
                 <tr><td><?=$row['imeStud']?></td>
                     <td><?=$row['prezStud']?></td></tr>
-        <?php } ?>  <!-- kraj repeatera -->
+        <?php
+        } ?>  <!-- kraj repeatera -->
             </tbody>
         </table>
         </div>
@@ -36,15 +38,17 @@ and open the template in the editor.
         <div class="w3-container">
       <?php
         $query ="SELECT * FROM mjesto where length(nazMjesto) > 15";
-        $result= $mysqli->query($query); 
+        $result= $mysqli->query($query);
       ?>
             <select>
                 <optgroup>
                     
                 </optgroup>
-                <?php while ($row = $result->fetch_assoc()) { ?>
+                <?php while ($row = $result->fetch_assoc()) {
+          ?>
                 <option value="<?=$row['pbr']?>"><?=$row['nazMjesto'] ?></option>
-                <?php } ?>
+                <?php
+      } ?>
             </select>
             </tbody>
         </table>

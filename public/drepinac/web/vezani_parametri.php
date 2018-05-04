@@ -9,7 +9,7 @@ $mysqli=new mysqli($host, $user, $password, $database);
         $naziv = "Zagreb";
         
         if ($stmt = $mysqli->prepare($query_tpl)) {
-            $stmt->bind_param('s',$naziv);
+            $stmt->bind_param('s', $naziv);
             $stmt->execute();
             $stmt->bind_result($pbr);
             $stmt->fetch();
