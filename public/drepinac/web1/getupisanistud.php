@@ -9,9 +9,9 @@ include_once './dbcon_o.php';
   where ispit.mbrStud = ?;";
       
      if ($stmt=$mysqli->prepare($query)) {
-       $stmt->bind_param('s', $_GET['kratica']);  // u prepare mora ici varijabla
-       $stmt->execute();
-       $stmt->bind_result($kratPred, $nazPred, $Nastavnik);?>
+         $stmt->bind_param('s', $_GET['kratica']);  // u prepare mora ici varijabla
+         $stmt->execute();
+         $stmt->bind_result($kratPred, $nazPred, $Nastavnik); ?>
 
         <table>
         <thead>
@@ -25,8 +25,8 @@ include_once './dbcon_o.php';
         echo "<tr>";
         echo "<td>".$kratPred."</td><td>".$nazPred."</td><td>".$Nastavnik."</td>";
     }
-    $stmt->close();
-    }
+         $stmt->close();
+     }
     $mysqli->close();?>
 
         </tbody>     
