@@ -10,8 +10,10 @@ and open the template in the editor.
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Stranica sa primjerima html komponenti</title>
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
 <style>
 table {
@@ -20,6 +22,9 @@ table {
 
 table, td, th {
     border: 1px solid black;
+}
+
+th {align: center;
 }
 div.ex1 {
     width: 570px;
@@ -46,7 +51,8 @@ div.ex1 {
         &nbsp&nbsp;Pojam za pretragu: <input type="text" name="pretraga">
        <input type="submit" name="trazi" value="Traži">
     </form>
-    <div class="ex1">
+    <div class="row">
+    <div class="col-sm-7 pre-scrollable">
       <?php
       if (isset($_GET['pretraga'])) {
           $pojam = $_GET['pretraga'];
@@ -59,7 +65,9 @@ div.ex1 {
                     or mjesto.nazMjesto like ? or zupanija.nazZupanija like ?";      
      if (empty($pojam)) {
          $pojam = '%';
-     }
+     } else {
+     $pojam = '%'.$pojam.'%';
+}
      if ($stmt=$mysqli->prepare($query)) {
        $stmt->bind_param('ssss', $pojam, $pojam, $pojam, $pojam);  // u prepare mora ici varijabla
        $stmt->execute();
@@ -67,14 +75,14 @@ div.ex1 {
 
         <table>
         <thead>
-          <tr><th>Mbr</th><th>Ime</th><th>Prezime</th><th>Mjesto</th><th>Županija</th></tr>
+          <tr><th></th><th>Ime</th><th>Prezime</th><th>Mjesto</th><th>Županija</th></tr>
         </thead>
         <tbody> 
           <!-- početak repeatera -->
     <?php
     while ($stmt->fetch()) {
         echo "<tr>";
-        echo '<td><input type="submit" value="submit" onclick="loadDoc('.$mbrStud.')">'           
+        echo '<td><input type="submit" value="Ispiti" onclick="loadDoc('.$mbrStud.')">'           
                 ."</td><td>".$imeStud."</td><td>".$prezStud."</td><td>".$nazMjesto."</td><td>".$nazZupanija."</td>";
     }
     $stmt->close();
@@ -83,9 +91,10 @@ div.ex1 {
         </tbody>     
       </table>
     </div>
-
-    <div id='pero'>
+    <div id="pero" class="col-sm-5">
     </div>
+    </div>
+
   </body>
 
   <script type="text/javascript">
