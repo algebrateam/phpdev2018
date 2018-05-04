@@ -8,6 +8,7 @@ include_once './db_connection.php';
     <title>Zadaća</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   </head>
+  <body>
     <h3>Studenti s imenom Ivan</h3>
     <div class="w3-container" style="background-color:black">
       <?php
@@ -45,7 +46,7 @@ include_once './db_connection.php';
           <!-- početak repeatera -->
           <?php while ($row = $result1->fetch_assoc()) {
           ?>  
-            <option value="<?= $row['pbr'] ?>">
+            <option value="">
               <?= $row['prezStud'] ?></option>
           <?php
       } ?> <!-- kraj repeatera -->
