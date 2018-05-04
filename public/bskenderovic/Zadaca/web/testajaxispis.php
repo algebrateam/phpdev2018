@@ -17,7 +17,7 @@ $result = $mysqli->query($query);
 <div class="w3-container" style="background-color:black">
 <table class="w3-table-all">
         <thead>
-          <tr><th>Matični broj</th><th>Ime</th><th>Prezime</th></tr>
+          <tr><th>Matični broj</th><th>Ime</th><th>Prezime</th><th>Mjesto rođenja</th></tr>
         </thead>
         <tbody> 
           <!-- početak repeatera -->
@@ -27,6 +27,7 @@ $result = $mysqli->query($query);
               <td><?= $row['mbrStud'] ?></td> 
               <td><?= $row['imeStud'] ?></td>
               <td><?= $row['prezStud'] ?></td>
+              <td><?= $row['pbrRod'] ?></td>
             </tr> 
           <?php
       } ?> <!-- kraj repeatera -->

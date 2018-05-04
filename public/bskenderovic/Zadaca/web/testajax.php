@@ -4,6 +4,9 @@ include_once './db_connection.php';
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8">
+  
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <script>
 function pokazi(str) {
     if (str == "") {
@@ -31,7 +34,7 @@ function pokazi(str) {
 <body>
 <h3>Prezimena na B</h3>
     <div  class="w3-container">
-     <form name="form_update" method="post" action="testajaxispis.php">
+    <form name="form_update" method="post" action="testajaxispis.php">
       <?php
       $query = "SELECT * FROM fakultet.stud WHERE stud.prezStud LIKE 'B%' ORDER BY stud.prezStud ASC";
       $result1 = $mysqli->query($query);
@@ -53,7 +56,7 @@ function pokazi(str) {
      </form>
     </div>
 <br/>
-<div id="Hint"><b>Informacije o studentu nakon odabira studenta iz DROPDOWN liste</b></div>
+<div id="Hint"><b>Informacije o studentu nakon odabira studenta iz DROPDOWN </b></div>
 
 </body>
 </html>
