@@ -7,12 +7,14 @@ if(isset($POST['password'])){
        $stmt->bind_param('si', $_POST['email'], $_POST['pasword']);  // u prepare mora ici varijabla
        $stmt->execute();
        $stmt->bind_result($ime,$prezime);
+       $stmt->fetch();
+       $stmt->close();
 }
-if(isset($ime)){
+if(isset($ime) ){
 $_SESSION['username']=$ime;
 $_SESSION['lastname']=$prezime;
 $_SESSION['login']=TRUE;
- header('Location: restricted.php');
+ $mysqli->close();
 }
 }
 ?>
