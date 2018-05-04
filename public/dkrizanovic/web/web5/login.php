@@ -1,13 +1,38 @@
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<?php
+session_start();
+require 'db_connection.php';
+if(isset($POST['password'])){
+    $query = "SELECT imeStud, prezStud FROM stud WHERE stud.email=? AND stud.mbrStud=?";
+            if ($stmt=$mysqli->prepare($query)) {
+       $stmt->bind_param('ss', $_POST['email'], $_POST['pasword']);  // u prepare mora ici varijabla
+       $stmt->execute();
+       $stmt->bind_result($ime,$prezime);
+}
+if($ime!=NULL){
+$_SESSION['username']=$ime;
+$_SESSION['lastname']=$prezime;
+$_SESSION['login']=TRUE;
+}
+}
+?>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-
-<div class="container">
+<script src="script.js"></script>
+<link href="style.css" rel="stylesheet">
+    </head>
+    <body>
+       <div class="container">
 
 <div class="row" style="margin-top:20px">
     <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-		<form role="form">
+        <form role="form" action="#" method="POST">
 			<fieldset>
 				<h2>Please Sign In</h2>
 				<hr class="colorgraph">
@@ -37,3 +62,6 @@
 </div>
 
 </div>
+    </body>
+</html>
+
