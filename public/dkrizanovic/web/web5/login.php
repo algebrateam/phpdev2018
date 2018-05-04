@@ -4,14 +4,15 @@ require 'db_connection.php';
 if(isset($POST['password'])){
     $query = "SELECT imeStud, prezStud FROM stud WHERE stud.email=? AND stud.mbrStud=?";
             if ($stmt=$mysqli->prepare($query)) {
-       $stmt->bind_param('ss', $_POST['email'], $_POST['pasword']);  // u prepare mora ici varijabla
+       $stmt->bind_param('si', $_POST['email'], $_POST['pasword']);  // u prepare mora ici varijabla
        $stmt->execute();
        $stmt->bind_result($ime,$prezime);
 }
-if($ime!=NULL){
+if(isset($ime)){
 $_SESSION['username']=$ime;
 $_SESSION['lastname']=$prezime;
 $_SESSION['login']=TRUE;
+ header('Location: restricted.php');
 }
 }
 ?>
