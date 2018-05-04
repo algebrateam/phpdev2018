@@ -22,7 +22,7 @@ $result = $mysqli->query($query);
         <tbody> 
           <!-- početak repeatera -->
           <?php while ($row = $result->fetch_assoc()) {
-          ?>         
+    ?>         
             <tr>
               <td><?= $row['mbrStud'] ?></td> 
               <td><?= $row['imeStud'] ?></td>
@@ -30,7 +30,7 @@ $result = $mysqli->query($query);
               <td><?= $row['pbrRod'] ?></td>
             </tr> 
           <?php
-      } ?> <!-- kraj repeatera -->
+} ?> <!-- kraj repeatera -->
       </div>
   </body>
 </html>
