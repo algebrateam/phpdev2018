@@ -2,13 +2,14 @@
 session_start();
 require 'dbconn.php';
 if (isset($_POST['remember_me'])) {
-    setcookie('cookie_name', $_POST['email'], time() + (86400 * 30), "/");
+    setcookie('cookie_name', $_POST['email'], time() + (60*60*24*30), "/");
     setcookie('cookie_pass', $_POST['password'], time() + (86400 * 30), "/");
 }
 if (isset($_POST['password'])) {
-    $query = "SELECT imeStud, prezStud FROM stud WHERE stud.email=? AND stud.mbrStud=?";
+    //$query = "SELECT imeStud, prezStud FROM stud WHERE stud.email=? AND stud.mbrStud=?";
+  $query = "SELECT name, email FROM users WHERE users.email=? AND users.password=?";
     if ($stmt = $mysqli->prepare($query)) {
-        $stmt->bind_param('si', $_POST['email'], $_POST['password']);
+        $stmt->bind_param('ss', $_POST['email'], md5($_POST['password']));
         $stmt->execute();
         $stmt->bind_result($ime, $prezime);
         $stmt->fetch();
@@ -20,6 +21,7 @@ if (isset($_POST['password'])) {
         $stmt->close();
         $mysqli->close();
         header('Location: restricted.php');
+        exit();
     }
 }
 ?>
@@ -33,14 +35,19 @@ if (isset($_POST['password'])) {
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="script.js"></script>
+<script type="text/javascript">
+  function mojurl(){
+    document.getElementById('reg').href="register.php?email="+document.getElementById('email').value;
+  }
+</script>
 <link href="style.css" rel="stylesheet" id="style-css">
   </head>
   <body>
     <div class="container">
-      <?php 
+      <?php  
 //      echo $stmt->error;
 //      echo $ime." ".$prezime;
-//      print_r($_POST);
+      print_r($_POST);
 //      print_r($_SESSION);
       print_r($_COOKIE);
       ?>
@@ -55,12 +62,12 @@ if (isset($_POST['password'])) {
 				<h2>Please Sign In</h2>
 				<hr class="colorgraph">
 				<div class="form-group">
-          <input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address" value="<?php if (isset($_COOKIE['cookie_name'])) {
+          <input  onchange="mojurl()" type="email" name="email" id="email" required="true" class="form-control input-lg" placeholder="Email Address" value="<?php if (isset($_COOKIE['cookie_name'])) {
           echo $_COOKIE['cookie_name'];
       } ?>">
 				</div>
 				<div class="form-group">
-                    <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password" value="<?php if (isset($_COOKIE['cookie_pass'])) {
+                    <input type="password" name="password" id="password"  required="true"  class="form-control input-lg" placeholder="Password" value="<?php if (isset($_COOKIE['cookie_pass'])) {
           echo $_COOKIE['cookie_pass'];
       } ?>">
 				</div>
@@ -75,7 +82,7 @@ if (isset($_POST['password'])) {
                         <input type="submit" class="btn btn-lg btn-success btn-block" value="Sign In">
 					</div>
 					<div class="col-xs-6 col-sm-6 col-md-6">
-						<a href="" class="btn btn-lg btn-primary btn-block">Register</a>
+						<a id="reg" href="register.php" class="btn btn-lg btn-primary btn-block">Register</a>
 					</div>
 				</div>
 			</fieldset>
