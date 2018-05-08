@@ -67,7 +67,7 @@ and open the template in the editor.
     <h3>Mjesta</h3>
     <div  class="w3-container">
       <?php
-      $query = "SELECT * FROM mjesto WHERE nazMjesto LIKE 'Z%' LIMIT 3";
+      $query = "SELECT * FROM mjesto WHERE nazMjesto LIKE 'V%' LIMIT 6";
       $result1 = $mysqli->query($query);
       ?>
       <?php
@@ -75,7 +75,7 @@ and open the template in the editor.
       $result = $mysqli->query($query);
       ?>
       <select>
-        <optgroup label="Na slovo Z">
+        <optgroup label="Na slovo V">
           <!-- početak repeatera -->
           <?php while ($row = $result1->fetch_assoc()) {
           ?>  

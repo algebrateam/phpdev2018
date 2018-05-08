@@ -25,7 +25,7 @@ if ($mysqli) {
       $query ="SELECT * FROM stud LIMIT 50";
       $result= $mysqli->query($query);
       while ($row = $result->fetch_assoc()) {
-          echo $row['imeStud']." ".$row['prezStud'];
+          echo $row['imeStud']."    ".$row['prezStud'];
       }
       echo "<hr>";
       echo $mysqli->affected_rows;
