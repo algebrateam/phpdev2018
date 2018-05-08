@@ -7,7 +7,7 @@ if (isset($_POST['remember_me'])) {
 }
 if (isset($_POST['password'])) {
     //$query = "SELECT imeStud, prezStud FROM stud WHERE stud.email=? AND stud.mbrStud=?";
-  $query = "SELECT name, email FROM users WHERE users.email=? AND users.password=?";
+    $query = "SELECT name, email FROM users WHERE users.email=? AND users.password=?";
     if ($stmt = $mysqli->prepare($query)) {
         $stmt->bind_param('ss', $_POST['email'], md5($_POST['password']));
         $stmt->execute();
@@ -44,7 +44,7 @@ if (isset($_POST['password'])) {
   </head>
   <body>
     <div class="container">
-      <?php  
+      <?php 
 //      echo $stmt->error;
 //      echo $ime." ".$prezime;
       print_r($_POST);

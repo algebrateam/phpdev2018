@@ -3,12 +3,12 @@ session_start();
 require 'dbconn.php';
 if (isset($_POST['password'])) {
     //$query = "SELECT imeStud, prezStud FROM stud WHERE stud.email=? AND stud.mbrStud=?";
-  //$query = "SELECT name, email FROM users WHERE users.email=? AND users.password=?";
-  //INSERT INTO `fakultet`.`users` (`name`, `email`, `password`) VALUES ('Cezar', 'cezar@rim.com', '123');
-  $query = "INSERT INTO `fakultet`.`users` (`name`, `email`, `password`) "
+    //$query = "SELECT name, email FROM users WHERE users.email=? AND users.password=?";
+    //INSERT INTO `fakultet`.`users` (`name`, `email`, `password`) VALUES ('Cezar', 'cezar@rim.com', '123');
+    $query = "INSERT INTO `fakultet`.`users` (`name`, `email`, `password`) "
     . "VALUES (?, ?, ?);";
     if ($stmt = $mysqli->prepare($query)) {
-        $stmt->bind_param('sss',$_POST['ime'], $_POST['email'], md5($_POST['password']));
+        $stmt->bind_param('sss', $_POST['ime'], $_POST['email'], md5($_POST['password']));
         $stmt->execute();
         //$stmt->bind_result($ime, $prezime);
         //$stmt->fetch();
@@ -38,7 +38,7 @@ if (isset($_POST['password'])) {
   </head>
   <body>
     <div class="container">
-      <?php  
+      <?php 
 //      echo $stmt->error;
 //      echo $ime." ".$prezime;
       print_r($_POST);
