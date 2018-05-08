@@ -9,7 +9,7 @@ if (isset($_POST['password'])) {
     //$query = "SELECT imeStud, prezStud FROM stud WHERE stud.email=? AND stud.mbrStud=?";
     $query = "SELECT name, email FROM users WHERE users.email=? AND users.password=?";
     if ($stmt = $mysqli->prepare($query)) {
-        $stmt->bind_param('ss', $_POST['email'], $_POST['password']);
+        $stmt->bind_param('ss', $_POST['email'], md5($_POST['password']));
         $stmt->execute();
         $stmt->bind_result($ime, $prezime);
         $stmt->fetch();
@@ -77,7 +77,7 @@ if (isset($_POST['password'])) {
                         <input type="submit" class="btn btn-lg btn-success btn-block" value="Sign In">
 					</div>
 					<div class="col-xs-6 col-sm-6 col-md-6">
-						<a href="" class="btn btn-lg btn-primary btn-block">Register</a>
+						<a href="register.php" class="btn btn-lg btn-primary btn-block">Register</a>
 					</div>
 				</div>
 			</fieldset>
