@@ -13,8 +13,7 @@ include_once './dbcon.php';
         $result = mysqli_query($link, $query);
         while ($row = mysqli_fetch_assoc($result)) {
             echo $row['imeStud'].' '.$row['prezStud'];
-    
-}
+        }
         ?>  
     </body>
 </html>
