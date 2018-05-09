@@ -1,13 +1,28 @@
 <?php
-   ob_start();
-   session_start();
+session_start();
+require 'dbconn.php';
+if (isset($_POST['remember_me'])) {
+    setcookie('cookie_name', $_POST['email'], time() + (86400 * 30), "/");
+    setcookie('cookie_pass', $_POST['password'], time() + (86400 * 30), "/");
+}
+if (isset($_POST['password'])) {
+    $query = "SELECT imeStud, prezStud FROM stud WHERE stud.email=? AND stud.mbrStud=?";
+    if ($stmt = $mysqli->prepare($query)) {
+        $stmt->bind_param('si', $_POST['email'], $_POST['password']);
+        $stmt->execute();
+        $stmt->bind_result($ime, $prezime);
+        $stmt->fetch();
+    }
+    if (isset($ime)) {
+        $_SESSION['username']=$ime;
+        $_SESSION['lastname']=$prezime;
+        $_SESSION['login']=true;
+        $stmt->close();
+        $mysqli->close();
+        header('Location: restricted.php');
+    }
+}
 ?>
-
-<?php
-   // error_reporting(E_ALL);
-   // ini_set("display_errors", 1);
-?>
-
 <html lang = "en">
    
    <head>
@@ -114,7 +129,7 @@
          </form>
 			
               <div>
-                  <a href="secret.php"> Otkrij veliku tajnu </a>
+                  <a href="logout1.php"> Logout </a>
           </div>
           
           
