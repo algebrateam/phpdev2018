@@ -47,13 +47,13 @@ if (isset($_POST['password'])) {
 				<hr class="colorgraph">
 				<div class="form-group">
                                     <input type="email" name="email" id="email" required="true" class="form-control input-lg" placeholder="Email Address" value="<?php if (isset($_COOKIE['cookie_name'])) {
-          echo $_COOKIE['cookie_name'];
-      } ?>">
+    echo $_COOKIE['cookie_name'];
+} ?>">
 				</div>
 				<div class="form-group">
                     <input type="password" name="password" id="password" required="true" class="form-control input-lg" placeholder="Password" value="<?php if (isset($_COOKIE['cookie_pass'])) {
-          echo $_COOKIE['cookie_pass'];
-      } ?>">
+    echo $_COOKIE['cookie_pass'];
+} ?>">
 				</div>
 				<span class="button-checkbox">
 					<button type="button" class="btn" data-color="info">Remember Me</button>
