@@ -96,19 +96,18 @@ if (isset($_POST['password'])) {
          <?php
             $msg = '';
             
-            if (isset($_POST['login']) && !empty($_POST['username']) 
+            if (isset($_POST['login']) && !empty($_POST['username'])
                && !empty($_POST['password'])) {
-				
-               if ($_POST['username'] == 'admin' && 
+                if ($_POST['username'] == 'admin' &&
                   $_POST['password'] == 'admin') {
-                  $_SESSION['valid'] = true;
-                  $_SESSION['timeout'] = time();
-                  $_SESSION['username'] = 'admin';
+                    $_SESSION['valid'] = true;
+                    $_SESSION['timeout'] = time();
+                    $_SESSION['username'] = 'admin';
                   
-                  echo 'You have entered valid use name and password';
-               }else {
-                  $msg = 'Wrong username or password';
-               }
+                    echo 'You have entered valid use name and password';
+                } else {
+                    $msg = 'Wrong username or password';
+                }
             }
          ?>
       </div> <!-- /container -->
@@ -116,7 +115,7 @@ if (isset($_POST['password'])) {
       <div class = "container">
       
          <form class = "form-signin" role = "form" 
-            action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']); 
+            action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']);
             ?>" method = "post">
             <h4 class = "form-signin-heading"><?php echo $msg; ?></h4>
             <input type = "text" class = "form-control" 
