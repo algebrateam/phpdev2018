@@ -1,21 +1,20 @@
 <?php
 session_start();
 require 'dbconn.php';
-if (isset($_POST['povratak'])){
+if (isset($_POST['povratak'])) {
     header('Location: restricted.php');
 }
 if (isset($_POST['brisi'])) {
     //$query = "SELECT imeStud, prezStud FROM stud WHERE stud.email=? AND stud.mbrStud=?";
     $query = "delete from users WHERE users.email=?";
     if ($stmt = $mysqli->prepare($query)) {
-        $stmt->bind_param('s', $_SESSION['email'] );
+        $stmt->bind_param('s', $_SESSION['email']);
         $stmt->execute();
 //        $stmt->bind_result($ime, $email, $prezime);
 //        $stmt->fetch();
     }
     $stmt->close();
     header('Location: login.php');
-   
 }
 ?>
 <!DOCTYPE html>
