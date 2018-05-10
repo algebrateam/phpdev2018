@@ -21,6 +21,19 @@ if (isset($_POST['update'])) {
         $_SESSION['email'] =$_POST['email'];
     }
 }
+
+if (isset($_POST['delete'])) {
+    $query = "DELETE FROM `fakultet`.`users`"
+    . "WHERE `email`=?;";
+    //  UPDATE `fakultet`.`users` SET `name`='ana1' WHERE  `id`=9;
+    
+    if ($stmt = $mysqli->prepare($query)) {
+        $stmt->bind_param('s', $_SESSION['email']);
+        $stmt->execute();
+        $_SESSION['username']=$_POST['ime'];
+        $_SESSION['email'] =$_POST['email'];
+    }
+}
 ?>
 
 
@@ -73,6 +86,7 @@ if (isset($_POST['update'])) {
 
                 <div class="col-xs-6 col-sm-6 col-md-6">
                   <input type="submit" name="update" class="btn btn-lg btn-primary btn-block" value="Update">
+                  <input type="submit" name="delete" class="btn btn-lg btn-primary btn-block" value="Delete">
 
                 </div>
               </div>
@@ -84,4 +98,3 @@ if (isset($_POST['update'])) {
     </div>
   </body>
 </html>
-
