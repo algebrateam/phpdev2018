@@ -55,7 +55,7 @@ div.ex1 {
     <div class="col-sm-7 pre-scrollable">
       <?php
       if (isset($_GET['pretraga'])) {
-          $pojam = $_GET['pretraga'];
+          $pojam = htmlspecialchars($_GET['pretraga']);
       }
       $query = "select stud.mbrStud, stud.imeStud, stud.prezStud, mjesto.nazMjesto, 
                        mjesto.sifZupanija, zupanija.nazZupanija from stud
