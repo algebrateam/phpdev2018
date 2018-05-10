@@ -1,8 +1,8 @@
 <?php
 session_start();
 require 'dbconn.php';
-if(isset($_GET['logout'])){
-  unset($_SESSION['login']);
+if (isset($_GET['logout'])) {
+    unset($_SESSION['login']);
 }
 if (isset($_POST['remember_me'])) {
     setcookie('cookie_name', $_POST['email'], time() + (60*60*24*30), "/");
