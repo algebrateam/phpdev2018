@@ -24,7 +24,7 @@ if (isset($_POST['password'])) {
         $_SESSION['login']=true;
         $stmt->close();
         $mysqli->close();
-        header('Location: restricted.php');
+        header('Location: restricted_1.php');
         exit();
     }
 }

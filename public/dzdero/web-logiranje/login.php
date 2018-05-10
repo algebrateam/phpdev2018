@@ -1,9 +1,6 @@
 <?php
 session_start();
 require 'dbconn.php';
-if (isset($_GET['logout'])) {
-    unset($_SESSION['login']);
-}
 if (isset($_POST['remember_me'])) {
     setcookie('cookie_name', $_POST['email'], time() + (60*60*24*30), "/");
     setcookie('cookie_pass', $_POST['password'], time() + (86400 * 30), "/");
@@ -20,7 +17,6 @@ if (isset($_POST['password'])) {
     if (isset($ime)) {
         $_SESSION['username']=$ime;
         $_SESSION['email']=$email;
-        $_SESSION['pass']= $_POST['password'];
         $_SESSION['login']=true;
         $stmt->close();
         $mysqli->close();
