@@ -2,29 +2,24 @@
 session_start();
 require 'dbconn.php';
 if (isset($_POST['logout'])) {
-  unset($_SESSION['login']);
+    unset($_SESSION['login']);
 }
 if (!isset($_SESSION['login'])) {
-  header('Location: login.php');
-  exit;
+    header('Location: login.php');
+    exit;
 }
 if (isset($_POST['update'])) {
-  $query = "UPDATE `fakultet`.`users` SET `name`=?, `email`=?, `password`=? "
+    $query = "UPDATE `fakultet`.`users` SET `name`=?, `email`=?, `password`=? "
     . "WHERE `email`=?;";
-  //  UPDATE `fakultet`.`users` SET `name`='ana1' WHERE  `id`=9;
-  $_SESSION['pass'] =$_POST['password'];
- $_POST['password']= md5($_POST['password']);
-  if ($stmt = $mysqli->prepare($query)) {
-    $stmt->bind_param('ssss'
-      , $_POST['ime']
-      , $_POST['email']
-      , $_POST['password']
-      , $_SESSION['email']);
-    $stmt->execute();
-    $_SESSION['username']=$_POST['ime'];
-    $_SESSION['email'] =$_POST['email'];
-
-  }
+    //  UPDATE `fakultet`.`users` SET `name`='ana1' WHERE  `id`=9;
+    $_SESSION['pass'] =$_POST['password'];
+    $_POST['password']= md5($_POST['password']);
+    if ($stmt = $mysqli->prepare($query)) {
+        $stmt->bind_param('ssss', $_POST['ime'], $_POST['email'], $_POST['password'], $_SESSION['email']);
+        $stmt->execute();
+        $_SESSION['username']=$_POST['ime'];
+        $_SESSION['email'] =$_POST['email'];
+    }
 }
 ?>
 
