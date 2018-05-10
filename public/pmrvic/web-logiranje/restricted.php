@@ -22,14 +22,14 @@ if (isset($_POST['update'])) {
     }
 }
 if (isset($_GET['del']) && isset($_SESSION['login'])) {
-  $query = "DELETE FROM `fakultet`.`users` WHERE `email`=?;";
-  if ($stmt = $mysqli->prepare($query)) {
-    $stmt->bind_param('s', $_SESSION['email']);
-    $stmt->execute();
-    unset($_SESSION['login']);
-  header('Location: login.php');
-  exit;
-  }
+    $query = "DELETE FROM `fakultet`.`users` WHERE `email`=?;";
+    if ($stmt = $mysqli->prepare($query)) {
+        $stmt->bind_param('s', $_SESSION['email']);
+        $stmt->execute();
+        unset($_SESSION['login']);
+        header('Location: login.php');
+        exit;
+    }
 }
 ?>
 
