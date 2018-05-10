@@ -45,7 +45,7 @@ if (isset($_POST['password'])) {
       print_r($_COOKIE);
       ?>
       <div>
-        vlatka.curkovic@algebra.hr<br>
+        ivan.vranjes@algebra.hr<br>
         1510
       </div>
 <div class="row" style="margin-top:20px">
