@@ -1,14 +1,14 @@
 <?php
 session_start();
 require 'dbconn.php';
-if (isset($_POST['povratak'])){
+if (isset($_POST['povratak'])) {
     header('Location: restricted.php');
 }
 if (isset($_POST['upis'])) {
     //$query = "SELECT imeStud, prezStud FROM stud WHERE stud.email=? AND stud.mbrStud=?";
     $query = "update users set name=?, lastname=?, password=? WHERE users.email=?";
     if ($stmt = $mysqli->prepare($query)) {
-        $stmt->bind_param('ssis', $_POST['ime'], $_POST['prezime'], $_POST['pass'],$_SESSION['email'] );
+        $stmt->bind_param('ssis', $_POST['ime'], $_POST['prezime'], $_POST['pass'], $_SESSION['email']);
         $stmt->execute();
 //        $stmt->bind_result($ime, $email, $prezime);
 //        $stmt->fetch();
@@ -17,7 +17,6 @@ if (isset($_POST['upis'])) {
     $_SESSION['username']=$_POST['ime'];
     $_SESSION['lastname']=$_POST['prezime'];
     header('Location: restricted.php');
-   
 }
 ?>
 <!DOCTYPE html>
