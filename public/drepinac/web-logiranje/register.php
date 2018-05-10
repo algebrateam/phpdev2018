@@ -2,14 +2,16 @@
 session_start();
 require 'dbconn.php';
 if (isset($_POST['password'])) {
-//    $query = "SELECT imeStud, prezStud FROM stud WHERE stud.email=? AND stud.pbrRod=?";
-//    $query = "SELECT name, email FROM users WHERE users.email=? AND users.password=?";
-    $query = "INSERT INTO users (ime, email, password) VALUES (?, ?, ?);";
+    //$query = "SELECT imeStud, prezStud FROM stud WHERE stud.email=? AND stud.mbrStud=?";
+    //$query = "SELECT name, email FROM users WHERE users.email=? AND users.password=?";
+    //INSERT INTO `fakultet`.`users` (`name`, `email`, `password`) VALUES ('Cezar', 'cezar@rim.com', '123');
+    $query = "INSERT INTO `fakultet`.`users` (`name`, `email`, `password`) "
+    . "VALUES (?, ?, ?);";
     if ($stmt = $mysqli->prepare($query)) {
-        $stmt->bind_param('sss', $_POST['ime'], $_POST['email'], $_POST['password']);
+        $stmt->bind_param('sss', $_POST['ime'], $_POST['email'], md5($_POST['password']));
         $stmt->execute();
-//        $stmt->bind_result($ime, $prezime);
-//        $stmt->fetch();
+        //$stmt->bind_result($ime, $prezime);
+        //$stmt->fetch();
     }
     if (isset($_POST['password'])) {
         $_SESSION['username']=$_POST['ime'];
@@ -39,32 +41,43 @@ if (isset($_POST['password'])) {
       <?php 
 //      echo $stmt->error;
 //      echo $ime." ".$prezime;
-//      print_r($_POST);
+      print_r($_POST);
 //      print_r($_SESSION);
-      print_r($_COOKIE);
+//      print_r($_COOKIE);
       ?>
+      <div>
+        vlatka.curkovic@algebra.hr<br>
+        1510
+      </div>
 <div class="row" style="margin-top:20px">
     <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
       <form role="form" action="#" method="post">
-	<fieldset>
-	  <h2>Please register</h2>
-	  <hr class="colorgraph">
-	  <div class="form-group">
-            <input type="text" name="ime" id="ime" required="true" class="form-control input-lg" placeholder="Ime" value="">
-            <input type="email" name="email" id="email" required="true" class="form-control input-lg" placeholder="Email Address" value="<?php if (isset($_COOKIE['cookie_name'])) {
-            echo $_GET['email'];} ?>">
-	  </div>
-	  <div class="form-group">
-            <input type="password" name="password" id="password" required="true" class="form-control input-lg" placeholder="Password" value="">
-	  </div>
-	    <hr class="colorgraph">
-	    <div class="row">
-	    <div class="col-xs-6 col-sm-6 col-md-6">
-		<a href="#" class="btn btn-lg btn-primary btn-block">Register</a>
-	    </div>
-	</fieldset>
-      </form>
-   </div>
+			<fieldset>
+				<h2>Please Register</h2>
+				<hr class="colorgraph">
+        				<div class="form-group">
+                  <input type="text" name="ime" id="ime" required="true" class="form-control input-lg" placeholder="ime" value="">
+				</div>
+				<div class="form-group">
+          <input type="email" name="email" id="email" required="true" class="form-control input-lg" placeholder="Email Address" value="<?php if (isset($_GET['email'])) {
+          echo $_GET['email'];
+      } ?>">
+				</div>
+				<div class="form-group">
+                    <input type="password" name="password" id="password"  required="true"  class="form-control input-lg" placeholder="Password" value="">
+				</div>
+
+				<hr class="colorgraph">
+				<div class="row">
+
+					<div class="col-xs-6 col-sm-6 col-md-6">
+            <input type="submit" class="btn btn-lg btn-primary btn-block" value="Register">
+						
+					</div>
+				</div>
+			</fieldset>
+		</form>
+	</div>
 </div>
 
 </div>
