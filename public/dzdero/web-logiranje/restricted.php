@@ -16,7 +16,8 @@ if (!isset($_SESSION['login'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-    <div>Dobrodošli <?=$_SESSION['username']?></div>
+      <div>Dobrodošli <a href="update.php"><?=$_SESSION['username']?></a></div>
+      <strong><?=$_SESSION['email']?></strong>
     <form action="#" method="post">
       <input type="submit" name="logout" value="Logout">
       
