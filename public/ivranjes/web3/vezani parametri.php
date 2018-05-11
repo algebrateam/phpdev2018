@@ -14,10 +14,9 @@ include 'db_connection.php';
         
             <?php
 
-$mysqli = new mysqli('localhost','fakultet','fakultet','fakultet');
+$mysqli = new mysqli('localhost', 'fakultet', 'fakultet', 'fakultet');
 
-if(mysqli_connect_errno())
-{
+if (mysqli_connect_errno()) {
     echo 'Doslo je do pogreske';
     echo mysqli_connect_error();
     exit();
@@ -27,20 +26,19 @@ $query_tpl = "SELECT pbr FROM mjesto WHERE nazMjesto = ?";
 
 $naziv = "Zagreb";
 
-if($stmt = $mysqli ->prepare($query_tpl))
-{
+if ($stmt = $mysqli ->prepare($query_tpl)) {
     $stmt->bind_param('s', $naziv);
 
 
-$stmt->execute();
+    $stmt->execute();
 
-$stmt->bind_result($pbr);
+    $stmt->bind_result($pbr);
 
-$stmt->fetch();
+    $stmt->fetch();
 
-echo $pbr;
+    echo $pbr;
 
-$stmt->close();
+    $stmt->close();
 }
 $mqsqli->close();
 ?>
