@@ -4,9 +4,9 @@ $user='root';
 $password='';
 $database='fakultet';
 $link=mysqli_connect($host, $user, $password, $database);
-if($link){}
-else {
-   die('Neuspjela konekcija!');
+if ($link) {
+} else {
+    die('Neuspjela konekcija!');
 }
 ?>
 
@@ -53,8 +53,8 @@ else {
       
       $result= mysqli_query($link, $query);
      
-      while($row= mysqli_fetch_row($result)){
-        echo $row[0]." ".$row[1]." ".$row[2]." ".$row[3]."<br>";
+      while ($row= mysqli_fetch_row($result)) {
+          echo $row[0]." ".$row[1]." ".$row[2]." ".$row[3]."<br>";
       }
       
       ?>
@@ -70,8 +70,8 @@ else {
       
       $result= mysqli_query($link, $query);
      
-      while($row= mysqli_fetch_row($result)){
-        echo $row[0]." ".$row[1]." ".$row[2]." ".$row[3]."<br>";
+      while ($row= mysqli_fetch_row($result)) {
+          echo $row[0]." ".$row[1]." ".$row[2]." ".$row[3]."<br>";
       }
       
       ?>
@@ -79,8 +79,6 @@ else {
          <?php
        while ($row1 = mysql_fetch_array($query)) {
            echo 'ime.'.$row["nazMjesto"].'prezime:'.$row[1];
-
-
        }
         ?>
     </div>  

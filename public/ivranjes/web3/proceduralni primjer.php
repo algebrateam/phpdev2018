@@ -18,7 +18,6 @@ include_once './dbconn.php';
         $result= mysqli_query($link, $query);
         while ($row = mysql_fetch_assoc($result)) {
             echo $row('imeStud')." ".row;
-            
         }
   
 ?>
