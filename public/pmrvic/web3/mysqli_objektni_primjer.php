@@ -12,7 +12,7 @@ include_once './dbconn.php';
   <body>
     <div>
       <?php
-      $query ="SELECT * FROM stud WHERE email='zdenko.kolac@zd' LIMIT 50";
+      $query ="SELECT * FROM stud LIMIT 50";
       $result= $mysqli->query($query);
       while ($row = $result->fetch_assoc()) {
           echo $row['imeStud']." ".$row['prezStud'].'</br>';
