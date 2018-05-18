@@ -56,7 +56,11 @@ if ($link) {
       while ($row= mysqli_fetch_row($result)) {
           echo $row[0]." ".$row[1]." ".$row[2]." ".$row[3]."<br>";
       }
-      
+      while($row=mysql_fetch-array($result)){
+      echo 'ime:'.row["imeStud"].'prezime:'.$row[1];}
+      while($row=mysql_fetch_assoc($result))
+      { echo'ime:'$row
+      }
       ?>
     </div>  
   </body>
