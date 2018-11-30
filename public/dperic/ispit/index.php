@@ -24,9 +24,8 @@ include_once './dbconn.php';
     <tr>Dvorane</tr> 
         </thead>
         <?php
-        while($row = mysqli_fetch_array($result))
-        {
-        echo '<a href="rezervacija.php?dvorana=' .urlencode($row['oznDvorana']). '">' . htmlspecialchars($row['oznDvorana']) . '</a><br/>';
+        while ($row = mysqli_fetch_array($result)) {
+            echo '<a href="rezervacija.php?dvorana=' .urlencode($row['oznDvorana']). '">' . htmlspecialchars($row['oznDvorana']) . '</a><br/>';
         }
         ?>
  

@@ -1,5 +1,5 @@
 <?php
-$host='localhost';  
+$host='localhost';
 $user='root';
 $password='';
 $database='fakultet';
@@ -14,6 +14,5 @@ if ($link) {
 $result = mysqli_query($link, $query);
 
 while ($row= mysqli_fetch_row($result)) {
-          echo "<a href=\"rezervacija.php"."\" target=\"_blank\">".$row['0']."</a>"."<br>";  
-      }
-
+    echo "<a href=\"rezervacija.php"."\" target=\"_blank\">".$row['0']."</a>"."<br>";
+}
