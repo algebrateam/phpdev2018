@@ -1,5 +1,5 @@
 <?php
-$host='localhost';  
+$host='localhost';
 $user='root';
 $password='';
 $database='fakultet';
@@ -23,7 +23,7 @@ if ($link) {
 //$result = mysqli_query($link, $query);
 
 //while ($row= mysqli_fetch_row($result)) {
-          //echo $row[0]." ".$row[1]." ".$row[2]."<br>";  
+          //echo $row[0]." ".$row[1]." ".$row[2]."<br>";
       //}
  
 
@@ -32,8 +32,7 @@ $query ="SELECT oznVrstaDan,sat,nazPred FROM rezervacija INNER JOIN pred on reze
      if ($stmt=$link->prepare($query)) {
          $stmt->bind_param('s', $_GET['dvorana']);
          $stmt->execute();
-         $stmt->bind_result($oznVrstaDan,$sat,$nazPred);
-?>
+         $stmt->bind_result($oznVrstaDan, $sat, $nazPred); ?>
    
 
 <table>
@@ -47,13 +46,13 @@ $query ="SELECT oznVrstaDan,sat,nazPred FROM rezervacija INNER JOIN pred on reze
                   
 <?php
 while ($stmt->fetch()) {
-        echo "<tr>";
-        echo "<td>".$oznVrstaDan.","."</td>";
-        echo "<td>".$sat.":00,"."</td>";
-        echo "<td>".$nazPred."</td>";
-    }
-        $stmt->close();
-    }
+             echo "<tr>";
+             echo "<td>".$oznVrstaDan.","."</td>";
+             echo "<td>".$sat.":00,"."</td>";
+             echo "<td>".$nazPred."</td>";
+         }
+         $stmt->close();
+     }
         $link->close();
 ?>
    

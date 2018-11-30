@@ -37,7 +37,7 @@ function myFunction() {
                 
 
 <div><?php
-            
+
 
 $query = "SELECT * FROM dvorana ORDER BY oznDvorana ASC;";
             
@@ -69,12 +69,9 @@ $result = $mysqli->query($query);
   
             
 
-while($row = mysqli_fetch_array($result))
-    
-{
-        
-echo '<a href="rezervacija.php?dvorana=' .urlencode($row['oznDvorana']). '">' . htmlspecialchars($row['oznDvorana']) . '</a><br/>';          // pronadjeno na https://stackoverflow.com/questions/24599839/how-to-generate-link-from-mysql-query-results-in-php)               
-    }   
+while ($row = mysqli_fetch_array($result)) {
+    echo '<a href="rezervacija.php?dvorana=' .urlencode($row['oznDvorana']). '">' . htmlspecialchars($row['oznDvorana']) . '</a><br/>';          // pronadjeno na https://stackoverflow.com/questions/24599839/how-to-generate-link-from-mysql-query-results-in-php)
+}
     ?></th>
     </body>
 </html>
