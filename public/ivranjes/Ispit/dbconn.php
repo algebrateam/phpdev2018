@@ -7,7 +7,6 @@ $mysqli = new mysqli($host, $user, $password, $database);
 
 if ($mysqli) {
 } else {
-    
     die('Ne mozemo se zakaciti');
 }
 ?>

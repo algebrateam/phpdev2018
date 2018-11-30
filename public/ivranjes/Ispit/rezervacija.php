@@ -26,8 +26,7 @@ include_once './dbconn.php';
         if ($stmt = $mysqli->prepare($query)) {
             $stmt->bind_param('s', $_GET['dvorana']);
             $stmt->execute();
-            $stmt->bind_result($oznVrstaDan, $sat, $nazPred);
-            ?>
+            $stmt->bind_result($oznVrstaDan, $sat, $nazPred); ?>
 
 
 
@@ -47,8 +46,8 @@ include_once './dbconn.php';
                     echo "<td>" . $sat . ":00," . "</td>";
                     echo "<td>" . $nazPred . "</td>";
                 }
-                $stmt->close();
-            }
+            $stmt->close();
+        }
             $mysqli->close();
             ?>
 
